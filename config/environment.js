@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-theater-web',
+    podModulePrefix: 'ember-theater-web/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

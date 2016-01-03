@@ -1,0 +1,17 @@
+<h2>Installation</h2>
+
+<h3>Creating an Ember Project</h3>
+
+<p>Before starting your first Ember Theater project, you'll need to ensure that you have Ember CLI installed. You can find an excellent guide <a href="https://guides.emberjs.com/v2.2.0/getting-started/" target="_blank">here</a>. You'll only have to go through this process once.</p>
+
+<p>Once Ember CLI is installed, you can create as many projects as you like. To start a project, simply enter <code>ember new [project name]</code> in your terminal.</p>
+
+<h3>Installing the Ember Theater addon</h3>
+
+<p>Within your project folder, type <code>ember install ember-theater</code>. NPM will now start downloading Ember Theater. This can take a few minutes.</p>
+
+<p>While the addon is installing, you can complete the next steps. First, navigate to <code>ember-cli-build.js</code> and modify <code>EmberAddon</code> to include these lines:</p>
+
+{{code-snippet name="guides--installation--ember-cli-build.js"}}
+
+<p>Finally, navigate to <code>app/templates/application.hbs</code> and enter <code>&#123;&#123;ember-theater&#125;&#125;</code>.</p>
