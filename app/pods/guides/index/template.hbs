@@ -14,8 +14,12 @@
 
 {{code-snippet name="guides--installation--ember-cli-build.js"}}
 
-<p>Next, go to <code>app/controllers/application.js</code> and modify it to import your Ember Theater config:</p>
+<p>Next, go to <code>app/controllers/application.js</code> (if necessary, create the file) and modify it to import your Ember Theater config:</p>
 
 {{code-snippet name="guides--installation--application.js"}}
 
 <p>Finally, navigate to <code>app/templates/application.hbs</code> and enter <code>&#123;&#123;ember-theater config=config&#125;&#125;</code>.</p>
+
+<h3>Running the dev environment</h3>
+
+<p>Once you have the Ember project setup, you can start the dev environment by running <code>ember server</code> in your command line. After that, navigate to <a href="http://localhost:4200/" target="_blank">http://localhost:4200</a> to see the game in action.</p>

@@ -1,4 +1,9 @@
 export default {
+  producer: {
+    components: [
+      'ember-theater/menu-bar'
+    ]
+  },
   menuBar: {
     components: [
       'ember-theater/menu-bar/rewind',
@@ -6,5 +11,5 @@ export default {
       'ember-theater/menu-bar/save',
       'ember-theater/menu-bar/reset'
     ]
-  
+  }
 };

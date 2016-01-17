@@ -1,4 +1,4 @@
-// app/ember-theater/scenes/picnic-on-the-beach.js
+// app/ember-theater/director/scenes/picnic-on-the-beach.js
 
 import Ember from 'ember';
 import { Scene } from 'ember-theater/ember-theater/director';

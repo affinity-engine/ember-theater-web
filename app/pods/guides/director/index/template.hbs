@@ -4,7 +4,7 @@
 
 <p>You can configure a great deal about your game by setting the Director's config, but as an absolute minimum, you need to do two things. First, you need to tell the Producer to include her with: <code>producer: { components: ['ember-theater/director'] }</code>. Secondly, you need to provide an initial scene with <code>director: { initialScene: 'scene-id' }</code>. Whenever a player starts a game for the first time (or restarts a game they've been playing), the Director will refer back to this <code>initialScene</code> to figure out where to start. After that, she'll be able to navigate from scene to scene with the {{#link-to "guides.director.scene"}}<code>transitionToScene</code>{{/link-to}} direction.</p>
 
-<p>The Director's job is to keep track of which scene is currently under way, and then to direct the provided <code>script</code></p>:
+<p>The Director's job is to keep track of which scene is currently under way, and then to direct the provided <code>script</code>. You can generate new scenes by typing <code>ember g scene [scene-name]</code> in the command line. Scenes are kept in the folder <code>app/ember-theater/director/scripts</code>:</p>
 
 {{code-snippet name="guides--director--scene.js"}}
 
