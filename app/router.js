@@ -16,7 +16,6 @@ Router.map(function() {
     });
     this.route('loader');
     this.route('director', function() {
-      this.route('text');
       this.route('character');
       this.route('backdrop');
       this.route('choice');
@@ -26,9 +25,19 @@ Router.map(function() {
       this.route('expression');
       this.route('filter');
       this.route('scene');
+      this.route('text');
     });
     this.route('menu-bar');
     this.route('producer');
+    this.route('text-tags', function() {
+      this.route('animate');
+      this.route('clear');
+      this.route('close');
+      this.route('effect');
+      this.route('instant');
+      this.route('pause');
+      this.route('speed');
+    });
   });
 });
 

@@ -44,6 +44,22 @@ export default Ember.A([{
     route: 'scene'
   }]
 }, {
-  route: 'menu-bar',
-  name: 'Menu Bar'
+  route: 'menu-bar'
+}, {
+  route: 'text-tags',
+  sections: [{
+    route: 'speed'
+  }, {
+    route: 'instant'
+  }, {
+    route: 'pause'
+  }, {
+    route: 'clear'
+  }, {
+    route: 'close'
+  }, {
+    route: 'effect'
+  }, {
+    route: 'animate'
+  }]
 }]);
