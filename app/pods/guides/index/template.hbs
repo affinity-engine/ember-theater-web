@@ -20,6 +20,14 @@
 
 <p>Finally, navigate to <code>app/templates/application.hbs</code> and enter <code>&#123;&#123;ember-theater config=config&#125;&#125;</code>.</p>
 
+<h3>Using Ember Theater styles</h3>
+
+<p>First, you'll have to make sure you're using Sass. Run <code>ember install ember-cli-sass</code> in your command line.</p>
+
+<p>Next, replace <code>app/styles/app.css</code> with <code>app/styles/app.scss</code>. Inside of <code>app.scss</code>, simply paste:</p>
+
+<code>@import "ember-theater";</code>
+
 <h3>Running the dev environment</h3>
 
 <p>Once you have the Ember project setup, you can start the dev environment by running <code>ember server</code> in your command line. After that, navigate to <a href="http://localhost:4200/" target="_blank">http://localhost:4200</a> to see the game in action.</p>
