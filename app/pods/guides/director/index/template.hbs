@@ -1,1 +1,13 @@
-{{outlet}}
+<p>In theater, the director is responsible for translating a script into something the audience can appreciate: props and staging, lighting, music, character movement and dialogue. The same is true in Ember Theater. You (the game designer) write a script, and the Director is responsible for translating that script into an actual game. First, however, you must opt into using her:</p>
+
+{{code-snippet name="guides--director--config.js"}}
+
+<p>You can configure a great deal about your game by setting the Director's config, but as an absolute minimum, you need to do two things. First, you need to tell the Producer to include her with: <code>producer: { components: ['ember-theater/director'] }</code>. Secondly, you need to provide an initial scene with <code>director: { initialScene: 'scene-id' }</code>. Whenever a player starts a game for the first time (or restarts a game they've been playing), the Director will refer back to this <code>initialScene</code> to figure out where to start. After that, she'll be able to navigate from scene to scene with the {{#link-to "guides.director.scene"}}<code>transitionToScene</code>{{/link-to}} direction.</p>
+
+<p>The Director's job is to keep track of which scene is currently under way, and then to direct the provided <code>script</code></p>:
+
+{{code-snippet name="guides--director--scene.js"}}
+
+<p>In the <code>script</code> above, we see a series of <code>directions</code>, such as <code>sound</code>, <code>backdrop</code>, and <code>character</code>. Each of these <code>directions</code> will affect what's happening on stage, whether it's the beach scene fading in or the music starting up.</p>
+
+<p>You might notice that some of these <code>directions</code> take a single argument (such as <code>this.backdrop('beach');</code>), while others have two or even three (<code>this.character('blixie', { translateX: '70vw' }, { duration: 500 });</code>). In the following sections, we'll go into greater detail about how each of these <code>directions</code> works and what information it expects or can use.</p>

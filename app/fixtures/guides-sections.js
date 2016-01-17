@@ -43,4 +43,7 @@ export default Ember.A([{
   }, {
     route: 'scene'
   }]
+}, {
+  route: 'menu-bar',
+  name: 'Menu Bar'
 }]);
