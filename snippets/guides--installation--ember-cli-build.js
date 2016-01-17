@@ -1,5 +1,5 @@
 module.exports = function(defaults) {
-  var addon = new EmberAddon(defaults, {
+  var app = new EmberApp(defaults, {
     babel: {
       includePolyfill: true,
       stage: 1
