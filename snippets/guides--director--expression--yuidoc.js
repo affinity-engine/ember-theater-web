@@ -7,4 +7,5 @@
 @param [options.transitionOut] {Object} |optional| Instructs the transition-out effect.
 @param [options.transitionOut.effect] {Object} |default: { opacity: 0 }| The transition-out effect.
 @param [options.transitionOut.duration] {Number} |default: <set in config>| How long the transition-out effect takes to resolve.
+
 @return {Promise} Resolves when the transition-in effect has completed.

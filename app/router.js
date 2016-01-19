@@ -7,13 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('guides', function() {
-    this.route('fixtures', function() {
-      this.route('characters');
-      this.route('sounds');
-      this.route('character-expressions');
-      this.route('backdrops');
-      this.route('custom');
-    });
+    this.route('fixtures');
     this.route('loader');
     this.route('director', function() {
       this.route('character');

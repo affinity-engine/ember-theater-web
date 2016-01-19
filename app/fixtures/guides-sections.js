@@ -6,18 +6,7 @@ export default Ember.A([{
 }, {
   route: 'producer'
 }, {
-  route: 'fixtures',
-  sections: [{
-    route: 'backdrops'
-  }, {
-    route: 'characters'
-  }, {
-    route: 'character-expressions'
-  }, {
-    route: 'sounds'
-  }, {
-    route: 'custom'
-  }]
+  route: 'fixtures'
 }, {
   route: 'loader'
 }, {
