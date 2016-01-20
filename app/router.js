@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('guides', function() {
+  this.route('learn', function() {
     this.route('fixtures');
     this.route('loader');
     this.route('director', function() {

@@ -1,0 +1,13 @@
+<h1>Fixtures</h1>
+
+<p>Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccuring game objects, such as characters or backdrops. For instance, consider these character fixtures:</p>
+
+{{code-snippet name="learn--fixtures--example-fixture.js"}}
+
+<p>Here, two characters are defined, each with an unique <code class="inline-code">id</code> followed by several attributes. You'll now be able to utilize all those attributes by simply giving Ember Theater the associated <code class="inline-code">id</code>:</p>
+
+{{code-snippet name="learn--fixtures--script.js"}}
+
+<p>Since you've already defined the fixture 'bebe', Ember Theater knows that it should display her with the default expression of 'bebe-standing' and that she should be 60% of the screen's height.</p>
+
+<p>Many Ember Theater directions have fixtures associated with them, and some fixture types (such as <code class="inline-code">characters</code>), are associated with multiple directions. You'll find out more about the fixture attributes a given direction expects in the docs for that direction.</p>

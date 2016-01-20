@@ -1,5 +1,11 @@
-{{#link-to fullRoute}}{{name}}{{/link-to}}
+<li class="list-block__item">
+  {{#link-to fullRoute}}
+    {{name}}
+  {{/link-to}}
+</li>
 
-{{#if isActive}}
-  {{sidebar-sections sections=section.sections parentRoute=fullRoute}}
+{{#if hasVisibleSections}}
+  <div class="subsection lap-and-up-pl- palm-pl--">
+    {{sidebar-sections sections=section.sections parentRoute=fullRoute}}
+  </div>
 {{/if}}

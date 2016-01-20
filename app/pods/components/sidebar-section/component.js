@@ -10,14 +10,20 @@ const {
   set
 } = Ember;
 
+const {
+  alias,
+  and,
+  notEmpty
+} = computed;
+
 const { String: { capitalize } } = Ember;
 
-const { alias } = computed;
-
 export default Component.extend({
-  tagName: 'li',
+  tagName: '',
 
   currentRouteName: alias('applicationRoute.currentRouteName'),
+  hasSections: notEmpty('section.sections'),
+  hasVisibleSections: and('hasSections', 'isActive'),
 
   setApplicationRoute: on('init', function() {
     const applicationRoute = controllerFor(this.container, 'application');

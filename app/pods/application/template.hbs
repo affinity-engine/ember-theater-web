@@ -1,5 +1,6 @@
-<nav>
-  {{#link-to 'guides'}}Guides{{/link-to}}
-</nav>
+{{nav-header}}
 
-{{outlet}}
+<div class="layout">
+  <span class="layout__item u-1/5-desk"></span>
+  <div class="layout__item u-3/5-desk">{{outlet}}</div>
+</div>

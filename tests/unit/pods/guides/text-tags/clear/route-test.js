@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:guides/text-tags/clear', 'Unit | Route | guides/text tags/clear', {
+moduleFor('route:learn/text-tags/clear', 'Unit | Route | learn/text tags/clear', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

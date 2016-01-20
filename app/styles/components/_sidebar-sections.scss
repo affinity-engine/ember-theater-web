@@ -1,0 +1,12 @@
+.sidebar-sections {
+  font-family: $secondary-font-family;
+  font-size: $base-font-size * 0.85;
+
+  a {
+    text-decoration: none;
+  }
+
+  .subsection {
+    border-left: thick solid $highlight-color;
+  }
+}

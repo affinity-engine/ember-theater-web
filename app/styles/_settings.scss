@@ -1,0 +1,28 @@
+$inuit-base-font-size: $base-font-size;
+$inuit-base-line-height: $base-line-height;
+$inuit-base-text-color: $primary-color;
+$inuit-base-background-color: $neutral-color;
+
+$inuit-global-border-box: true;
+
+// layout
+$inuit-enable-layout--flush: true;
+$inuit-enable-layout--bottom: true;
+
+// list-ui
+$inuit-enable-list-block--tiny: true;
+
+// spacing
+$inuit-enable-responsive-margins: true;
+$inuit-enable-responsive-paddings: true;
+$inuit-enable-responsive-paddings--small: true;
+$inuit-enable-responsive-paddings--tiny: true;
+
+// Inuit settings
+// https://github.com/inuitcss/settings.defaults
+@import "inuit-defaults/settings.defaults";
+
+// App settings
+
+// https://github.com/inuitcss/settings.responsive
+@import "inuit-responsive-settings/settings.responsive";

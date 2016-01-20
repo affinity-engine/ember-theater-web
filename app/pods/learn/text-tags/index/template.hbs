@@ -1,0 +1,9 @@
+<p>By default, a {{#link-to "learn.director.text"}}text direction{{/link-to}} fades text in one character at a time. You can use text tags to alter this behavior, executing special effects the moment in which they're encountered. For instance:</p>
+
+{{code-snippet name="learn--text-tags--initial-example.js"}}
+
+<p>In the example above, we're using two different tag types. (There are many others.) The first, <code class="inline-code">speed</code> changes the rate at which new characters fade in. The default is 25 milliseconds, so by decreasing it to 20, new characters are drawn more frequently.</p>
+
+<p>The second tag in this example does something a bit more interesting. The <code class="inline-code">instant</code> tag has both an opening--<code class="inline-code">((#instant))</code>--and a closing tag--<code class="inline-code">((/instant))</code>. Note that opening tags start with a <code class="inline-code">#</code>, while closing tags end with a <code class="inline-code">/</code>. Generally, opening tags start behavior, while closing tags end it. Not all text tags support closing tags.</p>
+
+<p>Each of the official Ember Theater tags is covered in greater detail below, but note that you can always generate your own or use community created alternatives.</p>

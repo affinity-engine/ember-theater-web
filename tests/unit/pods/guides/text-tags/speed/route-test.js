@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:guides/text-tags/speed', 'Unit | Route | guides/text tags/speed', {
+moduleFor('route:learn/text-tags/speed', 'Unit | Route | learn/text tags/speed', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

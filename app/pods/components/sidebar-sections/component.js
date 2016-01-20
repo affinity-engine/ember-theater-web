@@ -3,5 +3,6 @@ import Ember from 'ember';
 const { Component } = Ember;
 
 export default Component.extend({
-  tagName: 'ul'
+  tagName: 'ul',
+  classNames: ['sidebar-sections', 'list-block', 'list-block--tiny']
 });

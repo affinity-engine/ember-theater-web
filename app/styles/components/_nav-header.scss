@@ -1,0 +1,15 @@
+.nav-header {
+  background-color: $highlight-color;
+  color: $neutral-color;
+  font-family: $secondary-font-family;
+
+  a {
+    color: $neutral-color;
+  }
+
+  .logo {
+    font-family: $primary-font-family;
+    font-size: $base-font-size * 2;
+    font-weight: bold;
+  }
+}
