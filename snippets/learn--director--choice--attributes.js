@@ -2,8 +2,10 @@
 
 export default {
   globals: {
-    decorativeClassNames: ['et-paper'],
-    structuralClassNames: ['et-block'],
+    classNames: {
+      decorative: ['et-paper'],
+      structural: ['et-block']
+    },
     transitionDuration: 1000,
     keys: {
       up: ['ArrowUp', 'w'],
@@ -20,8 +22,10 @@ export default {
     }
   },
   choice: {
-    decorativeClassNames: ['et-paper'],
-    structuralClassNames: ['et-block'],
+    classNames: {
+      decorative: ['et-paper'],
+      structural: ['et-block']
+    },
     transitionDuration: 1000,
     keys: {
       up: ['ArrowUp', 'w'],

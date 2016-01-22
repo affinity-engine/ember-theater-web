@@ -3,7 +3,9 @@
 export default [{
   id: 'bebe',
   name: 'Bebe',
-  decorativeClassNames: ['et-paper']
+  classNames: {
+    decorative: ['et-paper']
+  }
 }];
 
 // app/ember-theater/config.js
@@ -15,7 +17,9 @@ export default {
     }
   },
   text: {
-    decorativeClassNames: ['et-coastal'],
+    classNames: {
+      structural: ['et-coastal']
+    },
     transitionIn: {
       effect: { opacity: 0.5 },
       duration: 1000

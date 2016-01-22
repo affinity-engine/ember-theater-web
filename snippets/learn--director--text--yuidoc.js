@@ -7,8 +7,9 @@
 @param [options.name] {String} |optional| Overrides the character name, if present.
 @param [options.textAnimation] {Object} |optional| The effect applied to the text as it fades in.
 @param [options.textSpeed] {Number} |optional| The number of characters written each second.
-@param [options.decorativeClassNames] {Array} |optional| CSS decorative classes.
-@param [options.structuralClassNames] {Array} |optional| CSS structural classes.
+@param [options.classNames] {Object} |optional|
+@param [options.classNames.decorative] {Array} |optional| CSS decorative classes.
+@param [options.classNames.structural] {Array} |optional| CSS structural classes.
 @param [options.keys] {Object} |optional|
 @param [options.keys.accept] {Array} |optional| Keys that, when pressed, will advance the text.
 @param [options.transitionIn] {Object} |optional|

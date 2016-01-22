@@ -6,8 +6,9 @@
 @param choices.inputable {Boolean} Whether or not the choice should transform into an input field on focus.
 @param [options] {Object} |optional|
 @param [options.instance] {Number} |default: 0| Which instance of the character you wish to alter.
-@param [options.decorativeClassNames] {Array} |optional| CSS decorative classes.
-@param [options.structuralClassNames] {Array} |optional| CSS structural classes.
+@param [options.classNames] {Object} |optional|
+@param [options.classNames.decorative] {Array} |optional| CSS decorative classes.
+@param [options.classNames.structural] {Array} |optional| CSS structural classes.
 @param [options.keys] {Object} |optional|
 @param [options.keys.moveUp] {Array} |optional| Keys that move the focus up.
 @param [options.keys.moveDown] {Array} |optional| Keys that move the focus down.

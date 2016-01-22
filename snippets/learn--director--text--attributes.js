@@ -4,8 +4,10 @@ export default [{
   id: 'bebe',
   name: 'Bebe',
 
-  decorativeClassNames: ['et-paper'],
-  structuralClassNames: ['et-block'],
+  classNames: {
+    decorative: ['et-paper'],
+    structural: ['et-block']
+  },
   transitionDuration: 1000,
   transitionIn: {
     effect: { opacity: 1 },
@@ -21,8 +23,10 @@ export default [{
 
 export default {
   globals: {
-    decorativeClassNames: ['et-paper'],
-    structuralClassNames: ['et-block'],
+    classNames: {
+      decorative: ['et-paper'],
+      structural: ['et-block']
+    },
     transitionDuration: 1000,
     transitionIn: {
       effect: { opacity: 1 },
@@ -34,8 +38,10 @@ export default {
     }
   },
   text: {
-    decorativeClassNames: ['et-paper'],
-    structuralClassNames: ['et-block'],
+    classNames: {
+      decorative: ['et-paper'],
+      structural: ['et-block']
+    },
     transitionDuration: 1000,
     transitionIn: {
       effect: { opacity: 1 },
