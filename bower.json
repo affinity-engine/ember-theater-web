@@ -32,7 +32,13 @@
     "inuit-widths": "~0.4.2",
     "inuit-widths-responsive": "~0.2.2",
     "inuit-tabs": "~0.2.1",
-    "inuit-list-block": "~0.4.2"
+    "inuit-list-block": "~0.4.2",
+    "lokijs": "~1.3.9",
+    "PreloadJS": "0.6.1",
+    "SoundJS": "0.6.1",
+    "progressbar.js": "~0.9.0",
+    "font-awesome": "~4.4.0",
+    "showdown": "~1.3.0"
   },
   "resolutions": {
     "ember": "2.2.0",
