@@ -10,7 +10,7 @@ Once Ember CLI is installed, you can create as many projects as you like. To sta
 
 Within your project folder, type `ember install ember-theater`. NPM will now start downloading Ember Theater. This can take a few minutes.
 
-While the addon is installing, you can complete the next steps. First, navigate to `ember-cli-build.js` and modify `EmberAddon` to include these lines:
+While the addon is installing, you can complete the next steps. First, navigate to `ember-cli-build.js` and modify `EmberApp` to include these lines:
 
 ```js
 module.exports = function(defaults) {
@@ -25,6 +25,21 @@ module.exports = function(defaults) {
 
 }
 ```
+
+Next, go to `config/environment.js` and add a `podModulePrefex` to `ENV`. The `podModulePrefex` should be identical to your `modulePrefex` (also found in this file), but with `/pods` appended to the end, like so:
+
+```js
+module.exports = function(environment) {
+  var ENV = {
+    modulePrefix: 'my-game',
+    podModulePrefix: 'my-game/pods',
+
+    . . . .
+  }
+};
+```
+
+Next, go to `bower.json` and ensure that `ember` is at 2.3.0 or higher. If not, change it to 2.3.0 and then run `bower install` in your command line.
 
 Next, go to `app/controllers/application.js` (if necessary, create the file) and modify it to import your Ember Theater config:
 
@@ -47,7 +62,7 @@ First, you'll have to make sure you're using Sass. Run `ember install ember-cli-
 
 Next, replace `app/styles/app.css` with `app/styles/app.scss`. Inside of `app.scss`, simply paste:
 
-`@import "ember-theater";`
+`@import "ember-theater/ember-theater";`
 
 ## Running the dev environment
 

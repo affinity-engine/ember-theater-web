@@ -1,5 +1,8 @@
-.inline-code {
+code, pre {
   background-color: #f8f8f8;
+}
+
+code {
   border-radius: 3px;
   display: inline-block;
   font-size: 70%;

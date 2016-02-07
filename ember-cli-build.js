@@ -4,7 +4,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    stringifyPath: 'markdown'
+    stringifyPath: 'markdown',
+    babel: {
+      includePolyfill: true,
+      stage: 1
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
