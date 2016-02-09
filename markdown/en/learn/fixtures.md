@@ -1,6 +1,8 @@
 # Fixtures
 
-Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccuring game objects, such as characters or backdrops. For instance, consider these character fixtures:
+## Overview
+
+Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccurring game objects, such as characters or backdrops. For instance, consider these character fixtures:
 
 ```js
 export default [{
@@ -31,3 +33,27 @@ export default Scene.extend({
 Since you've already defined the fixture 'bebe', Ember Theater knows that it should display her with the default expression of 'bebe-standing' and that she should be 60% of the screen's height.
 
 Many Ember Theater directions have fixtures associated with them, and some fixture types (such as `characters`), are associated with multiple directions. You'll find out more about the fixture attributes a given direction expects in the docs for that direction.
+
+## Usage
+
+To include fixtures, simply pass them into the `ember-theater` component. For instance:
+
+```hbs
+{{ember-theater config=config fixtures=fixtures}}
+```
+
+You'll need to also define these fixtures in the corresponding controller or component. If `ember-theater` is in your `templates/application.hbs` template, then you might do something like this in your `controllers/application.js` file:
+
+```js
+import Ember from 'ember';
+import backdropFixtures from '../ember-theater/fixtures/backdrops';
+import characterFixtures from '../ember-theater/fixtures/characters';
+import characterExpressionFixtures from '../ember-theater/fixtures/character-expressions';
+import soundFixtures from '../ember-theater/fixtures/sounds';
+
+export default Ember.Controller.extend({
+  fixtures: Ember.computed({
+    return Ember.merge({}, backdropFixtures, characterFixtures, characterExpressionFixtures, soundFixtures);
+  })
+});
+```
