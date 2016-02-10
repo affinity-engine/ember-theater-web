@@ -46,14 +46,17 @@ You'll need to also define these fixtures in the corresponding controller or com
 
 ```js
 import Ember from 'ember';
-import backdropFixtures from '../ember-theater/fixtures/backdrops';
-import characterFixtures from '../ember-theater/fixtures/characters';
-import characterExpressionFixtures from '../ember-theater/fixtures/character-expressions';
-import soundFixtures from '../ember-theater/fixtures/sounds';
+import backdrops from '../ember-theater/fixtures/backdrops';
+import characterExpressions from '../ember-theater/fixtures/character-expressions';
+import characters from '../ember-theater/fixtures/characters';
+import sounds from '../ember-theater/fixtures/sounds';
 
 export default Ember.Controller.extend({
-  fixtures: Ember.computed({
-    return Ember.merge({}, backdropFixtures, characterFixtures, characterExpressionFixtures, soundFixtures);
-  })
+  fixtures: {
+    backdrops,
+    characterExpressions,
+    characters,
+    sounds
+  }
 });
 ```
