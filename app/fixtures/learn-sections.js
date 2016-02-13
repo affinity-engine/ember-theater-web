@@ -4,7 +4,7 @@ export default Ember.A([{
   route: 'index',
   name: 'installation'
 }, {
-  route: 'producer'
+  route: 'plugins'
 }, {
   route: 'fixtures'
 }, {
@@ -12,43 +12,83 @@ export default Ember.A([{
 }, {
   route: 'director',
   sections: [{
-    route: 'backdrop'
+    route: 'configuration',
   }, {
-    route: 'character'
+    route: 'scenes'
   }, {
-    route: 'expression'
+    route: 'directions',
+    sections: [{
+      route: 'custom'
+    }, {
+      route: 'backdrop'
+    }, {
+      route: 'character'
+    }, {
+      route: 'expression'
+    }, {
+      route: 'text'
+    }, {
+      route: 'choice'
+    }, {
+      route: 'sound'
+    }, {
+      route: 'pause'
+    }, {
+      route: 'filter'
+    }, {
+      route: 'set-data'
+    }, {
+      route: 'get-data'
+    }, {
+      route: 'delete-data'
+    }, {
+      route: 'transition-to-scene'
+    }]
   }, {
-    route: 'text'
+    route: 'text-tags',
+    sections: [{
+      route: 'custom'
+    }, {
+      route: 'speed'
+    }, {
+      route: 'instant'
+    }, {
+      route: 'pause'
+    }, {
+      route: 'clear'
+    }, {
+      route: 'close'
+    }, {
+      route: 'effect'
+    }, {
+      route: 'animate'
+    }]
   }, {
-    route: 'choice'
-  }, {
-    route: 'sound'
-  }, {
-    route: 'pause'
-  }, {
-    route: 'filter'
-  }, {
-    route: 'data'
-  }, {
-    route: 'scene'
+    route: 'styling',
+    sections: [{
+      route: 'text'
+    }, {
+      route: 'choice'
+    }]
   }]
 }, {
-  route: 'menu-bar'
-}, {
-  route: 'text-tags',
+  route: 'menu-bar',
   sections: [{
-    route: 'speed'
+    route: 'configuration'
   }, {
-    route: 'instant'
+    route: 'plugins',
+    sections: [{
+      route: 'save'
+    }, {
+      route: 'load'
+    }, {
+      route: 'rewind'
+    }, {
+      route: 'reset'
+    }, {
+      route: 'resize'
+    }]
   }, {
-    route: 'pause'
-  }, {
-    route: 'clear'
-  }, {
-    route: 'close'
-  }, {
-    route: 'effect'
-  }, {
-    route: 'animate'
+    route: 'styling'
   }]
 }]);
