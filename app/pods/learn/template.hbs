@@ -1,3 +1,7 @@
-{{learn-sidebar classNames="layout__item u-1/4-lap-and-up"}}<main class="layout__item u-3/4-lap-and-up">
+{{learn-sidebar classNames="show-for-medium medium-2 columns"}}
+{{#mobile-dropdown title="Table of Contents"}}
+  {{learn-sidebar}}
+{{/mobile-dropdown}}
+<main class="medium-10 columns">
   {{outlet}}
 </main>

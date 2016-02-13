@@ -19,7 +19,7 @@ const {
 const { String: { capitalize } } = Ember;
 
 export default Component.extend({
-  tagName: '',
+  tagName: 'li',
 
   currentRouteName: alias('applicationRoute.currentRouteName'),
   hasSections: notEmpty('section.sections'),

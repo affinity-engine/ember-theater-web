@@ -1,11 +1,13 @@
-@import "ember-theater/ember-theater";
-
 @import "fonts";
-@import "variables";
+
 @import "settings";
-@import "tools";
-@import "generics";
+@import "foundation";
+@include foundation-everything;
+@include foundation-flex-grid;
+
 @import "base";
-@import "objects";
+@import "utils";
 @import "components";
-@import "trumps";
+
+@import "ember-theater/ember-theater";
+@import "et-resets";

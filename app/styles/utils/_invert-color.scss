@@ -1,0 +1,12 @@
+.invert-color {
+  &, a{
+    background-color: $primary-color;
+    color: $body-background;
+  }
+
+  a {
+    &:hover, &.active {
+      color: scale-color($body-background, $lightness: -10%);
+    }
+  }
+}

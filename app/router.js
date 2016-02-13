@@ -33,6 +33,8 @@ Router.map(function() {
       this.route('speed');
     });
   });
+  this.route('create');
+  this.route('discuss');
 });
 
 export default Router;

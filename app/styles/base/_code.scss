@@ -1,0 +1,20 @@
+code, pre {
+  background-color: $white;
+}
+
+code {
+  border: 0;
+  border-radius: 0.3rem;
+  display: inline-block;
+  font-size: 70%;
+  margin: 0;
+  padding: 0 0.5rem;
+
+  &:before, &:after {
+    content: 1rem;
+  }
+}
+
+pre {
+  margin-bottom: 1rem;
+}

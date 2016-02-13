@@ -1,0 +1,10 @@
+{{#if isExpanded}}
+  {{yield}}
+{{/if}}
+<a class="button expanded" {{action "toggleIsExpanded"}}>{{title}}
+  {{#if isExpanded}}
+    {{fa-icon "caret-up"}}
+  {{else}}
+    {{fa-icon "caret-down"}}
+  {{/if}}
+</a>

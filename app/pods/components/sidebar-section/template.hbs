@@ -1,11 +1,7 @@
-<li class="list-block__item">
-  {{#link-to fullRoute}}
-    {{name}}
-  {{/link-to}}
-</li>
+{{#link-to fullRoute}}
+  {{name}}
+{{/link-to}}
 
 {{#if hasVisibleSections}}
-  <div class="subsection lap-and-up-pl- palm-pl--">
-    {{sidebar-sections sections=section.sections parentRoute=fullRoute}}
-  </div>
+  {{sidebar-sections sections=section.sections parentRoute=fullRoute classNames="nested border-left-primary"}}
 {{/if}}
