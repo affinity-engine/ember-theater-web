@@ -16,10 +16,13 @@ const {
   notEmpty
 } = computed;
 
-const { String: { capitalize } } = Ember;
+const { String: { camelize } } = Ember;
+const { inject: { service } } = Ember;
 
 export default Component.extend({
   tagName: 'li',
+
+  i18n: service(),
 
   currentRouteName: alias('applicationRoute.currentRouteName'),
   hasSections: notEmpty('section.sections'),
@@ -53,10 +56,9 @@ export default Component.extend({
 
   name: computed('section.route', 'section.name', {
     get() {
-      const name = get(this, 'section.name');
-      const route = get(this, 'section.route');
+      const key = get(this, 'section.name') || get(this, 'section.route');
 
-      return name || route.split('-').map((word) => capitalize(word)).join(' ');
+      return get(this, 'i18n').t(`learn.sections.${camelize(key)}`);
     }
   })
 });

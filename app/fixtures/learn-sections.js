@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.A([{
   route: 'index',
-  name: 'Installation'
+  name: 'installation'
 }, {
   route: 'producer'
 }, {
