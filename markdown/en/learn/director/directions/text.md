@@ -44,7 +44,7 @@ await this.text('bebe', 'I am a mystery. . . .', { name: 'Mystery Girl' });
 await this.text('I am <strong>bold</strong> and I am <span style="color: purple;">purple</span> and you can <a href="http://www.google.com">google</a> me.');
 ```
 
-There are also many special text commands documented {{#link-to "learn.text-tags"}}here{{/link-to}}, which can allow you to change the speed of your text, alter its styling, and execute many other effects.
+There are also many special text commands documented in the "Text Tags" section, which can allow you to change the speed of your text, alter its styling, and execute many other effects.
 
 #### Fixture/Config Attributes
 

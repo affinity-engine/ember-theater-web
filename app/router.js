@@ -8,7 +8,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('learn', function() {
     this.route('fixtures');
-    this.route('loader');
     this.route('director', function() {
       this.route('directions', function() {
         this.route('character');
@@ -54,8 +53,15 @@ Router.map(function() {
       });
       this.route('styling');
     });
-    this.route('producer');
-    this.route('plugins');
+    this.route('configuration');
+    this.route('plugins', function() {
+      this.route('preloader');
+      this.route('custom');
+    });
+    this.route('installation', function() {
+      this.route('helpful-links');
+    });
+    this.route('curtain');
   });
   this.route('create');
   this.route('discuss');

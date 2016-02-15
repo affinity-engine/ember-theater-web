@@ -2,7 +2,7 @@
 
 ## Overview
 
-Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccurring game objects, such as characters or backdrops. For instance, consider these character fixtures:
+Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccurring game elements, such as characters or backdrops. For instance, consider these character fixtures:
 
 ```js
 export default [{
@@ -39,10 +39,12 @@ Many Ember Theater directions have fixtures associated with them, and some fixtu
 To include fixtures, simply pass them into the `ember-theater` component. For instance:
 
 ```hbs
-{{ember-theater config=config fixtures=fixtures}}
+{{#ember-theater fixtures=fixtures as |theater|}}
+
+{{/ember-theater}}
 ```
 
-You'll need to also define these fixtures in the corresponding controller or component. If `ember-theater` is in your `templates/application.hbs` template, then you might do something like this in your `controllers/application.js` file:
+You'll need to also define these fixtures in the corresponding controller or component. If `ember-theater` is in your `app/templates/application.hbs` template, then you might do something like this in your `app/controllers/application.js` file:
 
 ```js
 import Ember from 'ember';

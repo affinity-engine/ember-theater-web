@@ -1,16 +1,11 @@
-In theater, the director is responsible for translating a script into something the audience can appreciate: props and staging, lighting, music, character movement and dialogue. The same is true in Ember Theater. You (the game designer) write a script, and the Director is responsible for translating that script into an actual game. First, however, you must opt into using her:
+In film and theater, a director is responsible for translating scripts into something her audience can appreciate: props and staging, lighting, music, and character dialogue and blocking. In Ember Theater, the `director` plugin plays a similar role. While you (the game designer) write a script, the `director` is responsible for translating that script into a series of scenes with lively characters and expressively delivered dialogue.
 
-```js
-// app/ember-theater/config.js
+To use the `director` in your game, you'll need to:
 
-export default {
-  plugins: [
-    'ember-theater/director'
-  ],
-  director: {
-    initialSceneId: 'picnic-on-the-beach'
-  }
-};
+```hbs
+{{#ember-theater as |theater|}}
+  {{theater.director initialSceneId="my-first-scene"}}
+{{/ember-theater}}
 ```
 
-You can configure a great deal about your game by setting the Director's config, but as an absolute minimum, you need to do two things. First, you need to tell the Producer to include her with: `plugins: ['ember-theater/director']`. Secondly, you need to provide an initial scene with `director: { initialSceneId: 'scene-id' }`. Whenever a player starts a game for the first time (or restarts a game they've been playing), the Director will refer back to this `initialScene` to figure out where to start. After that, she'll be able to navigate from scene to scene with the {{#link-to "learn.director.scene"}}`transitionToScene`{{/link-to}} direction.
+If you read over the section on Plugins, then this should look familiar. What will probably look new is that we're passing an argument, `initialSceneId`, into the `director`. That argument is your way of specifying which scene the game should start on. In this case, we'll start the game with the scene entitled `picnic-on-the-beach`. This should refer to a `Scene` with the path `app/ember-theater/director/scenes/picnic-on-the-beach.js`.

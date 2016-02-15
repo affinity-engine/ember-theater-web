@@ -1,0 +1,1 @@
+In this section, you'll find documentation on the many `directions` you can utilize to create scenes with Ember Theater. The individual sections are packed with information about how you can get the most out of Ember Theater's `director` plugin, but don't feel like to need to read over or memorize all the options available to you just yet.

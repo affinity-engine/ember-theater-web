@@ -17,6 +17,7 @@ const site = {
       clear: 'clear',
       close: 'close',
       configuration: 'Configuration',
+      curtain: 'Plugin: Curtain',
       custom: '**Custom',
       deleteData: 'deleteData',
       director: 'Plugin: Director',
@@ -26,6 +27,7 @@ const site = {
       filter: 'filter',
       fixtures: 'Fixtures',
       getData: 'getData',
+      helpfulLinks: 'Helpful Links',
       installation: 'Installation',
       instant: 'instant',
       loader: 'Media Loader',
@@ -33,6 +35,7 @@ const site = {
       menuBar: 'Plugin: Menu Bar',
       pause: 'pause',
       plugins: 'Plugins',
+      preloader: 'Preloaders',
       reset: 'reset',
       rewind: 'rewind',
       resize: 'resize',
@@ -44,7 +47,8 @@ const site = {
       styling: 'Styling',
       text: 'text',
       textTags: 'Text Tags',
-      transitionToScene: 'transitionToScene'
+      transitionToScene: 'transitionToScene',
+      welcome: 'Welcome'
     }
   }
 };

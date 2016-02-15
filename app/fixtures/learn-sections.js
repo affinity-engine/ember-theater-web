@@ -2,13 +2,23 @@ import Ember from 'ember';
 
 export default Ember.A([{
   route: 'index',
-  name: 'installation'
+  name: 'welcome'
 }, {
-  route: 'plugins'
+  route: 'installation',
+  sections: [{
+    route: 'helpful-links'
+  }]
+}, {
+  route: 'configuration'
 }, {
   route: 'fixtures'
 }, {
-  route: 'loader'
+  route: 'plugins',
+  sections: [{
+    route: 'custom'
+  }, {
+    route: 'preloader'
+  }]
 }, {
   route: 'director',
   sections: [{
@@ -91,4 +101,6 @@ export default Ember.A([{
   }, {
     route: 'styling'
   }]
+}, {
+  route: 'curtain'
 }]);

@@ -1,15 +1,13 @@
-You can add plugins to your menu bar in the `ember-theater/config.js` file. They will appear in the same order you define them in. So in the below example, the rewind button will appear first, followed by the load, save, reset, and resize buttons.
+You can add plugins to your menu bar in the same way you add plugins to Ember Theater itself:
 
-```js
-export default {
-  menuBar: {
-    plugins: [
-      'ember-theater/menu-bar/rewind',
-      'ember-theater/menu-bar/load',
-      'ember-theater/menu-bar/save',
-      'ember-theater/menu-bar/reset',
-      'ember-theater/menu-bar/resize'
-    ]
-  }
-};
+```hbs
+{{#ember-theater as |theater|}}
+  {{#theater.menuBar as |menuBar|}}
+    {{menuBar.rewind}}
+    {{menuBar.save}}
+    {{menuBar.load}}
+    {{menuBar.reset}}
+    {{menuBar.resize}}
+  {{/theater.menuBar}}
+{{/ember-theater}}
 ```

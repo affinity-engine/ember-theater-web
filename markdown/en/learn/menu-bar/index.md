@@ -2,12 +2,12 @@ The menu bar is a place for you to add meta-actions to your game, such as saving
 
 ## Usage
 
-To include the `menu-bar` plugin, add it to your `app/ember-theater/config.js` file:
+To use the `menu-bar` in your game, you'll need to:
 
-```js
-export default {
-  plugins: [
-    'ember-theater/menu-bar'
-  ]
-};
+```hbs
+{{#ember-theater as |theater|}}
+  {{#theater.menuBar as |menuBar|}}
+    {{menuBar.save}}
+  {{/theater.menuBar}}
+{{/ember-theater}}
 ```
