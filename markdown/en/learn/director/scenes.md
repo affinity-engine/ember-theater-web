@@ -14,18 +14,18 @@ export default Scene.extend({
     // play the beach theme
     this.sound('beach-theme', { loop: true });
     // fadeIn the beach backdrop
-    await this.backdrop('beach');
+    await this.backdrop('beach-day');
      // move Bebe onto the screen, 30% of the screen width from the left
-    this.character('bebe', { translateX: '30vw' }, { duration: 500 });
+    this.character('bebe', { left: '30%' }, { duration: 1000 });
      // move Blixie onto the screen, 30% of the screen width from the right
-    this.character('blixie', { translateX: '70vw' }, { duration: 500 });
+    this.character('blixie', { left: ['70%', '100%'] }, { duration: 1000 });
     // Bebe talks
     await this.text('bebe', 'It is so beautiful!');
     // Blixie responds
     await this.text('blixie', 'Uh-huh.');
 
     // transition to the next scene
-    this.transitionToScene('back-home-from-the-beach');
+    this.transitionToScene('director/scenes');
   }
 });
 ```

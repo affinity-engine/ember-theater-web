@@ -1,1 +1,11 @@
+{{#theater-container title="learn.sections.welcome" as |container|}}
+  {{#ember-theater config=container.config fixtures=container.fixtures theaterId="welcome" isFocused=true as |theater|}}
+    {{#if theater.isLoaded}}
+      {{theater.director initialSceneId="welcome"}}
+    {{else}}
+      {{theater.curtain filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
+    {{/if}}
+  {{/ember-theater}}
+{{/theater-container}}
+
 {{t-markdown "markdown.learn.index.md"}}

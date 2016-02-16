@@ -1,4 +1,8 @@
 import Ember from 'ember';
+import backdrops from 'ember-theater-web/ember-theater/fixtures/backdrops';
+import characters from 'ember-theater-web/ember-theater/fixtures/characters';
+import expressions from 'ember-theater-web/ember-theater/fixtures/expressions';
+import sounds from 'ember-theater-web/ember-theater/fixtures/sounds';
 
 const {
   Component,
@@ -8,25 +12,17 @@ const {
 
 export default Component.extend({
   classNames: ['theater-container'],
-  
-  config: computed('initialSceneId', {
+
+  fixtures: {
+    backdrops,
+    characters,
+    expressions,
+    sounds
+  },
+
+  config: computed('title', {
     get() {
-      const initialSceneId = get(this, 'initialSceneId');
-
-      return {
-       producer: {
-         components: [
-           'ember-theater/director'
-         ]
-       },
-       director: {
-         initialSceneId
-       }
-     }
+      return { globals: { title: get(this, 'title') } }
     }
-  }),
-
-  asdf: Ember.observer('isFocused', function() {
-    console.log(this.get('isFocused'))
-  })
+  }).readOnly()
 });

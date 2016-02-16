@@ -55,6 +55,16 @@ const site = {
 
 const theaters = {
   theaters: {
+    welcome: {
+      bebeGreeting: "Hi! My name's Bebe!",
+      blixieGreeting: "And I'm Blixie!",
+      bebeMakeGames: "And we're gonna show you how to make games!",
+      blixieMakeGames: "Ember Theater games, that is! In fact, we're on an Ember Theater stage right now.",
+      bebeShock: 'Really!??',
+      bebeFun: "That's so cool!",
+      blixieFun: "Bebe has a point. Making games is a lot of fun!",
+      bebeNext: "So if you're ready, keep on reading! We'll meet you on the next page!"
+    },
     choice: {
       clickMe: 'Click Me!',
       continue: 'Continue',

@@ -1,3 +1,7 @@
-{{theater-container initialSceneId="director/text"}}
+{{#theater-container}}
+  {{#ember-theater theaterId="director/text" as |theater|}}
+    {{theater.director initialSceneId="director/text"}}
+  {{/ember-theater}}
+{{/theater-container}}
 
 {{t-markdown "markdown.learn.director.directions.text.md"}}
