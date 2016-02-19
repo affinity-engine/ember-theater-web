@@ -8,6 +8,7 @@
 @param [options.instant] {Boolean} |optional| If true, text will appear immediately rather than written out letter by letter.
 @param [options.scrollable] {Boolean} |optional| If true, text can be scrolled using the mouse wheel and arrow keys.
 @param [options.name] {String} |optional| Overrides the character name, if present.
+@param [options.namePosition] {String} |optional| Positions the character name. Can be 'left' or 'right'.
 @param [options.textAnimation] {Object} |optional| The effect applied to the text as it fades in.
 @param [options.textSpeed] {Number} |optional| The number of characters written each second.
 @param [options.classNames] {Object} |optional|
