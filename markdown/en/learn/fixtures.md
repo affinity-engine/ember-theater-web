@@ -23,9 +23,7 @@ Here, two characters are defined, each with an unique `id` followed by several a
 ```js
 export default Scene.extend({
   script() {
-    await this.character('bebe', 'transition.fadeIn');
-    await this.character('bebe', { translateX: '50vw' });
-    this.text('bebe', 'Hi! My name is Bebe!');
+    this.Character('bebe').position('center').Text('Hi! My name is Bebe!');
   }
 });
 ```

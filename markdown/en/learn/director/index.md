@@ -1,10 +1,13 @@
-In film and theater, a director is responsible for translating scripts into something her audience can appreciate: props and staging, lighting, music, and character dialogue and blocking. In Ember Theater, the `director` plugin plays a similar role. While you (the game designer) write a script, the `director` is responsible for translating that script into a series of scenes with lively characters and expressively delivered dialogue.
+In film and theater, a director is responsible for translating scripts into something her audience can appreciate: props and staging, lighting, music, character dialogue, and blocking. In Ember Theater, the `director` plugin plays a similar role. While you (the game designer) write a script, the `director` is responsible for translating that script into scenes with lively characters and expressively delivered dialogue.
 
 To use the `director` in your game, you'll need to:
 
 ```hbs
 {{#ember-theater as |theater|}}
-  {{theater.director initialSceneId="my-first-scene"}}
+  {{ember-theater/director
+    theaterId=theater.theaterId
+    initialSceneId="picnic-on-the-beach"
+  }}
 {{/ember-theater}}
 ```
 

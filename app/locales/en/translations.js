@@ -65,6 +65,65 @@ const theaters = {
       blixieFun: "Bebe has a point. Making games is a lot of fun!",
       bebeNext: "So if you're ready, keep on reading! We'll meet you on the next page!"
     },
+    backdrop: {
+      menu: {
+        intro: 'Intro',
+        transitions: 'Transitions',
+        stop: 'stop',
+        caption: 'caption'
+      },
+      intro: {
+        bebeGreeting: "Hi! Bebe, here! And welcome to the `Backdrop` demo!",
+        blixieClassroom: "A `Backdrop` fills the back of the screen, providing context for the scene. For instance, here we are in a classroom learning Ember Theater.",
+        bebeBeach: "And here we are on the beach! Ready to enjoy a day of sunshine and cold water!",
+        blixieExplanation: "It's as simple as that. A `Backdrop` lets people know where are they are.",
+        bebeExplanation: "And it helps set the mood!",
+        blixieMultiple: "You can multiple backdrops on the screen at once. This allows you to crossfade your images. Like when we `this.Backdrop('beach-night');`",
+        bebeMultiple: "What? No! Bring back the sunshine!",
+        blixieNight: "But look at the moon reflecting on the water. Isn't that pretty?",
+        bebe: ". . . ."
+      },
+      transition: {
+        blixieDefault: "By default, a `Backdrop` will fade in over the course of 500 milliseconds.",
+        bebeDefault: "Which looks like this: `this.Backdrop('beach-day');`",
+        blixieConfig: "You can change this default in your `ember-theater.config.js` file, as well as in the individual backdrop fixture.",
+        bebeConfig: "If you're not sure how to do that, there's more info below.",
+        blixieEffect: "If you want to use a different effect, you use `transition`.",
+        bebeEffect: "This is what `this.Backdrop('beach-day').transition('transition.whirlIn');` looks like!",
+        blixieDuration: "If you want that transition to be a different speed, pass that in as your second argument. For instance, `this.Backdrop('classroom').transition('transition.slideLeftIn', 5000);` will take 5000 milliseconds.",
+        bebeDuration: "aka, 5 seconds.",
+        blixieOptions: "Next, you can pass in options like `loop`, `easing`, and `delay` as a third argument. Like: `this.Backdrop('classroom').transition('transition.slideLeftIn', 5000, { loop: true, easing: 'easeInSine' });`.",
+        bebeOptions: "If you want to learn more about the options you can pass in, check out the <a href='http://julian.com/research/velocity/#easing'>Velocity.js docs</a>.",
+        blixieOptions2: "Those docs are also a great place to learn about the pre-defined transitions, like 'whirlIn', and 'slideLeftIn'. You'll find a link below.",
+        bebeCustomEffects: "Can we also make our own effects?",
+        blixieCustomEffects: "Absolutely! Just pass in an argument describing the CSS attributes you want to change. Like this: `this.Backdrop('classroom').transition({ translateZ: '5vh' });`.",
+        bebeCustomEffects2: "That's so cool! So we can make a backdrop do just about anything?",
+        blixieCustomEffects2: "Yeah, if you're willing to learn how Velocity.js works, you can use it to do a lot. Even light-weight 3D effects. (Let's save those for the `Character` demo though, okay?)",
+        bebeCustomEffects3: "(Okay.)",
+        blixieChains: "Sometimes, you might also like for `transition`s to chain together. For instance: `this.Backdrop('clasroom').transition({ opacity: 1 }).transition({ translateZ: '5vh' }).transition({ opacity: 0 });`",
+        bebeChains: "Looks like they happen one after the other",
+        blixieChains2: "Exactly. Chained `transition`s are sequential. If you want them to happen at the same time, you can pass in the `queue: false` option like so: `this.Backdrop('classroom').transition({ opacity: 1 }, 500, { queue: false }).transition({ translateZ: '5vh' }, 500, { queue: false });`",
+        bebeChains2: "Couldn't you just do `the.Backdrop('classroom').transition({ opacity: 1, translateZ: '5vh' });`?",
+        blixieChains3: "Hmm, yes. That's actually far more elegant.",
+        blixieOut: "Finally, let's look at how to make a backdrop disappear: `this.Backdrop('classroom').transition('transition.fadeOut');`.",
+        bebeOut: "I also like using 'transition.slideRightOut', 'transition.whirlOut', 'transition.swoopOut', and 'transition.shrinkOut'.",
+        blixieBye: "Okay, that's a wrap for `transition`. By far one the richest feature for a `Backdrop`. Thanks for bearing with us!"
+      },
+      stop: {
+        intro: "This probably won't come as a big surprise, but `stop` will stop a transition.",
+        demo1: "Let me show you what I mean. We're gonna start fading in a backdrop. See it coming in? It's suppose to take a full minute to complete its fade in.",
+        demo1stop: "But look, it stopped! Because we did `this.Backdrop('classroom').stop();`",
+        demo2: "This can be especially useful when you want to stop something from looping.",
+        demo2stop: "See, that bothersome looping? Gone!"
+      },
+      caption: {
+        intro: "By default, Ember Theater will use the `caption` you provide in a backdrop's fixture. You can manually override it with the `caption` command, though.",
+        default: "For instance, this backdrop is using its default caption 'Classroom'.",
+        override: "But now that I've `this.Backdrop('classroom').caption('Fade in classroom.');`, that caption will be altered.",
+        translation: "If you pass in the key of a translation, that'll be used instead. Here, we pass in `this.Backdrop('classroom').caption('theater.backdrop.caption.translationExample');`, which gives us the localized translation of 'i18n rocks!'. Well, isn't that something?",
+        translationExample: "i18n rocks!"
+      }
+    },
     choice: {
       clickMe: 'Click Me!',
       continue: 'Continue',

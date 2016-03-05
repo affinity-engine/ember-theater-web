@@ -12,11 +12,11 @@
 @return {Promise} Resolves when the effect has completed.
 ```
 
-Beaches, bedrooms, mountain vistas, and city streets. In theater, a backdrop might be a simple sheet of canvas with a location painted on it. In Ember Theater, it's actually quite similar. The `backdrop` direction will instantiate an image at the back of the screen. Subsequent uses of `backdrop` can alter that image or even instantiate additional backdrops.
+Beaches, bedrooms, mountain vistas, and city streets. In theater, a backdrop might be a simple sheet of canvas with a location painted on it. In Ember Theater, it's actually quite similar. The `Backdrop` direction will instantiate an image at the back of the screen. Subsequent uses of `Backdrop` can alter that image or even instantiate additional backdrops.
 
 ```js
-this.backdrop('beach', { opacity: 0.5 }, { duration: 2000 }); // fades to half opacity over 2 seconds
-this.backdrop('office', { duration: 1000 }); // fades to full opacity over 1 second
+this.Backdrop('beach', { opacity: 0.5 }, { duration: 2000 }); // fades to half opacity over 2 seconds
+this.Backdrop('office', { duration: 1000 }); // fades to full opacity over 1 second
 
 await this.backdrop('shower'); // fades to full opacity over the default transition duration
 this.backdrop('shower', { instance: 1 }); // fades in a second instance of the shower backdrop

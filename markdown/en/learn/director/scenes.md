@@ -1,6 +1,6 @@
 ## Scenes
 
-The Director's job is to keep track of which scene is currently under way, and then to direct the provided `script`. You can generate new scenes by typing `ember g ember-theater-scene [scene-name]` in the command line. Scenes are kept in the folder `app/ember-theater/director/scenes`:
+The director's job is to keep track of which scene is currently under way, and then to direct the provided `script`. You can generate new scenes by typing `ember g ember-theater-scene [scene-name]` in the command line. Scenes are kept in the folder `app/ember-theater/director/scenes`:
 
 ```js
 // app/ember-theater/director/scenes/picnic-on-the-beach.js

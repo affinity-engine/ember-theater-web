@@ -1,6 +1,10 @@
 ## For New Developers
 
-Before continuing with the steps below, you might want to check out the "Helpful Links" section in the sidebar. That section will help you get oriented with the command line, setup with a text editor, and acquainted with some of the tools you'll be using when coding an Ember Theater game. If you're already comfortable with all those things, then feel free to skip that section and get straight to setup.
+Before continuing with the steps below, you might want to check out the "Helpful Links" section in the sidebar. That section will help you get oriented with the command line, text editors, and the tools you'll be using when coding an Ember Theater game. If you're already comfortable with all those things, then feel free to skip that section and get straight to setup.
+
+### A Word of Encouragement
+
+Getting Ember Theater setup can be a big process, and if you've never worked with the command line before, it'll also require you to interface with your computer in a new and challenging way. The upswing is that Ember Theater is built with incredibly powerful tools, and it extends that power to make game design that much easier for you. Although the setup might be daunting, bear with it and you'll have a simple, extensible, and highly customizable game engine at your disposal.
 
 ## Creating an Ember Project
 
@@ -41,7 +45,7 @@ module.exports = function(environment) {
 };
 ```
 
-Next, go to `bower.json` and ensure that `ember` is at 2.3.0 or higher. If not, change it to 2.3.0 and then run `bower install` in your command line.
+Next, go to `bower.json` and ensure that `ember` is at 2.3.0 or higher. If not, change it to at least 2.3.0 and then run `bower install` in your command line.
 
 ## Using Ember Theater
 

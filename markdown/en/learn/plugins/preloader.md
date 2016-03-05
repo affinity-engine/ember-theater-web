@@ -7,12 +7,18 @@ To work around this, Ember Theater lets you preload your game's large files. You
 ```hbs
 {{#ember-theater as |theater|}}
   {{#if theater.isLoaded}}
-    {{theater.director}}
-    {{theater.menuBar}}
+    {{ember-theater/director
+      theaterId=theater.theaterId
+      initialSceneId="we-are-the-best"
+    }}
   {{else}}
-    {{theater.curtain}}
+    {{ember-theater/curtain
+      theaterId=theater.theaterId
+      filesToPreload="backdrops:src expressions:src sounds:src"
+      completePreload=theater.completePreload
+    }}
   {{/if}}
 {{/ember-theater}}
 ```
 
-`theater.isLoaded` won't be true until all the files have been preloaded, which means that the `director` and `menuBar` will remain hidden. Once the files are preloaded, the `curtain` will disappear and the `director` and `menuBar` will take the stage. You'll find more information on the `curtain` preloader in its section on the sidebar.
+`theater.isLoaded` won't be true until all the files have been preloaded, which means that the `director` will remain hidden. Once the files are preloaded, the `curtain` will disappear and the `director` will take the stage. You'll find more information on the `curtain` preloader in its section on the sidebar.
