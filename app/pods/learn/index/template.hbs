@@ -1,9 +1,9 @@
 {{#theater-container title="learn.sections.welcome" as |container|}}
-  {{#ember-theater config=container.config fixtures=container.fixtures theaterId="welcome" isFocused=true as |theater|}}
+  {{#ember-theater theaterId="welcome" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
     {{#if theater.isLoaded}}
-      {{theater.director initialSceneId="welcome"}}
+      {{ember-theater/director theaterId=theater.theaterId initialSceneId="welcome"}}
     {{else}}
-      {{theater.curtain filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
+      {{ember-theater/curtain theaterId=theater.theaterId filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
     {{/if}}
   {{/ember-theater}}
 {{/theater-container}}

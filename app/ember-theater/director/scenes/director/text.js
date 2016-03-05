@@ -4,12 +4,12 @@ export default Scene.extend({
   name: 'Director/text',
 
   script: async function() {
-    await this.text('theaters.text.intro.intro');
-    await this.text('theaters.text.intro.controls');
-    await this.text('theaters.text.intro.defaults');
-    await this.text('theaters.text.intro.encouragement');
-
-    this.menu();
+    // await this.text('theaters.text.intro.intro');
+    // await this.text('theaters.text.intro.controls');
+    // await this.text('theaters.text.intro.defaults');
+    // await this.text('theaters.text.intro.encouragement');
+    //
+    // this.menu();
   },
 
   menu: async function() {

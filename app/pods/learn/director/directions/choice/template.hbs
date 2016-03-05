@@ -1,6 +1,10 @@
-{{#theater-container}}
-  {{#ember-theater theaterId="director/choice" as |theater|}}
-    {{theater.director initialSceneId="director/choice"}}
+{{#theater-container as |container|}}
+  {{#ember-theater theaterId="director/choice" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
+    {{#if theater.isLoaded}}
+      {{ember-theater/director theaterId=theater.theaterId initialSceneId="director/choice"}}
+    {{else}}
+      {{ember-theater/curtain theaterId=theater.theaterId filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
+    {{/if}}
   {{/ember-theater}}
 {{/theater-container}}
 

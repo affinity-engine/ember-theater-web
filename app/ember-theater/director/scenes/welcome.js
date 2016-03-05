@@ -4,26 +4,25 @@ export default Scene.extend({
   name: 'Welcome',
 
   script: async function() {
-    this.backdrop('classroom');
-    this.character('bebe', { left: '50%' }, { duration: 1000 });
-    await this.text('bebe', 'theaters.welcome.bebeGreeting');
-    this.character('blixie', { left: '30%' }, { duration: 1000 });
-    await this.pause(100);
-    this.character('bebe', { left: '70%' }, { duration: 700 });
-    await this.text('blixie', 'theaters.welcome.blixieGreeting');
-    await this.text('bebe', 'theaters.welcome.bebeMakeGames', { namePosition: 'right' });
-    await this.text('blixie', 'theaters.welcome.blixieMakeGames');
-    this.expression('bebe', 'bebe-panic');
-    await this.text('bebe', 'theaters.welcome.bebeShock', { namePosition: 'right' });
-    this.expression('bebe', 'bebe-laughing');
-    await this.text('bebe', 'theaters.welcome.bebeFun', { namePosition: 'right' });
-    this.expression('blixie', 'blixie-laughing');
-    await this.text('blixie', 'theaters.welcome.blixieFun');
-    this.expression('bebe', 'bebe-happy');
-    this.expression('blixie', 'blixie-neutral');
-    await this.text('bebe', 'theaters.welcome.bebeNext', { namePosition: 'right' });
-    this.character('blixie', { left: '-100%' }, { duration: 1000 });
-    await this.pause(100);
-    this.character('bebe', { left: '-100%' }, { duration: 1300 });
+    this.Backdrop('classroom');
+    await this.Character('bebe').position('offLeft').position('center', 1000).Text('theaters.welcome.bebeGreeting');
+    this.Character('blixie').position('offLeft').position('centerLeft', 1000);
+    await this.Pause(100);
+    this.Character('bebe').position('centerRight', 400);
+    await this.Character('blixie').Text('theaters.welcome.blixieGreeting');
+    await this.Character('bebe').Text('theaters.welcome.bebeMakeGames', { namePosition: 'right' });
+    await this.Character('blixie').Text('theaters.welcome.blixieMakeGames');
+    this.Character('bebe').Expression('bebe-panic');
+    await this.Character('bebe').Text('theaters.welcome.bebeShock', { namePosition: 'right' });
+    this.Character('bebe').Expression('bebe-laughing');
+    await this.Character('bebe').Text('theaters.welcome.bebeFun', { namePosition: 'right' });
+    this.Character('blixie').Expression('blixie-laughing');
+    await this.Character('blixie').Text('theaters.welcome.blixieFun');
+    this.Character('bebe').Expression('bebe-happy');
+    this.Character('blixie').Expression('blixie-neutral');
+    await this.Character('bebe').Text('theaters.welcome.bebeNext', { namePosition: 'right' });
+    this.Character('blixie').position('offLeft', 1000);
+    await this.Pause(100);
+    this.Character('bebe').position('offLeft', 1300);
   }
 });

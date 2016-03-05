@@ -4,9 +4,9 @@ export default Scene.extend({
   name: 'Director/choice',
 
   script: async function() {
-    await this.choice('theaters.choice.intro', ['theaters.choice.clickMe']);
-
-    this.menu();
+    // await this.choice('theaters.choice.intro', ['theaters.choice.clickMe']);
+    //
+    // this.menu();
   },
 
   menu: async function() {
