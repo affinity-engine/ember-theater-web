@@ -4,97 +4,47 @@ export default Scene.extend({
   name: 'Director/backdrop',
 
   script: async function() {
-    this.menu();
-  },
+    const bebe = this.Character('bebe').position('offLeft', 0).position('center', 1000);
+    await bebe.Text('theaters.backdrop.intro.bebeGreeting').classNames({ name: 'et-right' }).delay(1000);
 
-  menu: async function() {
-    const choice = await this.Choice(['theaters.backdrop.menu.intro', 'theaters.backdrop.menu.transition', 'theater.backdrop.menu.stop', 'theaters.backdrop.menu.caption']).header('theaters.backdrop.menu.header');
+    const blixie = this.Character('blixie').position('offLeft', 0).position('centerLeft', 1000);
+    bebe.position('centerRight', 400).delay(200);
+    const classroom = this.Backdrop('classroom').transition('transition.fadeIn');
+    await blixie.Text('theaters.backdrop.intro.blixieClassroom');
 
-    switch (choice.key) {
-      case 0: this.intro(); break;
-      case 1: this.transitions(); break;
-      case 2: this.stop(); break;
-    }
-  },
+    const beachDay = this.Backdrop('beach-day').transition('transition.fadeIn', 1000);
+    classroom.transition('transition.fadeOut', 1000);
+    bebe.Expression('bebe-laughing');
+    blixie.Expression('blixie-bored').delay(1000);
+    await bebe.Text('theaters.backdrop.intro.bebeBeach').classNames({ name: 'et-right' });
+    blixie.Expression('blixie-neutral');
+    await blixie.Text('theaters.backdrop.intro.blixieBeach');
+    bebe.Expression('bebe-happy');
+    await bebe.Text('theaters.backdrop.intro.bebeBeach2').classNames({ name: 'et-right' });
 
-  intro: async function() {
-    await this.Character('bebe').Text('theater.backdrop.intro.bebeGreeting').classNames({ name: 'et-right' });
-    this.Backdrop('classroom').transition('transitions.fadeIn');
-    await this.Character('blixie').Text('theater.backdrop.intro.blixieClassroom');
-    this.Backdrop('beach-day').transition('transitions.fadeIn').transition({ 'background-color': rgba(0, 0, 0, 0.2) }, 1000, { loop: true });
-    await this.Character('bebe').Text('theater.backdrop.intro.bebeBeach').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.intro.blixieExplanation');
-    await this.Character('bebe').Text('theater.backdrop.intro.bebeExplanation').classNames({ name: 'et-right' });
-    this.Backdrop('beach-day').transition('transitions.fadeOut');
-    this.Backdrop('beach-night').transition('transitions.fadeIn').transition({ 'background-color': rgba(0, 0, 0, 0.2) }, 1000, { loop: true });
-    await this.Character('blixie').Text('theater.backdrop.intro.blixieMultiple');
-    await this.Character('bebe').Text('theater.backdrop.intro.bebeMultiple').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.intro.blixieNight');
-    await this.Character('bebe').Text('theater.backdrop.intro.bebeNight').textSpeed(1).classNames({ name: 'et-right' });
+    beachDay.transition({ translateZ: '10vh' }).transition({ translateY: '5vh' }).transition({ translateZ: 0, translateY: 0 }, 2000).delay(3000);
+    await blixie.Text('theaters.backdrop.intro.blixieTransition');
+    bebe.Expression('bebe-laughing');
+    await bebe.Text('theaters.backdrop.intro.bebeTransition').classNames({ name: 'et-right' });
+    await blixie.Text('theaters.backdrop.intro.blixieCustomEffect');
+    bebe.Expression('bebe-neutral');
+    await bebe.Text('theaters.backdrop.intro.bebeCustomEffect').classNames({ name: 'et-right' });
+    
+    beachDay.transition('transition.fadeOut', 3500);
+    const beachNight = this.Backdrop('beach-night').transition('transition.fadeIn', 3500);
+    bebe.Expression('bebe-panic').delay(1250);
+    await blixie.Text('theaters.backdrop.intro.blixieMultiple');
+    await bebe.Text('theaters.backdrop.intro.bebeMultiple').classNames({ name: 'et-right' });
+    bebe.Expression('bebe-bored').delay(1000);
+    await blixie.Text('theaters.backdrop.intro.blixieNight');
+    await bebe.Text('theaters.backdrop.intro.bebeNight').typeSpeed(2).classNames({ name: 'et-right' });
+    blixie.Expression('blixie-embarrassed').delay(500);
+    await blixie.Text('theaters.backdrop.intro.blixieOkay').typeSpeed(3);
+    await blixie.Text('theaters.backdrop.intro.blixieFade');
+    await blixie.Text('theaters.backdrop.intro.blixieFinal').delay(500);
 
-    this.menu();
-  },
-
-  transition: async function() {
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieDefault');
-    this.Backdrop('beach-day');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeDefault').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieConfig');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeConfig').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieEffect');
-    this.Backdrop('beach-day').transition('transition.whirlIn');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeEffect').classNames({ name: 'et-right' });
-    this.Backdrop('classroom').transition('transition.slideLeftIn', 5000);
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieDuration');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeDuration').classNames({ name: 'et-right' });
-    this.Backdrop('classroom').transition('transition.slideLeftIn', 5000, { loop: true, easing: 'easeInSine' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieOptions');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeOptions').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieOptions2');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeCustomEffects').classNames({ name: 'et-right' });
-    this.Backdrop('classroom').transition({ translateZ: '5vh' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieCustomEffects');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeCustomEffects2').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieCustomEffects2');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeCustomEffects3').classNames({ name: 'et-right' });
-    this.Backdrop('clasroom').transition({ opacity: 1 }).transition({ translateZ: '5vh' }).transition({ opacity: 0 });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieChains');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeChains').classNames({ name: 'et-right' });
-    this.Backdrop('classroom').transition({ opacity: 1 }, 500, { queue: false }).transition({ translateZ: '5vh' }, 500, { queue: false });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieChains2');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeChains2').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieChains3');
-    this.Backdrop('classroom').transition('transition.fadeOut');
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieOut');
-    await this.Character('bebe').Text('theater.backdrop.transition.bebeOut').classNames({ name: 'et-right' });
-    await this.Character('blixie').Text('theater.backdrop.transition.blixieBye');
-
-    this.menu();
-  },
-
-  stop: async function() {
-    await this.Character('blixie').Text('theater.backdrop.stop.intro');
-    this.Backdrop('classroom').transition('transition.fadeIn', 60000);
-    await this.Character('blixie').Text('theater.backdrop.stop.demo1');
-    this.Backdrop('classroom').stop();
-    await this.Character('blixie').Text('theater.backdrop.stop.demo1stop');
-    this.Backdrop('classroom').transition('transition.fadeIn', 200, { loop: true });
-    await this.Character('blixie').Text('theater.backdrop.stop.demo2');
-    this.Backdrop('classroom').stop();
-    await this.Character('blixie').Text('theater.backdrop.stop.demo2stop');
-
-    this.menu();
-  },
-
-  caption: async function() {
-    await this.Character('blixie').Text('theater.backdrop.caption.intro');
-    this.Backdrop('classroom');
-    await this.Character('blixie').Text('theater.backdrop.caption.default');
-    this.Backdrop('classroom').caption('Fade in classroom');
-    await this.Character('blixie').Text('theater.backdrop.caption.override');
-    this.Backdrop('classroom').caption('theater.backdrop.caption.translationExample');
-    await this.Character('blixie').Text('theater.backdrop.caption.translation');
-
-    this.menu();
+    beachNight.transition('transition.fadeOut', 1000);
+    blixie.transition('transition.fadeOut', 500);
+    bebe.transition('transition.fadeOut', 500);
   }
 });

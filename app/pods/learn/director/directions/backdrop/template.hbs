@@ -1,1 +1,11 @@
+{{#theater-container as |container|}}
+  {{#ember-theater theaterId="director/backdrop" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
+    {{#if theater.isLoaded}}
+      {{ember-theater/director theaterId=theater.theaterId initialSceneId="director/backdrop"}}
+    {{else}}
+      {{ember-theater/curtain theaterId=theater.theaterId filesToPreload="backdrops:src" completePreload=theater.completePreload}}
+    {{/if}}
+  {{/ember-theater}}
+{{/theater-container}}
+
 {{t-markdown "markdown.learn.director.directions.backdrop.md"}}
