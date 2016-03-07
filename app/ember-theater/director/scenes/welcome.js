@@ -5,7 +5,7 @@ export default Scene.extend({
 
   script: async function() {
     this.Backdrop('classroom');
-    const bebe = this.Character('bebe').position('offLeft', 0).position('center', 1000).textClassNames({ name: 'et-right' });
+    const bebe = this.Character('bebe').position('offLeft', 0).position('center', 1000).namePosition('right');
     await bebe.Text('theaters.welcome.bebeGreeting');
 
     const blixie = this.Character('blixie').position('offLeft', 0).position('centerLeft', 1000);

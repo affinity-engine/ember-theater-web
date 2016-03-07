@@ -90,9 +90,9 @@ await bebe.Text('Who am I?');
 await bebe.name('Bebe!').Text('Oh, my name is Bebe!');
 ```
 
-#### `textClassNames(object)`
+#### `namePosition(namePosition)`
 
-Lets you override the class names for all text boxes a character instance speaks. This can be particularly useful for setting the position of the character name in a text box.
+Lets you change where the character instance's name appear in a text box. Options are defined in the config under `positions`.
 
 ```js
 const bebe = this.Character('bebe');
@@ -101,7 +101,7 @@ const bebe = this.Character('bebe');
 await bebe.Text('Am I over here?');
 
 // sets the text class name 'name' to et-right
-bebe.textClassNames({ name: 'et-right' });
+bebe.namePosition('right');
 
 // renders a text box with the name in the right position
 await bebe.Text('Or over here?');

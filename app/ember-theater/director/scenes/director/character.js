@@ -8,7 +8,7 @@ export default Scene.extend({
     const blixie = this.Character('blixie').position('offLeft', 0).position('center', 1000);
     await blixie.Text('theaters.character.intro.blixieGreeting');
 
-    const bebe = this.Character('bebe').initialExpression('bebe-laughing').position('center', 0).transition('transition.bounceUpIn', 1000).position('centerRight', 500).textClassNames({ name: 'et-right' });
+    const bebe = this.Character('bebe').initialExpression('bebe-laughing').position('center', 0).transition('transition.bounceUpIn', 1000).position('centerRight', 500).namePosition('right');
     blixie.position('centerLeft', 500).Expression('blixie-panic');
     await bebe.Text('theaters.character.intro.bebeGreeting');
 
@@ -34,6 +34,7 @@ export default Scene.extend({
     await blixie.position('nudgeDown').Text('theaters.character.intro.blixiePositionNudgeDown');
     await blixie.position('nudgeBack').Text('theaters.character.intro.blixiePositionNudgeBack');
     await blixie.position('nudgeForward').Text('theaters.character.intro.blixiePositionNudgeForward');
+    await blixie.Text('theaters.character.intro.blixiePositionConfig');
     await bebe.Text('theaters.character.intro.bebePosition');
     await blixie.Text('theaters.character.intro.blixiePosition2');
     bebe.position('farRight', 2000).Expression('bebe-happy');
@@ -63,16 +64,16 @@ export default Scene.extend({
     await bebe.Text('theaters.character.intro.bebeTransition5');
     blixie.Expression('blixie-neutral').delay(500);
     await blixie.Text('theaters.character.intro.blixieInstance');
-    const blixie2 = this.Character('blixie').position('farRight', 0).transition('transition.whirlIn').name('Blixie 2').textClassNames({ name: 'et-right' });
+    const blixie2 = this.Character('blixie').position('farRight', 0).transition('transition.whirlIn').name('Blixie 2').namePosition('right');
     bebe.Expression('bebe-surprised').delay(1000);
     await blixie2.Text('theaters.character.intro.blixie2Instance');
-    await bebe.position('nudgeLeft', 1500).position('nudgeRight', 1500, { delay: 500 }).delay(500).Text('theaters.character.intro.bebeInstance');
+    await bebe.namePosition('center').position('nudgeLeft', 1500).position('nudgeLeft', 1500, { delay: 1000 }).position('nudgeLeft', 1000, { delay: 1500 }).delay(500).Text('theaters.character.intro.bebeInstance');
     await blixie.Text('theaters.character.intro.blixieInstance2');
     await blixie2.Text('theaters.character.intro.blixie2Instance2');
-    bebe.position('center', 1000).delay(500);
+    bebe.position('nudgeLeft', 1000);
     await blixie2.position('centerRight', 2500).Text('theaters.character.intro.blixie2Instance3');
     blixie2.position('right').Expression('blixie-embarrassed').delay(250);
-    blixie.position('left').Expression('blixie-embarrassed').delay(250);
+    blixie.Expression('blixie-sad').delay(250);
     await bebe.transition('callout.shake').transition('callout.shake').Expression('bebe-panic').Text('theaters.character.intro.bebePanic');
     await blixie.Text('theaters.character.intro.blixiePanic');
     await bebe.Expression('bebe-blush').Text('theaters.character.intro.bebeForgive');
@@ -80,21 +81,24 @@ export default Scene.extend({
     bebe.Expression('bebe-neutral');
     await blixie2.Text('theaters.character.intro.blixie2InstanceConclude');
     await blixie.Expression('blixie-neutral').Text('theaters.character.intro.blixieInstanceConclude2');
-    await blixie2.transition('transition.whirlOut').delay(500).Expression('blixie-neutral').Text('theaters.character.intro.blixie2InstanceConclude2');
-    await bebe.Text('theaters.character.intro.bebeInstanceConclude');
+    await blixie2.transition('transition.whirlOut').delay(500).Text('theaters.character.intro.blixie2InstanceConclude2');
+    await bebe.namePosition('right').Text('theaters.character.intro.bebeInstanceConclude');
     await blixie.Text('theaters.character.intro.blixieExpression');
-    await bebe.Expression('bebe-laughing').Text('theaters.character.intro.bebeExpression');
+    await bebe.position('center').Expression('bebe-laughing').Text('theaters.character.intro.bebeExpression');
     await blixie.Expression('blixie-laughing');
     await blixie.Expression('blixie-neutral').delay(500).Text('theaters.character.intro.blixieExpression2');
     await bebe.Expression('bebe-neutral').Text('theaters.character.intro.bebeExpression2');
     await blixie.Text('theaters.character.intro.blixieExpression3');
     await bebe.Expression('bebe-happy').Text('theaters.character.intro.bebeExpression3');
-    await blixie.Text('theaters.character.intro.blixieContext');
-    await bebe.Expression('bebe-neutral').Text('theaters.character.intro.bebeContext');
-    await blixie.Text('theaters.character.intro.blixieContext2');
-    await bebe.Text('theaters.character.intro.bebeContext2');
-    await blixie.Text('theaters.character.intro.blixieContext3');
-    await bebe.Expression('bebe-happy').Text('theaters.character.intro.bebeBye');
+    await blixie.Text('theaters.character.intro.blixieName');
+    await blixie.name('Blixmix').Text('theaters.character.intro.blixieName2');
+    await bebe.name('theaters.character.intro.bebesNewName').Expression('bebe-angry').Text('theaters.character.intro.bebeName');
+    await blixie.name('Blixie').Text('theaters.character.intro.blixieNamePosition');
+    await bebe.namePosition('center').Text('theaters.character.intro.bebeNamePositionCenter');
+    await bebe.namePosition('left').Text('theaters.character.intro.bebeNamePositionLeft');
+    await bebe.namePosition('right').Text('theaters.character.intro.bebeNamePositionRight');
+    await blixie.Expression('blixie-laughing').Text('theaters.character.intro.blixieNamePositionPraise');
+    await bebe.Expression('bebe-laughing').Text('theaters.character.intro.bebeBye');
     await blixie.Text('theaters.character.intro.blixieBye');
 
     blixie.position('offLeft', 750);
