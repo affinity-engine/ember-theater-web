@@ -1,67 +1,108 @@
-### `character`
+### `Character(fixture)`
+
+Renders a character on stage, using the transition effect/duration specified in your config or the provided fixture. Alternatively, you can chain commands off of it for a more specific effect.
 
 ```js
-@param id {String,Object} An id corresponding to an `ember-theater/character` or an object containing both a character id and an expression id.
-@param effect {Object} |optional| |default: { opacity: 1 }| CSS attributes and values.
-@param [options] {Object} |optional|
-@param [options.instance] {Number} |default: 0| Which instance of the character you wish to alter.
-@param [options.duration] {Number} |default: <set in config>| How long the effect takes to resolve.
-@param [options.height] {Number} |default: <set in fixture>| The character height. What percentage of the screen height is fills.
+// renders the character fixture with the id of 'bebe'
+this.Character('bebe');
 
-@return {Promise} Resolves when the effect has completed.
+// renders a character with the provided attributes
+this.Character({ id: 'custom-character', height: 70, defaultExpressionId: 'an-expression-id' });
 ```
 
-Characters bring a play to life, and in Ember Theater, they have many of the same qualities of an actor. They can speak, position themselves on stage, change their expression, and exit when their role is done. A character is an on-screen representation of a character fixture. By default, the `character` direction fades the character into the bottom left corner. If a character with the provided id is already present, the direction will change that character's positioning as specified. As with other on-stage element, a single character can appear multiple times if you provide an instance id.
+#### `transition(effect, duration, options)`
+
+Cancels the default transition and executes a transition with the provided attributes. Multiple transitions can be chained together, and they'll perform sequentially.
+
+The `effect` argument can be either a registered [UI-Pack effect](http://julian.com/research/velocity/#uiPack), or an object containing css attributes/values (`{ height: '40px', translateZ: '20vh' }`). If providing an object, you can optionally 'forcefeed' an initial value to its attributes like `{ opacity: [1, 0] }`. Regardless of its actual `opacity`, the animation will start at `0`. This is especially helpful when setting up your scene.
+
+The `duration` should be in milliseconds.
+
+The `options` object can set the `easing`, `loop`, or `delay` of the effect. For more info, read the options section of the Velocity.js docs [here](http://julian.com/research/velocity/#easing).
+
+Note: If you aren't familiar with Velocity.js, you can learn all about it [here](http://julian.com/research/velocity). By default, it is the animation engine used by Ember Theater.
 
 ```js
-// fades to full opacity and moves the character to the horizontal center of the screen
-this.character('bebe', { translateX: '50vw', opacity: 1 }, { duration: 1000 });
-// fades to full opacity and moves the character to the horizontal center,
-// starting from the bottom right of the screen
-this.character('blixie', { translateX: ['100vw', '50vw'], opacity: 1 }, { duration: 1000 });
-// fades to full opacity over 1 second, remaining in the bottom left corner of the screen
-this.character('bly', { duration: 2000 });
-// fades to full opacity over the default transition duration, remaining in the bottom left
-await this.character('bly');
-// fades out the character bly
-this.character('bly', { opacity: 0 });
-// fades to full opacity over the default transition duration, using bliz's annoyed expression
-this.character({ id: 'bliz', expression: 'annoyed' });
+// executes the ui-pack effect 'swoopIn'
+const bebe = this.Backdrop('bebe').transition('transition.swoopIn');
+
+// fades the character to an opacity of 0.75 over the default duration
+bebe.transition({ opacity: 0.75 });
+
+// fades the character to an opacity of 1, then back to opacity 0.75
+bebe.transition({ opacity: 1 }).transition({ opacity: 0.75});
+
+// fades the character to an opacity of 0.5 over 1000 milliseconds, aka 1 second
+bebe.transition({ opacity: 0.5 }, 1000);
+
+// fades between opacity 0.5 and 1 for 5 iterations
+bebe.transition({ opacity: 1 }, 1000, { loop: 5 });
+
+// skips to opacity 0.5, then fades to opacity 0.2
+bebe.transition({ opacity: [0.2, 0.5] });
 ```
 
-#### Fixture/Config Attributes
+#### `stop(queue)`
+
+Stops any on-going animations. This is especially useful if you want to cancel a loop.
+
+If you provide the name of a `queue`, it will stop only that `queue`.
 
 ```js
-// app/ember-theater/fixtures/characters.js
+// slowly fades in a the character bebe
+const bebe = this.Character('bebe').transition('transition.fadeIn', 99999999999);
 
-// Note: a defaultExpressionId is required if you want to use the `character` direction.
+// stops the fade, freezing the character at her current opacity
+bebe.stop();
 
-export default [{
-  id: 'bebe',
-  height: 60,
-  defaultExpressionId: 'bebe--standing'
-}, {
-  id: 'blixie',
-  height: 80,
-  defaultExpressionId: 'blixie--smirking'
-}];
+// infinitely loops between the default translateZ and '20vh'
+bebe.transition({ translateZ: '20vh' }, 500, { loop: true });
 
-// app/ember-theater/config.js
+// stops the loop, freezing the character at her current translateZ
+bebe.stop();
 
-export default {
-  globals: {
-    height: 60,
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  },
-  character: {
-    height: 60,
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  }
-};
+// begins a transition on a separate queue called 'divergent'
+bebe.transition({ translateX: '20vw' }, 5000, { queue: 'divergent' });
+
+// stops only the 'divergent' queue
+bebe.stop('divergent');
+```
+
+#### `name(text)`
+
+Alters the name that appear in `Text` box. By default, a `Text` will use the name provided by the character fixture, but at times, you might want to replace it with an alternative.
+
+In addition to text, you can provide a localization key for internationalized games.
+
+```js
+const bebe = this.Character('bebe');
+
+// renders a text box with the name 'Bebe', as specified in her fixture
+await bebe.Text('Uh. . . .');
+
+// sets the character's name to 'Bebe???'
+bebe.name('Bebe???');
+
+// renders a text box with the name 'Bebe???'
+await bebe.Text('Who am I?');
+
+// rends a text box with the name 'Bebe!'
+await bebe.name('Bebe!').Text('Oh, my name is Bebe!');
+```
+
+#### `textClassNames(object)`
+
+Lets you override the class names for all text boxes a character instance speaks. This can be particularly useful for setting the position of the character name in a text box.
+
+```js
+const bebe = this.Character('bebe');
+
+// renders a text box with the default classes
+await bebe.Text('Am I over here?');
+
+// sets the text class name 'name' to et-right
+bebe.textClassNames({ name: 'et-right' });
+
+// renders a text box with the name in the right position
+await bebe.Text('Or over here?');
 ```

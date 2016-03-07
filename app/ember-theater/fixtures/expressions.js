@@ -80,4 +80,8 @@ export default [{
   id: 'blixie-embarrassed',
   caption: 'Blixie embarrassed',
   src: 'theater/characters/blixie/embarrassed.png'
+}, {
+  id: 'blixie-panic',
+  caption: 'Blixie panic',
+  src: 'theater/characters/blixie/panic.png'
 }];

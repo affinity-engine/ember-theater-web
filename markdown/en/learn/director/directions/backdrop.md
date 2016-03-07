@@ -1,4 +1,4 @@
-### Backdrop(fixture)
+### `Backdrop(fixture)`
 
 Renders a backdrop on stage, using the transition effect/duration specified in your config or the provided fixture. Alternatively, you can chain commands off of it for a more specific effect.
 
@@ -10,7 +10,7 @@ this.Backdrop('beach-day');
 this.Backdrop({ id: 'custom-backdrop', src: 'route/to/my/custom.png' });
 ```
 
-#### transition(effect, duration, options)
+#### `transition(effect, duration, options)`
 
 Cancels the default transition and executes a transition with the provided attributes. Multiple transitions can be chained together, and they'll perform sequentially.
 
@@ -29,6 +29,9 @@ const beach = this.Backdrop('beach-day').transition('transition.swoopIn');
 // fades the backdrop to an opacity of 0.75 over the default duration
 beach.transition({ opacity: 0.75 });
 
+// fades the backdrop to an opacity of 1, then back to opacity 0.75
+beach.transition({ opacity: 1 }).transition({ opacity: 0.75});
+
 // fades the backdrop to an opacity of 0.5 over 1000 milliseconds, aka 1 second
 beach.transition({ opacity: 0.5 }, 1000);
 
@@ -39,7 +42,7 @@ beach.transition({ opacity: 1 }, 1000, { loop: 5 });
 beach.transition({ opacity: [0.2, 0.5] });
 ```
 
-#### stop(queue)
+#### `stop(queue)`
 
 Stops any on-going animations. This is especially useful if you want to cancel a loop.
 
@@ -65,7 +68,7 @@ beach.transition({ translateX: '20vw' }, 5000, { queue: 'divergent' });
 beach.stop('divergent');
 ```
 
-#### caption(text)
+#### `caption(text)`
 
 Alters the `alt` text on the backdrop `img`. By default, the `alt` will be set to the `caption` on the backdrop's fixture. The `caption` command will let you change the `alt` tag for this specific instance of the backdrop.
 
