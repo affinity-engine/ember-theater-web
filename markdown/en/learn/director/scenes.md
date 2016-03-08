@@ -15,14 +15,14 @@ export default Scene.extend({
     this.sound('beach-theme', { loop: true });
     // fadeIn the beach backdrop
     await this.backdrop('beach-day');
-     // move Bebe onto the screen, 30% of the screen width from the left
-    this.character('bebe', { left: '30%' }, { duration: 1000 });
-     // move Blixie onto the screen, 30% of the screen width from the right
-    this.character('blixie', { left: ['70%', '100%'] }, { duration: 1000 });
-    // Bebe talks
-    await this.text('bebe', 'It is so beautiful!');
-    // Blixie responds
-    await this.text('blixie', 'Uh-huh.');
+     // move Bitsy onto the screen, 30% of the screen width from the left
+    this.character('bitsy', { left: '30%' }, { duration: 1000 });
+     // move Emma onto the screen, 30% of the screen width from the right
+    this.character('emma', { left: ['70%', '100%'] }, { duration: 1000 });
+    // Bitsy talks
+    await this.text('bitsy', 'It is so beautiful!');
+    // Emma responds
+    await this.text('emma', 'Uh-huh.');
 
     // transition to the next scene
     this.transitionToScene('director/scenes');
@@ -32,7 +32,7 @@ export default Scene.extend({
 
 In the `script` above, we see a series of `directions`, such as `sound`, `backdrop`, and `character`. Each of these `directions` will affect what's happening on stage, whether it's the beach scenery fading in or the music starting up.
 
-You might notice that some of these `directions` take a single argument (such as `this.backdrop('beach');`), while others have two or even three (`this.character('blixie', { translateX: '70vw' }, { duration: 500 });`). In the following sections, we'll go into greater detail about how each of these `directions` works.
+You might notice that some of these `directions` take a single argument (such as `this.backdrop('beach');`), while others have two or even three (`this.character('emma', { translateX: '70vw' }, { duration: 500 });`). In the following sections, we'll go into greater detail about how each of these `directions` works.
 
 ### Note on `await`
 
@@ -40,14 +40,14 @@ You might also notice that the script is littered with `await` statements. This 
 
 ```js
 await this.backdrop('beach');
-this.character('bebe', { translateX: '30vw' }, { duration: 500 });
+this.character('bitsy', { translateX: '30vw' }, { duration: 500 });
 ```
 
 In this case, `this.character` will not trigger until after `this.backdrop` has finished fading in. If instead we saw:
 
 ```js
 this.backdrop('beach');
-this.character('bebe', { translateX: '30vw' }, { duration: 500 });
+this.character('bitsy', { translateX: '30vw' }, { duration: 500 });
 ```
 
 Then in the above case, the beach would fade in at the same time as the character.

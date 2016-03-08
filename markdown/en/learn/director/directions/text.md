@@ -35,12 +35,12 @@ Note that you can use html tags to format your text for styling, external links,
 ```js
 // displays text with no name
 await this.text('Hello world');
-// displays text along with the name of the character model (note, this is not necessarily 'Bebe')
-await this.text('bebe', 'Hello, my name is Steven.');
+// displays text along with the name of the character model (note, this is not necessarily 'Bitsy')
+await this.text('bitsy', 'Hello, my name is Steven.');
 // displays text with no name at a really slow rate of 2 characters a second
 await this.text('Hello again, world', { textSpeed: 50 });
 // displays text along with the name Mystery Girl
-await this.text('bebe', 'I am a mystery. . . .', { name: 'Mystery Girl' });
+await this.text('bitsy', 'I am a mystery. . . .', { name: 'Mystery Girl' });
 // uses several html tags
 await this.text('I am <strong>bold</strong> and I am <span style="color: purple;">purple</span> and you can <a href="http://www.google.com">google</a> me.');
 ```
@@ -53,8 +53,8 @@ There are also many special text commands documented in the "Text Tags" section,
 // app/ember-theater/fixtures/characters.js
 
 export default [{
-  id: 'bebe',
-  name: 'Bebe',
+  id: 'bitsy',
+  name: 'Bitsy',
 
   classNames: {
     decorative: ['et-paper'],

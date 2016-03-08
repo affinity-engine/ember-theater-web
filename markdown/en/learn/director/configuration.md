@@ -12,8 +12,8 @@ So in this example:
 // app/ember-theater/fixtures/characters.js
 
 export default [{
-  id: 'bebe',
-  name: 'Bebe',
+  id: 'bitsy',
+  name: 'Bitsy',
   classNames: {
     decorative: ['et-paper']
   },
@@ -50,7 +50,7 @@ import { Scene } from 'ember-theater/ember-theater/director';
 
 export default Scene.extend({
   script: async function() {
-    this.Character('bebe').Text('Hello world!').transitionIn({ opacity: 0.2 });
+    this.Character('bitsy').Text('Hello world!').transitionIn({ opacity: 0.2 });
   }
 });
 ```

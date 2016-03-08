@@ -29,7 +29,7 @@ export default [{
   id: 'beach-theme',
   src: 'sounds/songs/beach.mp3'
 }, {
-  id: 'blixie-theme',
-  src: 'sounds/songs/blixie.mp3'
+  id: 'emma-theme',
+  src: 'sounds/songs/emma.mp3'
 }];
 ```

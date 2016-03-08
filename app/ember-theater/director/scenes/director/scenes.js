@@ -8,14 +8,14 @@ export default Scene.extend({
   script: async function() {
     // // fadeIn the beach backdrop
     // await this.backdrop('beach-day');
-    //  // move Bebe onto the screen, 30% of the screen width from the left
-    // this.character('bebe', { left: ['70%', '100%'] }, { duration: 1000 });
-    //  // move Blixie onto the screen, 30% of the screen width from the right
-    // this.character('blixie', { left: '30%' }, { duration: 1000 });
-    // // Bebe talks
-    // await this.text('bebe', 'It is so beautiful!');
-    // // Blixie responds
-    // await this.text('blixie', 'Uh-huh.');
+    //  // move Bitsy onto the screen, 30% of the screen width from the left
+    // this.character('bitsy', { left: ['70%', '100%'] }, { duration: 1000 });
+    //  // move Emma onto the screen, 30% of the screen width from the right
+    // this.character('emma', { left: '30%' }, { duration: 1000 });
+    // // Bitsy talks
+    // await this.text('bitsy', 'It is so beautiful!');
+    // // Emma responds
+    // await this.text('emma', 'Uh-huh.');
     //
     // // transition to the next scene
     // this.transitionToScene('director/scenes');

@@ -61,9 +61,9 @@ export default Scene.extend({
 
   name: async function() {
     await this.text('theaters.text.name.intro');
-    await this.text('theaters.text.name.name', { name: 'theaters.text.name.bebe' });
-    await this.text('theaters.text.name.full', { name: 'theaters.text.name.bebe', classNames: { structural: 'et-full' } });
-    await this.text('theaters.text.name.wide', { name: 'theaters.text.name.bebe', classNames: { structural: 'et-wide' } });
+    await this.text('theaters.text.name.name', { name: 'theaters.text.name.bitsy' });
+    await this.text('theaters.text.name.full', { name: 'theaters.text.name.bitsy', classNames: { structural: 'et-full' } });
+    await this.text('theaters.text.name.wide', { name: 'theaters.text.name.bitsy', classNames: { structural: 'et-wide' } });
 
     this.menu();
   }

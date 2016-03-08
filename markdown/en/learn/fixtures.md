@@ -6,15 +6,15 @@ Some games won't need to use fixtures, but most will find them useful. Fixtures 
 
 ```js
 export default [{
-  id: 'bebe',
-  name: 'Bebe Robotica',
+  id: 'bitsy',
+  name: 'Bitsy Robotica',
   height: 60,
-  defaultExpression: 'bebe-standing'
+  defaultExpression: 'bitsy-standing'
 }, {
   id: 'blx',
-  name: 'Blixie',
+  name: 'Emma',
   height: 80,
-  defaultExpression: 'blixie-smirk'
+  defaultExpression: 'emma-smirk'
 }];
 ```
 
@@ -23,12 +23,12 @@ Here, two characters are defined, each with an unique `id` followed by several a
 ```js
 export default Scene.extend({
   script() {
-    this.Character('bebe').position('center').Text('Hi! My name is Bebe!');
+    this.Character('bitsy').position('center').Text('Hi! My name is Bitsy!');
   }
 });
 ```
 
-Since you've already defined the fixture 'bebe', Ember Theater knows that it should display her with the default expression of 'bebe-standing' and that she should be 60% of the screen's height.
+Since you've already defined the fixture 'bitsy', Ember Theater knows that it should display her with the default expression of 'bitsy-standing' and that she should be 60% of the screen's height.
 
 Many Ember Theater directions have fixtures associated with them, and some fixture types (such as `characters`), are associated with multiple directions. You'll find out more about the fixture attributes a given direction expects in the docs for that direction.
 

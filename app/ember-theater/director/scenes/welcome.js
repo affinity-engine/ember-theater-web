@@ -5,27 +5,27 @@ export default Scene.extend({
 
   script: async function() {
     this.Backdrop('classroom');
-    const bebe = this.Character('bebe').position('offLeft', 0).position('center', 1000).namePosition('right');
-    await bebe.Text('theaters.welcome.bebeGreeting');
+    const bitsy = this.Character('bitsy').position('offLeft', 0).position('center', 1000).namePosition('right');
+    await bitsy.Text('theaters.welcome.bitsyGreeting');
 
-    const blixie = this.Character('blixie').position('offLeft', 0).position('centerLeft', 1000);
-    bebe.position('centerRight', 400).delay(100);
-    await blixie.Text('theaters.welcome.blixieGreeting');
+    const emma = this.Character('emma').position('offLeft', 0).position('centerLeft', 1000);
+    bitsy.position('centerRight', 400).delay(100);
+    await emma.Text('theaters.welcome.emmaGreeting');
 
-    await bebe.Text('theaters.welcome.bebeMakeGames');
-    await blixie.Text('theaters.welcome.blixieMakeGames');
+    await bitsy.Text('theaters.welcome.bitsyMakeGames');
+    await emma.Text('theaters.welcome.emmaMakeGames');
 
-    bebe.Expression('bebe-panic');
-    await bebe.Text('theaters.welcome.bebeShock');
-    bebe.Expression('bebe-laughing');
-    await bebe.Text('theaters.welcome.bebeFun');
-    blixie.Expression('blixie-laughing');
-    await blixie.Text('theaters.welcome.blixieFun');
+    bitsy.Expression('bitsy-panic');
+    await bitsy.Text('theaters.welcome.bitsyShock');
+    bitsy.Expression('bitsy-laughing');
+    await bitsy.Text('theaters.welcome.bitsyFun');
+    emma.Expression('emma-laughing');
+    await emma.Text('theaters.welcome.emmaFun');
 
-    bebe.Expression('bebe-happy');
-    blixie.Expression('blixie-neutral');
-    await bebe.Text('theaters.welcome.bebeNext');
-    blixie.position('offLeft', 1000);
-    bebe.position('offLeft', 1300).delay(100);
+    bitsy.Expression('bitsy-happy');
+    emma.Expression('emma-neutral');
+    await bitsy.Text('theaters.welcome.bitsyNext');
+    emma.position('offLeft', 1000);
+    bitsy.position('offLeft', 1300).delay(100);
   }
 });

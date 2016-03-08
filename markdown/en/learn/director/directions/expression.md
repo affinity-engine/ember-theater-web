@@ -18,13 +18,13 @@ Characters might have many different expressions, ranging from neutral to happy 
 
 ```js
 // first, bring the character in with her defaultExpression
-await this.character('bebe');
-// change Bebe's expression from the defaultExpression to `happy`, using the default transitionIn and transitionOut
-await this.expression('bebe', 'happy');
-// change Bebe's expression from `happy` to `sad`, using the default transitionOut but a custom transitionIn that drops the new expression in from the top of the screen to the current location
-await this.expression('bebe', 'sad', { transitionIn: { effect: { transitionY: ['100vh', '0vh'] }, duration: 1000 } });
-// change Bebe's expression from `sad` to `happy`, using both a custom transitionIn and transitionOut
-this.expression('bebe', 'happy', { transitionIn: { effect: { opacity: 1 } }, transitionOut: { effect: { transitionY: '-100vh' } } });
+await this.character('bitsy');
+// change Bitsy's expression from the defaultExpression to `happy`, using the default transitionIn and transitionOut
+await this.expression('bitsy', 'happy');
+// change Bitsy's expression from `happy` to `sad`, using the default transitionOut but a custom transitionIn that drops the new expression in from the top of the screen to the current location
+await this.expression('bitsy', 'sad', { transitionIn: { effect: { transitionY: ['100vh', '0vh'] }, duration: 1000 } });
+// change Bitsy's expression from `sad` to `happy`, using both a custom transitionIn and transitionOut
+this.expression('bitsy', 'happy', { transitionIn: { effect: { opacity: 1 } }, transitionOut: { effect: { transitionY: '-100vh' } } });
 ```
 
 #### Fixture/Config Attributes
@@ -33,12 +33,12 @@ this.expression('bebe', 'happy', { transitionIn: { effect: { opacity: 1 } }, tra
 // app/ember-theater/fixtures/character-expressions.js
 
 export default [{
-  id: 'bebe--standing',
-  caption: 'Bebe standing',
-  src: 'images/expressions/bebe.png'
+  id: 'bitsy--standing',
+  caption: 'Bitsy standing',
+  src: 'images/expressions/bitsy.png'
 }, {
-  id: 'bebe--jumping',
-  caption: 'Bebe jumping',
-  src: 'images/expressions/bebe--jumping.png'
+  id: 'bitsy--jumping',
+  caption: 'Bitsy jumping',
+  src: 'images/expressions/bitsy--jumping.png'
 }];
 ```

@@ -15,13 +15,13 @@
 */
 
 export default [{
-  id: 'bebe',
-  name: 'Bebe',
+  id: 'bitsy',
+  name: 'Bitsy',
   height: 70,
-  defaultExpressionId: 'bebe-neutral'
+  defaultExpressionId: 'bitsy-neutral'
 }, {
-  id: 'blixie',
-  name: 'Blixie',
+  id: 'emma',
+  name: 'Emma',
   height: 90,
-  defaultExpressionId: 'blixie-neutral'
+  defaultExpressionId: 'emma-neutral'
 }];
