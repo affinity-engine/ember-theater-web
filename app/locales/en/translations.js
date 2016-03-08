@@ -133,7 +133,7 @@ const theaters = {
         emma2InstanceConclude: "I'm sorry for alarming you, Bitsy! Either way, I guess you two won't be needing me anymore.",
         emmaInstanceConclude2: "No, I guess not. Thanks for the help, Emma 2!",
         emma2InstanceConclude2: "Of course!",
-        bitsyInstanceConclude: "Let's never do that again, okay Em? ((#pause 250)) Is there anything else that a <code>Character</code> can do, though?",
+        bitsyInstanceConclude: "Let's never do that again, okay Em? ((#pause 750)) Is there anything else that a <code>Character</code> can do, though?",
         emmaExpression: "Yes, and I've saved our most important abilities for last: we can change our <code>Expression</code> and speak <code>Text</code>.",
         bitsyExpression: "Oh, I love doing both those things!",
         emmaExpression2: "Trust me, I know. ((#pause 250)) <code>Expression</code> and <code>Text</code> are the real heart of theater, games, and life itself. And we can do them both.",
@@ -144,13 +144,13 @@ const theaters = {
         emmaName2: "See? And now I can change it back with <code>emma.name('Emma')</code>",
         bitsyName: "Alright, then my name is no longer Bitsy. Call me The World's Greatest Hacker!",
         bitsysNewName: "World's Greatest Hacker",
-        emmaNamePosition: "Okay, oh great hacker. But there's one more lesson for you! You can change where your name appears with <code>bitsy.namePosition('center')</code>. Options include 'left', 'right', and 'center', but you can add more in your config. Want to try it?",
+        emmaNamePosition: "Okay, Great Hacker. But there's one more lesson for you! You can change where your name appears with <code>bitsy.namePosition('center')</code>. Options include 'left', 'right', and 'center'. Want to try it?",
         bitsyNamePositionCenter: "<code>bitsy.namePosition('center')</code>",
         bitsyNamePositionLeft: "<code>bitsy.namePosition('left')</code>",
         bitsyNamePositionRight: "<code>bitsy.namePosition('right')</code>",
         emmaNamePositionPraise: "Good job! You're now a fully fledged <code>Character</code>, ready to take on the world!",
         bitsyBye: "Then what are we waiting for? We should start writing <code>Character</code> scripts!",
-        emmaBye: "Good idea, oh great hacker! Let's go!"
+        emmaBye: "Good idea, O Great Hacker! Let's go!"
       }
     },
     choice: {

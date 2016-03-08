@@ -43,6 +43,6 @@
     "ember-i18n": "4.2.0",
     "ember-resolver": "^2.0.3",
     "ember-stringify": "0.0.2",
-    "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#84bfa1a780549744992ec29c75eb6f022bd5bc99"
+    "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#3db0502b8b41186bb0884ddedaf2f1632466ff35"
   }
 }
