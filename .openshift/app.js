@@ -1,7 +1,7 @@
 const http         = require('http'),
       fs           = require('fs'),
       path         = require('path'),
-      contentTypes = require('./utils/content-types'),
+      mime         = require('mime-types'),
       sysInfo      = require('./utils/sys-info'),
       env          = process.env;
 
@@ -24,12 +24,15 @@ let server = http.createServer(function (req, res) {
   } else {
     fs.readFile('../dist' + url, function (err, data) {
       if (err) {
+        console.log(err)
         res.writeHead(404);
         res.end();
       } else {
-        let ext = path.extname(url).slice(1);
-        res.setHeader('Content-Type', contentTypes[ext]);
-        if (ext === 'html') {
+        const mimeType = mime(url);
+        console.log(mimeType);
+
+        res.setHeader('Content-Type', mimeType);
+        if (mimeType === 'text/html') {
           res.setHeader('Cache-Control', 'no-cache, no-store');
         }
         res.end(data);

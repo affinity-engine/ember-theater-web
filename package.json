@@ -50,6 +50,6 @@
     "loader.js": "^4.0.0"
   },
   "dependencies": {
-    "express": "^4.8.5"
+    "mime-types": "^2.1.10"
   }
 }
