@@ -22,7 +22,7 @@ let server = http.createServer(function (req, res) {
     res.setHeader('Cache-Control', 'no-cache, no-store');
     res.end(JSON.stringify(sysInfo[url.slice(6)]()));
   } else {
-    fs.readFile('../dist' + url, function (err, data) {
+    fs.readFile('./dist' + url, function (err, data) {
       if (err) {
         console.log(err)
         res.writeHead(404);
