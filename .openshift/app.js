@@ -23,6 +23,7 @@ let server = http.createServer(function (req, res) {
     res.setHeader('Cache-Control', 'no-cache, no-store');
     res.end(JSON.stringify(sysInfo[url.slice(6)]()));
   } else {
+    console.log(url);
     fs.readFile('./dist' + url, function (err, data) {
       if (err) {
         res.writeHead(404);

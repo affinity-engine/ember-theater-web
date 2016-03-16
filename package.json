@@ -46,8 +46,10 @@
     "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#3db0502b8b41186bb0884ddedaf2f1632466ff35",
     "estraverse": "^4.1.1",
     "estraverse-fb": "^1.3.1",
-    "express": "^4.8.5",
     "js-string-escape": "^1.0.0",
     "loader.js": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.8.5"
   }
 }
