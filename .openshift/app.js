@@ -24,10 +24,12 @@ let server = http.createServer(function (req, res) {
   } else {
     fs.readFile('../dist' + url, function (err, data) {
       if (err) {
+        console.log(err)
         res.writeHead(404);
         res.end();
       } else {
         let ext = path.extname(url).slice(1);
+          console.log(ext)
         res.setHeader('Content-Type', contentTypes[ext]);
         if (ext === 'html') {
           res.setHeader('Cache-Control', 'no-cache, no-store');
