@@ -7,8 +7,8 @@ const http         = require('http'),
 
 let server = http.createServer(function (req, res) {
   let url = req.url;
-  if (url == '/') {
-    url += 'index.html';
+  if (url.indexOf('.') === -1) {
+    url = '/index.html';
   }
 
   // IMPORTANT: Your application HAS to respond to GET /health with status 200
@@ -24,12 +24,10 @@ let server = http.createServer(function (req, res) {
   } else {
     fs.readFile('./dist' + url, function (err, data) {
       if (err) {
-        console.log(err)
         res.writeHead(404);
         res.end();
       } else {
         const mimeType = mime.lookup(url);
-        console.log(mimeType);
 
         res.setHeader('Content-Type', mimeType);
         if (mimeType === 'text/html') {
