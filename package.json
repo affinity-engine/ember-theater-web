@@ -7,10 +7,9 @@
     "doc": "doc",
     "test": "tests"
   },
+  "main": "start.js",
   "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
+    "start": "node --use_strict start.js"
   },
   "repository": "",
   "engines": {
