@@ -17,7 +17,6 @@ script:
 - npm test
 before_deploy:
 - ember build --environment=production
-- ls
 deploy:
   provider: openshift
   user: null@ember.theater
@@ -28,3 +27,5 @@ deploy:
   on:
     repo: ember-theater/ember-theater-web
   skip_cleanup: true
+after_deploy:
+- ls
