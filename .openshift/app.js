@@ -18,6 +18,7 @@ let server = http.createServer(function (req, res) {
     res.writeHead(200);
     res.end();
   } else if (url.indexOf('/info/') == 0) {
+    console.log('Enter Info')
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 'no-cache, no-store');
     res.end(JSON.stringify(sysInfo[url.slice(6)]()));
@@ -28,6 +29,7 @@ let server = http.createServer(function (req, res) {
         res.end();
       } else {
         let ext = path.extname(url).slice(1);
+        console.log(contentTypes[ext])
         res.setHeader('Content-Type', contentTypes[ext]);
         if (ext === 'html') {
           res.setHeader('Cache-Control', 'no-cache, no-store');
