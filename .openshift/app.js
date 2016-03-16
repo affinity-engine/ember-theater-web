@@ -28,7 +28,7 @@ let server = http.createServer(function (req, res) {
         res.writeHead(404);
         res.end();
       } else {
-        const mimeType = mime(url);
+        const mimeType = mime.lookup(url);
         console.log(mimeType);
 
         res.setHeader('Content-Type', mimeType);
