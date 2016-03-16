@@ -16,8 +16,6 @@ install:
 script:
 - npm test
 before_deploy:
-- npm install
-- bower install
 - ember build --environment=production
 deploy:
   skip_cleanup: true
