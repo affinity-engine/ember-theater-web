@@ -7,9 +7,6 @@ const http         = require('http'),
 
 let server = http.createServer(function (req, res) {
   let url = req.url;
-  if (url.indexOf('.') === -1) {
-    url = '/index.html';
-  }
 
   // IMPORTANT: Your application HAS to respond to GET /health with status 200
   //            for OpenShift health monitoring
@@ -22,6 +19,10 @@ let server = http.createServer(function (req, res) {
     res.setHeader('Cache-Control', 'no-cache, no-store');
     res.end(JSON.stringify(sysInfo[url.slice(6)]()));
   } else {
+    if (url.indexOf('.') === -1) {
+      url = '/index.html';
+    }
+
     fs.readFile('./dist' + url, function (err, data) {
       if (err) {
         res.writeHead(404);
