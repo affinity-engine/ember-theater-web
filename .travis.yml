@@ -18,6 +18,8 @@ script:
 before_deploy:
 - ember build --environment=production
 - git add -A
+- git config --global user.email 'travis@ember.theater'
+- git config --global user.name 'Travis CI'
 - git commit -m 'add dist folder'
 deploy:
   provider: openshift
