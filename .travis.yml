@@ -17,8 +17,8 @@ script:
 - npm test
 before_deploy:
 - ember build --environment=production
+- ls
 deploy:
-  skip_cleanup: true
   provider: openshift
   user: null@ember.theater
   password:
@@ -27,3 +27,4 @@ deploy:
   domain: embertheater
   on:
     repo: ember-theater/ember-theater-web
+  skip_cleanup: true
