@@ -36,5 +36,5 @@ if (cluster.isMaster) {
     });
   }
 } else {
-  require('.openshift/app.js');
+  require('./.openshift/app.js');
 }

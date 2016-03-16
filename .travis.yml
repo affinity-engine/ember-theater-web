@@ -1,23 +1,26 @@
----
 language: node_js
 node_js:
-  - "0.12"
-
+- '0.12'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-
+- export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: openshift
+  user: null@ember.theater
+  password:
+    secure: q0ZYup2wt4R9NhiRg4mQNqqXAkow4cDL93/zC/o7ZdxGSGGHAOj9n5g/8bGB1Xp37v84X+Bxs4ATrBC6ied6hwy6BXnxqcAGE1ok7PplyuwGvnruQM1HRSFb0og44lrGm4Xt7tbhCcmqivXPJ+BuBYe7GIpcTTLzymJ3+eDLTIn8CFlWg0BRQI0Hk5ahCC2kLliOoF2CnOyQAztqPg7hmdXGE+Fb8ep8Ua1l9cgbeDfbKXP3ug68MiQlCDCgeKiyOLIn2jrrB7hHqPRnJwqjcGND4kF6hIHJB06Cc5uiO+Wy30St/j+n1bAMcG6ELxlVZfS6Gn6VUM04XNor4I+IFv0h8rXKw37WtqIHBA4Gmpe62evaBDmbgkeeoo0G8uuJEqkFYPHDMn2DUPfmb3jSQAx7BmcfbY5z2ArqnaaXfmgTwyVPQ/6qyfWVlVTf3ION1eIC3tOsgdoUE82XaDG4BLppw2Xa3KTAReTNSEcpVHvmMOwDOnQop7m7D48QEeIsISGyPKu2Xg0uDzqHhY+2yhW+X4PRFyxQMaBPCd6MWsM73yzO/hM1H5st025HOy+eOhR9X8LwvT9YeAP7iMuzQZyZhsKVRWDup4J1HYy0F2Dg0VQHGYe392qMBmok8kb6ga96RS4hhoYdn82zfM3L8buujZe82VTVfnSNlm6s2oc=
+  app: web
+  domain: embertheater
+  on:
+    repo: ember-theater/ember-theater-web
