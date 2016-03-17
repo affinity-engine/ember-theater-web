@@ -23,9 +23,8 @@ let server = http.createServer(function (req, res) {
       url = '/index.html';
     }
 
-    fs.readFile('./' + url, function (err, data) {
+    fs.readFile('./dist' + url, function (err, data) {
       if (err) {
-        console.log(err);
         res.writeHead(404);
         res.end();
       } else {

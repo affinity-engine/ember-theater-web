@@ -17,11 +17,7 @@ script:
 - npm test
 after_success:
 - ember build --environment=production
-- mkdir dist/.openshift
-- mv .openshift/* dist/.openshift
-- mv start.js dist/start.js
-- mv package.json dist/package.json
-- cd dist
+- rm -rf .git
 - git init
 - git config --global user.email "travis@localhost.localdomain"
 - git config --global user.name "Travis CI"
