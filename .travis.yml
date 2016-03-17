@@ -33,4 +33,5 @@ deploy:
   domain: embertheater
   on:
     repo: ember-theater/ember-theater-web
+  skip_cleanup: true
   deployment_branch: master
