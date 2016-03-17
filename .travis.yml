@@ -15,7 +15,7 @@ install:
 - bower install
 script:
 - npm test
-before_deploy:
+after_success:
 - ember build --environment=production
 - rm -rf .git
 - sed -i -e 's/\/dist//g' .gitignore
