@@ -18,6 +18,7 @@ script:
 after_success:
 - ember build --environment=production
 - rm -rf .git
+- sed -i -e 's/\/dist//g' .gitignore
 - git init
 - git config --global user.email "travis@localhost.localdomain"
 - git config --global user.name "Travis CI"
