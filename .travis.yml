@@ -15,7 +15,7 @@ install:
 - bower install
 script:
 - npm test
-after_success:
+before_deploy:
 - ember build --environment=production
 - rm -rf .git
 - sed -i -e 's/\/dist//g' .gitignore
@@ -33,5 +33,4 @@ deploy:
   domain: embertheater
   on:
     repo: ember-theater/ember-theater-web
-  skip_cleanup: true
   deployment_branch: master
