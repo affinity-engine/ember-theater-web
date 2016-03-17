@@ -15,8 +15,14 @@ install:
 - bower install
 script:
 - npm test
-before_deploy:
+after_success:
 - ember build --environment=production
+- cd dist
+- git init
+- git config --global user.email "travis@localhost.localdomain"
+- git config --global user.name "Travis CI"
+- git add --all
+- git commit -am "Travis change"
 deploy:
   provider: openshift
   user: null@ember.theater
