@@ -43,7 +43,7 @@
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
     "ember-stringify": "0.0.2",
-    "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#349a776ac24ba99f773b57ee1aeb30b9c3007f54",
+    "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#514850b424525ed9c00e3bcb56d7210f2cec9271",
     "estraverse": "^4.1.1",
     "estraverse-fb": "^1.3.1",
     "js-string-escape": "^1.0.0",
