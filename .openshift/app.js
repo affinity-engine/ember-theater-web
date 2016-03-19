@@ -2,7 +2,7 @@ const koa = require('koa'),
       compress = require('koa-compress'),
       route = require('koa-route'),
       mount = require('koa-mount'),
-      static = require('koa-static'),
+      koaStatic = require('koa-static'),
       sysInfo = require('./utils/sys-info'),
       env = process.env;
 
@@ -10,7 +10,7 @@ const app = koa();
 
 app.use(route.get('/health', health));
 app.use(route.get('/info/(.*)', info));
-app.use(mount('/', static('dist', { defer: true })));
+app.use(mount('/', koaStatic('dist', { defer: true })));
 
 app.use(function *(next) {
   if (this.url.indexOf('.') === -1) {
