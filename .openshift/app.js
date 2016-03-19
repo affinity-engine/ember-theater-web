@@ -1,45 +1,38 @@
-const http         = require('http'),
-      fs           = require('fs'),
-      path         = require('path'),
-      mime         = require('mime-types'),
-      sysInfo      = require('./utils/sys-info'),
-      env          = process.env;
+const koa = require('koa'),
+      compress = require('koa-compress'),
+      route = require('koa-route'),
+      mount = require('koa-mount'),
+      static = require('koa-static'),
+      sysInfo = require('./utils/sys-info'),
+      env = process.env;
 
-let server = http.createServer(function (req, res) {
-  let url = req.url;
+const app = koa();
 
-  // IMPORTANT: Your application HAS to respond to GET /health with status 200
-  //            for OpenShift health monitoring
+app.use(route.get('/health', health));
+app.use(route.get('/info/(.*)', info));
+app.use(mount('/', static('dist', { defer: true })));
 
-  if (url == '/health') {
-    res.writeHead(200);
-    res.end();
-  } else if (url.indexOf('/info/') == 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Cache-Control', 'no-cache, no-store');
-    res.end(JSON.stringify(sysInfo[url.slice(6)]()));
-  } else {
-    if (url.indexOf('.') === -1) {
-      url = '/index.html';
-    }
-
-    fs.readFile('./dist' + url, function (err, data) {
-      if (err) {
-        res.writeHead(404);
-        res.end();
-      } else {
-        const mimeType = mime.lookup(url);
-
-        res.setHeader('Content-Type', mimeType);
-        if (mimeType === 'text/html') {
-          res.setHeader('Cache-Control', 'no-cache, no-store');
-        }
-        res.end(data);
-      }
-    });
+app.use(function *(next) {
+  if (this.url.indexOf('.') === -1) {
+    this.url = '/index.html';
+    this.set('Cache-Control', 'no-cache, no-store');
   }
+
+  yield next;
 });
 
-server.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
+app.use(compress());
+
+function *health() {
+  this.status = 200;
+}
+
+function *info() {
+  this.type = 'application/json';
+  this.set('Cache-Control', 'no-cache, no-store');
+  this.body = JSON.stringify(sysInfo[url.slice(6)]());
+}
+
+app.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
   console.log(`Application worker ${process.pid} started...`);
 });
