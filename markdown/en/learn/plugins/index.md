@@ -6,7 +6,7 @@ Plugins are the real heart of any Ember Theater project. Each one is a powerful 
 {{#ember-theater as |theater|}}
   {{ember-theater/director
     theaterId=theater.theaterId
-    initialSceneId="we-are-the-best"
+    initialScene="we-are-the-best"
   }}
 
   {{#ember-theater/menu-bar theaterId=theater.theaterId as |menuBar|}}

@@ -9,7 +9,7 @@ To work around this, Ember Theater lets you preload your game's large files. You
   {{#if theater.isLoaded}}
     {{ember-theater/director
       theaterId=theater.theaterId
-      initialSceneId="we-are-the-best"
+      initialScene="we-are-the-best"
     }}
   {{else}}
     {{ember-theater/curtain

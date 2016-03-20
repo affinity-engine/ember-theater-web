@@ -69,7 +69,7 @@ const theaters = {
       intro: {
         bitsyGreeting: "Hi! Bitsy, here! And welcome to the <code>Backdrop</code> demo!",
         emmaClassroom: "A <code>Backdrop</code> is an image that fills the screen. For instance, here we are, learning in a classroom.",
-        bitsyBeach: "And here we are, having a great time at the beach! It's as simple as: <code>this.Backdrop('beach-day');</code>",
+        bitsyBeach: "And here we are, having a great time at the beach! It's as simple as: <code>Backdrop('beach-day');</code>",
         emmaBeach: "Glad you're enjoying this, Bitsy.",
         bitsyBeach2: "I just love the feel of the sun on my skin and the warm sand between my toes.",
         emmaTransition: "Even after a <code>Backdrop</code> is on the screen, you can perform a <code>transition</code> on it, like this.",
@@ -123,7 +123,7 @@ const theaters = {
         emmaInstance: "Congratulations, Little Bit! You just chained together multiple <code>transitions</code>. I think you're ready for the next demo!",
         emma2Instance: "Yeah, I think she's ready, too!",
         bitsyInstance: "Woah, wait! Em!? How are there two of you?",
-        emmaInstance2: "The script made a second call to <code>this.Character('emma')</code>, creating a new <code>instance</code> of me.",
+        emmaInstance2: "The script made a second call to <code>Character('emma')</code>, creating a new <code>instance</code> of me.",
         emma2Instance2: "I might be a clone, but I'm nothing to be afraid of! I'm entirely my own <code>Character</code>.",
         emma2Instance3: "For instance, while the original Emma stays still, I can move independently with <code>emma2.position('centerRight')</code>",
         bitsyPanic: "Ahhhh!!!!!!",

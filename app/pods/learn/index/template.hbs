@@ -1,7 +1,7 @@
 {{#theater-container title="learn.sections.welcome" as |container|}}
   {{#ember-theater theaterId="welcome" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
     {{#if theater.isLoaded}}
-      {{ember-theater/director theaterId=theater.theaterId initialSceneId="welcome"}}
+      {{ember-theater/director theaterId=theater.theaterId initialScene="welcome"}}
     {{else}}
       {{ember-theater/curtain theaterId=theater.theaterId filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
     {{/if}}

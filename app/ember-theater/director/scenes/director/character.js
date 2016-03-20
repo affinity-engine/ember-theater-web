@@ -3,12 +3,12 @@ import { Scene } from 'ember-theater/ember-theater/director';
 export default Scene.extend({
   name: 'Director/character',
 
-  script: async function() {
-    this.Backdrop('classroom').transition('transition.fadeIn');
-    const emma = this.Character('emma').position('offLeft', 0).position('center', 1000);
+  start: async function(script) {
+    script.Backdrop('classroom').transition('transition.fadeIn');
+    const emma = script.Character('emma').position('offLeft', 0).position('center', 1000);
     await emma.Text('theaters.character.intro.emmaGreeting');
 
-    const bitsy = this.Character('bitsy').initialExpression('bitsy-laughing').position('center', 0).transition('transition.bounceUpIn', 1000).position('centerRight', 500).namePosition('right');
+    const bitsy = script.Character('bitsy').initialExpression('bitsy-laughing').position('center', 0).transition('transition.bounceUpIn', 1000).position('centerRight', 500).namePosition('right');
     emma.position('centerLeft', 500).Expression('emma-panic');
     await bitsy.Text('theaters.character.intro.bitsyGreeting');
 
@@ -46,7 +46,7 @@ export default Scene.extend({
     bitsy.Expression('bitsy-laughing').delay(3000);
     await emma.Text('theaters.character.intro.emmaPosition3');
     await bitsy.Text('theaters.character.intro.bitsyPosition3');
-    await this.Pause(250);
+    await script.Pause(250);
 
     emma.position('centerLeft', 2500).Expression('emma-neutral');
     await bitsy.position('centerRight', 2500).Expression('bitsy-neutral').delay(300);
@@ -70,7 +70,7 @@ export default Scene.extend({
 
     emma.Expression('emma-neutral').delay(500);
     await emma.Text('theaters.character.intro.emmaInstance');
-    const emma2 = this.Character('emma').position('farRight', 0).transition('transition.whirlIn').name('Emma 2').namePosition('right');
+    const emma2 = script.Character('emma').position('farRight', 0).transition('transition.whirlIn').name('Emma 2').namePosition('right');
     bitsy.Expression('bitsy-surprised').delay(1000);
     await emma2.Text('theaters.character.intro.emma2Instance');
     await bitsy.namePosition('center').position('nudgeLeft', 1500).position('nudgeLeft', 1500, { delay: 1000 }).position('nudgeLeft', 1000, { delay: 1500 }).delay(500).Text('theaters.character.intro.bitsyInstance');

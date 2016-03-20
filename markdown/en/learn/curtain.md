@@ -9,7 +9,7 @@ To include it in your project, do:
   {{#if theater.isLoaded}}
     {{ember-theater/director
       theaterId=theater.theaterId
-      initialSceneId="we-are-the-best"
+      initialScene="we-are-the-best"
     }}
   {{else}}
     {{ember-theater/curtain

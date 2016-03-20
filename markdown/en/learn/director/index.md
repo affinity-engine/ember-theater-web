@@ -6,9 +6,9 @@ To use the `director` in your game, you'll need to:
 {{#ember-theater as |theater|}}
   {{ember-theater/director
     theaterId=theater.theaterId
-    initialSceneId="picnic-on-the-beach"
+    initialScene="picnic-on-the-beach"
   }}
 {{/ember-theater}}
 ```
 
-If you read over the section on Plugins, then this should look familiar. What will probably look new is that we're passing an argument, `initialSceneId`, into the `director`. That argument is your way of specifying which scene the game should start on. In this case, we'll start the game with the scene entitled `picnic-on-the-beach`. This should refer to a `Scene` with the path `app/ember-theater/director/scenes/picnic-on-the-beach.js`.
+If you read over the section on Plugins, then this should look familiar. What will probably look new is that we're passing an argument, `initialScene`, into the `director`. That argument is your way of specifying which scene the game should start on. In this case, we'll start the game with the scene entitled `picnic-on-the-beach`. This should refer to a `Scene` with the path `app/ember-theater/director/scenes/picnic-on-the-beach.js`.
