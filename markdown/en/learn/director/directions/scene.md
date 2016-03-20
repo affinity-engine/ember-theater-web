@@ -14,9 +14,9 @@ A scene could be anything from a conversation on the beach to visiting the store
 ```js
 if (goingToTheBeach) {
   // transitions to the beach scene
-  this.transitionToScene('beach');
+  script.transitionToScene('beach');
 } else {
   // transition to the secret-menu scene, but do not autosave in the process
-  this.transitionToScene('secret-menu', { autosave: false });
+  script.transitionToScene('secret-menu', { autosave: false });
 }
 ```

@@ -1,6 +1,6 @@
 ## Configuration
 
-There are generally three ways to customize a direction. By passing arguments directly into the direction, by setting attributes on an associated fixture, and finally by changing the config. They are prioritized in this order:
+There are generally three ways to customize a direction. By modifying the specific direction, by setting attributes on an associated fixture, and finally by changing the config. They are prioritized in this order:
 
 *   Options
 *   Fixtures
@@ -50,7 +50,7 @@ import { Scene } from 'ember-theater/ember-theater/director';
 
 export default Scene.extend({
   script: async function() {
-    this.Character('bitsy').Text('Hello world!').transitionIn({ opacity: 0.2 });
+    script.Character('bitsy').Text('Hello world!').transitionIn({ opacity: 0.2 });
   }
 });
 ```

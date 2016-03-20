@@ -15,4 +15,4 @@ Writing an Ember Theater game means writing code, and your text editor will be y
 
 ### Navigating an Ember Project
 
-Ember projects can get huge, sometimes containing hundreds or even thousands of files. If you open files one at a time, this can get painful. Instead, try opening your entire Ember project within your text editor. With Atom and Sublime, you can choose the "File > Open Folder" command to do this. With Vim, you'll want to install the [NERDTree](https://github.com/scrooloose/nerdtree) plugin.
+Ember projects can get huge, sometimes containing hundreds or even thousands of files. If you open files one at a time, this can get painful. Instead, try opening your entire Ember project within your text editor. With Atom and Sublime, you can choose the "File > Open Folder" command to do script. With Vim, you'll want to install the [NERDTree](https://github.com/scrooloose/nerdtree) plugin.

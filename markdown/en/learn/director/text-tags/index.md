@@ -1,7 +1,7 @@
 By default, text fades in one character at a time. You can use text tags to alter this behavior, executing special effects the moment in which they're encountered. For instance:
 
 ```js
-this.text(`Hello! Right now, the text is displaying with the default behavior.
+script.text(`Hello! Right now, the text is displaying with the default behavior.
   But ((#speed 20)) now it is going much faster!!! And, you know what? ((#instant))
   All this text is appearing instantly! No more of this one letter at a time business!
   ((/instant)) Well, until now. Since we just closed the 'instant' tag, it's back

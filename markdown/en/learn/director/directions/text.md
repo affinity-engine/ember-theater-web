@@ -1,108 +1,125 @@
-### `text`
+### `Text(text, character)`
+
+Renders text. If a character is provided, then the text will be formatted to their style and present their name.
 
 ```js
-@param characterId {String} |optional| An id corresponding to an `ember-theater/character`.
-@param text {String} The text that will appear in the text box.
-@param [options] {Object} |optional|
-@param [options.instance] {Number} |default: 0| Which instance of the character you wish to alter.
-@param [options.instant] {Boolean} |optional| If true, text will appear immediately rather than written out letter by letter.
-@param [options.scrollable] {Boolean} |optional| If true, text can be scrolled using the mouse wheel and arrow keys.
-@param [options.name] {String} |optional| Overrides the character name, if present.
-@param [options.namePosition] {String} |optional| Positions the character name. Can be 'left' or 'right'.
-@param [options.textAnimation] {Object} |optional| The effect applied to the text as it fades in.
-@param [options.textSpeed] {Number} |optional| The number of characters written each second.
-@param [options.classNames] {Object} |optional|
-@param [options.classNames.decorative] {Array} |optional| CSS decorative classes.
-@param [options.classNames.structural] {Array} |optional| CSS structural classes.
-@param [options.keys] {Object} |optional|
-@param [options.keys.accept] {Array} |optional| Keys that, when pressed, will advance the text.
-@param [options.transitionIn] {Object} |optional|
-@param [options.transitionIn.effect] {Object} |default: <set in config>| The effect to use while transitioning in.
-@param [options.transitionIn.duration] {Number} |default: <set in config>| The duration of the transition in effect.
-@param [options.transitionOut] {Object} |optional|
-@param [options.transitionOut.effect] {Object} |default: <set in config>| The effect to use while transitioning out.
-@param [options.transitionOut.duration] {Number} |default: <set in config>| The duration of the transition out effect.
-@param [options.transitionDuration] {Number} |default: <set in config>| Sets the duration of both the transition in and out effect.
-@param [options.duration] {Number} If set, will automatically close the text after the allotted time.
+// renders text
+script.Text('And the play started!');
 
-@return {Promise} Resolves when the text has been displayed in full and a key is pressed.
+const bitsy = script.Character('bitsy').position('center');
+
+// renders text styled for bitsy and showing her name
+bitsy.Text('Hello!');
 ```
 
-Characters speak and narrators narrate. In either case, words need to be written on screen. The `text` direction does just this. By default, the text fades in letter-by-letter, and if the text overflows the text window, it will stop writing until a key is pressed, then proceed from that point. The name of the character appears in the window alongside her text.
+#### `classNames(classNames)`
 
-Note that you can use html tags to format your text for styling, external links, or any other form of valid html.
+Applies the provided CSS class names. The `classNames` must be provided as an object, defining either `decoractive` or `structural` class names. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/text).
 
 ```js
-// displays text with no name
-await this.text('Hello world');
-// displays text along with the name of the character model (note, this is not necessarily 'Bitsy')
-await this.text('bitsy', 'Hello, my name is Steven.');
-// displays text with no name at a really slow rate of 2 characters a second
-await this.text('Hello again, world', { textSpeed: 50 });
-// displays text along with the name Mystery Girl
-await this.text('bitsy', 'I am a mystery. . . .', { name: 'Mystery Girl' });
-// uses several html tags
-await this.text('I am <strong>bold</strong> and I am <span style="color: purple;">purple</span> and you can <a href="http://www.google.com">google</a> me.');
+// applies the `et-ember` decorative class, while still using the default `structural` class
+script.Text('Hello!').classNames({ decorative: 'et-ember' });
+// applies the `et-block` structural class, while still using the default `decorative` class
+script.Text('Hello!').classNames({ structural: 'et-block' });
+// applies the `et-ember` decorative class and the `et-block` structural class
+script.Text('Hello!').classNames({ decorative: 'et-ember', structural: 'et-block' });
 ```
 
-There are also many special text commands documented in the "Text Tags" section, which can allow you to change the speed of your text, alter its styling, and execute many other effects.
+#### `instant`
 
-#### Fixture/Config Attributes
+By default, text appears one character at a time. By setting `instant`, text will appear instantly.
 
 ```js
-// app/ember-theater/fixtures/characters.js
+script.Text('I will fade in one character at a time.');
+script.Text('I will appear all at once!').instant();
+```
 
-export default [{
-  id: 'bitsy',
-  name: 'Bitsy',
+#### `keyboardPriority(keyboardPriority)`
 
-  classNames: {
-    decorative: ['et-paper'],
-    structural: ['et-block']
-  },
-  transitionDuration: 1000,
-  transitionIn: {
-    effect: { opacity: 1 },
-    duration: 1000
-  },
-  transitionOut: {
-    effect: { opacity: 1 },
-    duration: 1000
-  }
-}];
+Changes the priority at which this text responds to key events. This could be useful if you have multiple directions present on the screen that can respond to key events, and you want the text to have more or less priority than them. You can find out more about `keyboardPriority` in the `ember-keyboard` [documentation](https://github.com/null-null-null/ember-keyboard).
 
-// app/ember-theater/config.js
+```js
+script.Text('I will not respond until the other text closes.')
 
-export default {
-  globals: {
-    classNames: {
-      decorative: ['et-paper'],
-      structural: ['et-block']
-    },
-    transitionDuration: 1000,
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    },
-    transitionOut: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  },
-  text: {
-    classNames: {
-      decorative: ['et-paper'],
-      structural: ['et-block']
-    },
-    transitionDuration: 1000,
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    },
-    transitionOut: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  }
-};
+script.Text('I will respond first').keyboardPriority(1);
+script.Text('I will respond at the same time as the text above me.').keyboardPriority(1);
+```
+
+#### `keys(keys)`
+
+Changes the key bindings for the text.
+
+```js
+// applies custom key bindings
+script.Text('Hello!').keys(['Enter', 'a']);
+```
+
+#### `scrollable`
+
+By default, text appears one frame at a time. This allows the user to scroll through the text. Works best with `instant`.
+
+```js
+script.Text('I will appear one frame at a time.');
+script.Text('You can scroll through me!').scrollable().instant();
+```
+
+#### `transitionIn(effect, duration, options)`
+
+Changes the animation the text transitions onto the screen with.
+
+The `effect` argument can be either a registered [UI-Pack effect](http://julian.com/research/velocity/#uiPack), or an object containing css attributes/values (`{ height: '40px', translateZ: '20vh' }`). If providing an object, you can optionally 'forcefeed' an initial value to its attributes like `{ opacity: [1, 0] }`. Regardless of its actual `opacity`, the animation will start at `0`. This is especially helpful when setting up your scene.
+
+The `duration` should be in milliseconds.
+
+The `options` object can set the `easing`, `loop`, or `delay` of the effect. For more info, read the options section of the Velocity.js docs [here](http://julian.com/research/velocity/#easing).
+
+Note: If you aren't familiar with Velocity.js, you can learn all about it [here](http://julian.com/research/velocity). By default, it is the animation engine used by Ember Theater.
+
+```js
+// executes the ui-pack effect 'swoopIn'
+script.Text('Hello!').transitionIn('transition.swoopIn');
+
+// transitions in to an opacity of 0.75 over the default duration
+script.Text('Hello!').transitionIn({ opacity: 0.75 });
+
+// transitions in to an opacity of 0.75 over 1000 milliseconds, aka 1 second
+script.Text('Hello!').transitionIn({ opacity: 0.75 }, 1000);
+
+// fades between opacity 0.75 and 1 for 5 iterations
+script.Text('Hello!')).transitionIn({ opacity: 0.75 }, 1000, { loop: 5 });
+
+// skips to opacity 0.5, then fades to opacity 0.2
+script.Text('Hello!').transitionIn({ opacity: [0.2, 0.5] });
+```
+
+#### `transitionOut(effect, duration, options)`
+
+Changes the animation the text transitions off the screen with.
+
+For more information, read about `transitionIn`.
+
+#### `typeAnimation(typeAnimation)`
+
+By default, as text fades in one character at a time, it applies a slight animation moving it from the top right. By changing the `typeAnimation`, you can change this effect.
+
+```js
+script.Text('Hello!').typeAnimation({ top: '10px', left: '-5%' });
+```
+
+#### `typeSpeed(speed)`
+
+Changes the speed at which characters fade in. The provided number is how many characters fade in per second.
+
+```js
+// characters fade in one character per second, meaning this
+// text will take three seconds to complete
+script.Text('Hi!').typeSpeed(1);
+
+// characters fade in three characters per second, meaning this
+// text will take one second to complete
+script.Text('Hi!').typeSpeed(3);
+
+// characters fade in six characters per second, meaning this
+// text will take half a second to complete
+script.Text('Hi!').typeSpeed(6);
 ```

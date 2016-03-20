@@ -4,10 +4,10 @@ Renders a character on stage, using the transition effect/duration specified in 
 
 ```js
 // renders the character fixture with the id of 'bitsy'
-this.Character('bitsy');
+script.Character('bitsy');
 
 // renders a character with the provided attributes
-this.Character({ id: 'custom-character', height: 70, defaultExpressionId: 'an-expression-id' });
+script.Character({ id: 'custom-character', height: 70, defaultExpressionId: 'an-expression-id' });
 ```
 
 #### `transition(effect, duration, options)`
@@ -24,7 +24,7 @@ Note: If you aren't familiar with Velocity.js, you can learn all about it [here]
 
 ```js
 // executes the ui-pack effect 'swoopIn'
-const bitsy = this.Backdrop('bitsy').transition('transition.swoopIn');
+const bitsy = script.Backdrop('bitsy').transition('transition.swoopIn');
 
 // fades the character to an opacity of 0.75 over the default duration
 bitsy.transition({ opacity: 0.75 });
@@ -50,7 +50,7 @@ If you provide the name of a `queue`, it will stop only that `queue`.
 
 ```js
 // slowly fades in a the character bitsy
-const bitsy = this.Character('bitsy').transition('transition.fadeIn', 99999999999);
+const bitsy = script.Character('bitsy').transition('transition.fadeIn', 99999999999);
 
 // stops the fade, freezing the character at her current opacity
 bitsy.stop();
@@ -75,7 +75,7 @@ Alters the name that appear in `Text` box. By default, a `Text` will use the nam
 In addition to text, you can provide a localization key for internationalized games.
 
 ```js
-const bitsy = this.Character('bitsy');
+const bitsy = script.Character('bitsy');
 
 // renders a text box with the name 'Bitsy', as specified in her fixture
 await bitsy.Text('Uh. . . .');
@@ -95,7 +95,7 @@ await bitsy.name('Bitsy!').Text('Oh, my name is Bitsy!');
 Lets you change where the character instance's name appear in a text box. Options are defined in the config under `positions`.
 
 ```js
-const bitsy = this.Character('bitsy');
+const bitsy = script.Character('bitsy');
 
 // renders a text box with the default classes
 await bitsy.Text('Am I over here?');

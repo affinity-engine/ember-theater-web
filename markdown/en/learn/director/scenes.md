@@ -10,44 +10,44 @@ import { Scene } from 'ember-theater/ember-theater/director';
 export default Scene.extend({
   name: 'The Beach',
 
-  script: async function() {
+  start: async function(script) {
     // play the beach theme
-    this.sound('beach-theme', { loop: true });
+    script.Sound('beach-theme').loop();
     // fadeIn the beach backdrop
-    await this.backdrop('beach-day');
+    await script.Backdrop('beach-day');
      // move Bitsy onto the screen, 30% of the screen width from the left
-    this.character('bitsy', { left: '30%' }, { duration: 1000 });
+    const bitsy = script.Character('bitsy').position('left');
      // move Emma onto the screen, 30% of the screen width from the right
-    this.character('emma', { left: ['70%', '100%'] }, { duration: 1000 });
+    const emma = script.Character('emma').position('right');
     // Bitsy talks
-    await this.text('bitsy', 'It is so beautiful!');
+    await bitsy.Text('It is so beautiful!');
     // Emma responds
-    await this.text('emma', 'Uh-huh.');
+    await emma.Text('Uh-huh.');
 
     // transition to the next scene
-    this.transitionToScene('director/scenes');
+    script.TransitionToScene('director/scenes');
   }
 });
 ```
 
-In the `script` above, we see a series of `directions`, such as `sound`, `backdrop`, and `character`. Each of these `directions` will affect what's happening on stage, whether it's the beach scenery fading in or the music starting up.
+The `director` will execute the scene's `start` function. In this one, we see a series of `directions`, such as `Sound`, `Backdrop`, and `Character`. Each of these `directions` will affect what's happening on stage, whether it's the beach scenery fading in or the music starting up.
 
-You might notice that some of these `directions` take a single argument (such as `this.backdrop('beach');`), while others have two or even three (`this.character('emma', { translateX: '70vw' }, { duration: 500 });`). In the following sections, we'll go into greater detail about how each of these `directions` works.
+You might notice that some of these `directions` take a single argument (such as `script.backdrop('beach');`), while others have two or even three (`script.character('emma', { translateX: '70vw' }, { duration: 500 });`). In the following sections, we'll go into greater detail about how each of these `directions` works.
 
 ### Note on `await`
 
 You might also notice that the script is littered with `await` statements. This experimental ES7 feature will pause the script until the following function has completed. For instance:
 
 ```js
-await this.backdrop('beach');
-this.character('bitsy', { translateX: '30vw' }, { duration: 500 });
+await script.Backdrop('beach');
+script.Character('bitsy').position('left');
 ```
 
-In this case, `this.character` will not trigger until after `this.backdrop` has finished fading in. If instead we saw:
+In this case, `script.Character` will not trigger until after `script.Backdrop` has finished fading in. If instead we saw:
 
 ```js
-this.backdrop('beach');
-this.character('bitsy', { translateX: '30vw' }, { duration: 500 });
+script.Backdrop('beach');
+script.Character('bitsy').position('left');
 ```
 
 Then in the above case, the beach would fade in at the same time as the character.

@@ -1,3 +1,3 @@
 # Ember Theater
 
-Welcome to Ember Theater! These guides will show you how to use the `ember-theater` addon to build ambitious web games using the Ember.js framework. Along the way, you'll encounter both exhaustive API documentation and simple, user-friendly demos. We wrote these docs to be as approachable as possible, but there's also a wealth of information for those who wish to dive deeper and get the most out of the Ember Theater game engine.
+Welcome to Ember Theater! These guides will show you how to use the `ember-theater` addon to build ambitious web games with the Ember.js framework. Along the way, you'll encounter both exhaustive API documentation and simple, user-friendly demos. We wrote these docs to be as approachable as possible, but there's also a wealth of information for those who wish to dive deeper and get the most out of the Ember Theater game engine.

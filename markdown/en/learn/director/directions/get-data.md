@@ -7,5 +7,5 @@
 After saving data, you can look it up again with `getData`:
 
 ```js
-const playerName = this.getData('playerName');
+const playerName = script.getData('playerName');
 ```

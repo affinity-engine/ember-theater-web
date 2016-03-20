@@ -4,10 +4,10 @@ Renders a backdrop on stage, using the transition effect/duration specified in y
 
 ```js
 // renders the backdrop fixture with the id of 'beach-day'
-this.Backdrop('beach-day');
+script.Backdrop('beach-day');
 
 // renders a backdrop with the provided attributes
-this.Backdrop({ id: 'custom-backdrop', src: 'route/to/my/custom.png' });
+script.Backdrop({ id: 'custom-backdrop', src: 'route/to/my/custom.png' });
 ```
 
 #### `transition(effect, duration, options)`
@@ -24,7 +24,7 @@ Note: If you aren't familiar with Velocity.js, you can learn all about it [here]
 
 ```js
 // executes the ui-pack effect 'swoopIn'
-const beach = this.Backdrop('beach-day').transition('transition.swoopIn');
+const beach = script.Backdrop('beach-day').transition('transition.swoopIn');
 
 // fades the backdrop to an opacity of 0.75 over the default duration
 beach.transition({ opacity: 0.75 });
@@ -50,7 +50,7 @@ If you provide the name of a `queue`, it will stop only that `queue`.
 
 ```js
 // slowly fades in a beach backdrop
-const beach = this.Backdrop('beach-day').transition('transition.fadeIn', 99999999999);
+const beach = script.Backdrop('beach-day').transition('transition.fadeIn', 99999999999);
 
 // stops the fade, freezing the backdrop at its current opacity
 beach.stop();
@@ -78,13 +78,13 @@ This functionality is particularly useful for screen-readers, and will provide p
 
 ```js
 // renders a beach with its fixture's caption, 'beach during the day'
-const beach = this.Backdrop('beach-day');
+const beach = script.Backdrop('beach-day');
 
 // changes the alt text to 'earthquake on the beach!!!'
 beach.caption('earthquake on the beach!!!');
 
 // renders a new beach with the custom caption, 'fade into beach scene'
-this.Backdrop('beach-day').caption('fade into beach scene');
+script.Backdrop('beach-day').caption('fade into beach scene');
 
 // renders a localized caption, eg:
 // english: 'day at the beach'

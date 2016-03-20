@@ -1,92 +1,93 @@
-### `choice`
+### `Choice(choices)`
+
+Renders a menu with the provided `choices`. The `choices` must be an array of strings, objects, or a combination. If a string is provided, then the string will be presented as the text of the choice, and the key for the response will be the position of the choice in the array. If an object is provided, then its `key` and `text` attributes will be used.
 
 ```js
-@param header {String} |optional| A prompt for the choices.
-@param choices {Array} The options available to the user to choose from.
-@param choices.[] {String,Object} Choices can be either a string or an object with the following attributes.
-@param choices.text {String} The text to display to the user.
-@param choices.key {String} The key you expect to get in the promise.
-@param choices.inputable {Boolean} Whether or not the choice should transform into an input field on focus.
-@param [options] {Object} |optional|
-@param [options.instance] {Number} |default: 0| Which instance of the character you wish to alter.
-@param [options.classNames] {Object} |optional|
-@param [options.classNames.decorative] {Array} |optional| CSS decorative classes.
-@param [options.classNames.structural] {Array} |optional| CSS structural classes.
-@param [options.keys] {Object} |optional|
-@param [options.keys.moveUp] {Array} |optional| Keys that move the focus up.
-@param [options.keys.moveDown] {Array} |optional| Keys that move the focus down.
-@param [options.keys.cancel] {Array} |optional| Keys that cancel an inputable choice.
-@param [options.transitionIn] {Object} |optional|
-@param [options.transitionIn.effect] {Object} |default: <set in config>| The effect to use while transitioning in.
-@param [options.transitionIn.duration] {Number} |default: <set in config>| The duration of the transition in effect.
-@param [options.transitionOut] {Object} |optional|
-@param [options.transitionOut.effect] {Object} |default: <set in config>| The effect to use while transitioning out.
-@param [options.transitionOut.duration] {Number} |default: <set in config>| The duration of the transition out effect.
-@param [options.transitionDuration] {Number} |default: <set in config>| Sets the duration of both the transition in and out effect.
-
-@return {Promise} Resolves when a choice has been selected, passing an object with format { key, text, input }
+// presents three choices; if the user selects 'B', then `firstChoice` will be set to { key: 1, text: 'B' }
+const firstChoice = await script.Choice(['A', 'B', 'C']);
+// same as above, only if the user selects 'B', then `secondChoice` will be set to { key: 'customKey', text: 'B' }
+const secondChoice = await script.choice('Choose a letter', ['A', { text: 'B', key: 'customKey' }, 'C']);
 ```
 
-Throughout the game, you might want to present the player with menu-style choices. These choices could range from responses in conversation to multiple choice list of destinations at a bus stop. The `choice` direction presents players with a list of choices and returns a promise containing the value of their choice. The list of choices can be navigated with `ArrowUp` and `ArrowDown` keys, and some choices can be made inputable, so that when they are clicked, they transform into input fields.
+#### `classNames(classNames)`
+
+Applies the provided CSS class names to the menu. The `classNames` must be provided as an object, defining either `decoractive` or `structural` class names. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/choice).
 
 ```js
-// presents three choices; if the user selects 'B', then the promise will return { key: 1, text: 'B' }
-const firstChoice = await this.choice(['A', 'B', 'C']);
-// same as above, only with a header
-const secondChoice = await this.choice('Choose a letter', ['A', 'B', 'C']);
-// same as above, only if the user selects 'B', then the promise will return { key: 'customKey', text: 'B' }
-const thirdChoice = await this.choice('Choose a letter', ['A', { text: 'B', key: 'customKey' }, 'C']);
-// a choice with custom key bindings
-const fourthChoice = await this.choice(['Okay', 'Cancel'], { keys: { moveUp: ['a'], moveDown: ['s'] } });
-// if the user selects the third option, it will become an input field; if they enter 'Garnet', then the promise will return { key: 2, text: 'Custom', input: 'Garnet' }
-const fifthChoice = await this.choice('What is your name?', ['Bitsy', 'Emma', { text: 'Custom', inputable: true }]);
+// applies the `et-ember` decorative class, while still using the default `structural` class
+script.Choice(['A', 'B', 'C']).classNames({ decorative: 'et-ember' });
+// applies the `et-block` structural class, while still using the default `decorative` class
+script.Choice(['A', 'B', 'C']).classNames({ structural: 'et-block' });
+// applies the `et-ember` decorative class and the `et-block` structural class
+script.Choice(['A', 'B', 'C']).classNames({ decorative: 'et-ember', structural: 'et-block' });
 ```
 
-#### Fixture/Config Attributes
+#### `header(header)`
+
+Precedes the menu with a header.
+
+In addition to text, you can provide a localization key for internationalized games.
 
 ```js
-// app/ember-theater/config.js
+// the menu is preceded with the header stating, 'What is your favorite letter?'
+script.Choice(['A', 'B', 'C']).header('What is your favorite letter?');
 
-export default {
-  globals: {
-    classNames: {
-      decorative: ['et-paper'],
-      structural: ['et-block']
-    },
-    transitionDuration: 1000,
-    keys: {
-      up: ['ArrowUp', 'w'],
-      down: ['ArrowDown', 's'],
-      cancel: ['Escape']
-    },
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    },
-    transitionOut: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  },
-  choice: {
-    classNames: {
-      decorative: ['et-paper'],
-      structural: ['et-block']
-    },
-    transitionDuration: 1000,
-    keys: {
-      up: ['ArrowUp', 'w'],
-      down: ['ArrowDown', 's'],
-      cancel: ['Escape']
-    },
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 1000
-    },
-    transitionOut: {
-      effect: { opacity: 1 },
-      duration: 1000
-    }
-  }
-};
+// renders a localized header, eg:
+// english: 'What is your favorite letter?'
+// spanish: 'Cual es tu letra del alfabeto favorito?'
+script.Choice(['A', 'B', 'C']).header('scenes.choice.header-example');
 ```
+
+#### `keyboardPriority(keyboardPriority)`
+
+Changes the priority at which this menu responds to key events. This could be useful if you have multiple directions present on the screen that can respond to key events, and you want the menu to have more or less priority than them. You can find out more about `keyboardPriority` in the `ember-keyboard` [documentation](https://github.com/null-null-null/ember-keyboard).
+
+```js
+script.Texxt('I will be here for awhile.')
+// gives the menu a higher priority than the simultaneously rendered Text
+script.Choice(['A', 'B', 'C']).keyboardPriority(1);
+```
+
+#### `keys(keys)`
+
+Changes the key bindings for the menu. It expects the `keys` argument to be an object, defining `moveUp`, `moveDown`, and `cancel`.
+
+```js
+// applies custom key bindings
+script.Choice(['A', 'B', 'C']).keys({ moveUp: ['ArrowUp', 'W'], moveDown: ['ArrowDown', 'S'], cancel: 'Escape' });
+```
+
+#### `transitionIn(effect, duration, options)`
+
+Changes the animation the menu transitions onto the screen with.
+
+The `effect` argument can be either a registered [UI-Pack effect](http://julian.com/research/velocity/#uiPack), or an object containing css attributes/values (`{ height: '40px', translateZ: '20vh' }`). If providing an object, you can optionally 'forcefeed' an initial value to its attributes like `{ opacity: [1, 0] }`. Regardless of its actual `opacity`, the animation will start at `0`. This is especially helpful when setting up your scene.
+
+The `duration` should be in milliseconds.
+
+The `options` object can set the `easing`, `loop`, or `delay` of the effect. For more info, read the options section of the Velocity.js docs [here](http://julian.com/research/velocity/#easing).
+
+Note: If you aren't familiar with Velocity.js, you can learn all about it [here](http://julian.com/research/velocity). By default, it is the animation engine used by Ember Theater.
+
+```js
+// executes the ui-pack effect 'swoopIn'
+script.Choice(['A', 'B', 'C']).transitionIn('transition.swoopIn');
+
+// transitions in to an opacity of 0.75 over the default duration
+script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 });
+
+// transitions in to an opacity of 0.75 over 1000 milliseconds, aka 1 second
+script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000);
+
+// fades between opacity 0.75 and 1 for 5 iterations
+script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000, { loop: 5 });
+
+// skips to opacity 0.5, then fades to opacity 0.2
+script.Choice(['A', 'B', 'C']).transitionIn({ opacity: [0.2, 0.5] });
+```
+
+#### `transitionOut(effect, duration, options)`
+
+Changes the animation the menu transitions off the screen with.
+
+For more information, read about `transitionIn`.

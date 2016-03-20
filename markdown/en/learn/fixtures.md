@@ -23,7 +23,7 @@ Here, two characters are defined, each with an unique `id` followed by several a
 ```js
 export default Scene.extend({
   script() {
-    this.Character('bitsy').position('center').Text('Hi! My name is Bitsy!');
+    script.Character('bitsy').position('center').Text('Hi! My name is Bitsy!');
   }
 });
 ```

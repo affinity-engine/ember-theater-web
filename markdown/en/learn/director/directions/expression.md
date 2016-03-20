@@ -1,44 +1,52 @@
-### `expression`
+### `Expression(fixture, character)`
+
+Alters the expression of the specific character to that of the provided fixture. Alternatively, you can pass in object with an `src` for the expression's image.
 
 ```js
-@param characterId {String} An id corresponding to an `ember-theater/character`.
-@param expressionId {String} An id corresponding to an `ember-theater/expression`.
-@param [options] {Object} |optional|
-@param [options.transitionIn] {Object} |optional| Instructs the transition-in effect.
-@param [options.transitionIn.effect] {Object} |default: { opacity: 1 }| The transition-in effect.
-@param [options.transitionIn.duration] {Number} |default: <set in config>| How long the transition-in effect takes to resolve.
-@param [options.transitionOut] {Object} |optional| Instructs the transition-out effect.
-@param [options.transitionOut.effect] {Object} |default: { opacity: 0 }| The transition-out effect.
-@param [options.transitionOut.duration] {Number} |default: <set in config>| How long the transition-out effect takes to resolve.
+const bitsy = script.Character('bitsy').position('center');
 
-@return {Promise} Resolves when the transition-in effect has completed.
+// changes the character's expression to that of the fixture `bitsy-happy`
+bitsy.Expression('bitsy-happy');
+// changes the character's expression to that of the provided object
+bitsy.Expression({ caption: 'Bitsy happy', src: 'theater/characters/bitsy/happy.png' });
+
+// alternatively, you can pass the character in a second argument to Expression
+script.Expression('bitsy-sad', bitsy);
 ```
 
-Characters might have many different expressions, ranging from neutral to happy to jumping to wounded. Once the character is on stage, you can also change her expression with the `expression` direction. By default, the old expression will fade out while the new one fades in over it. You can change this effect by passing in custom `transitionIn` and `transitionOut` options.
+#### `transitionIn(effect, duration, options)`
+
+Changes the animation the expression transitions onto the screen with.
+
+The `effect` argument can be either a registered [UI-Pack effect](http://julian.com/research/velocity/#uiPack), or an object containing css attributes/values (`{ height: '40px', translateZ: '20vh' }`). If providing an object, you can optionally 'forcefeed' an initial value to its attributes like `{ opacity: [1, 0] }`. Regardless of its actual `opacity`, the animation will start at `0`. This is especially helpful when setting up your scene.
+
+The `duration` should be in milliseconds.
+
+The `options` object can set the `easing`, `loop`, or `delay` of the effect. For more info, read the options section of the Velocity.js docs [here](http://julian.com/research/velocity/#easing).
+
+Note: If you aren't familiar with Velocity.js, you can learn all about it [here](http://julian.com/research/velocity). By default, it is the animation engine used by Ember Theater.
 
 ```js
-// first, bring the character in with her defaultExpression
-await this.character('bitsy');
-// change Bitsy's expression from the defaultExpression to `happy`, using the default transitionIn and transitionOut
-await this.expression('bitsy', 'happy');
-// change Bitsy's expression from `happy` to `sad`, using the default transitionOut but a custom transitionIn that drops the new expression in from the top of the screen to the current location
-await this.expression('bitsy', 'sad', { transitionIn: { effect: { transitionY: ['100vh', '0vh'] }, duration: 1000 } });
-// change Bitsy's expression from `sad` to `happy`, using both a custom transitionIn and transitionOut
-this.expression('bitsy', 'happy', { transitionIn: { effect: { opacity: 1 } }, transitionOut: { effect: { transitionY: '-100vh' } } });
+const bitsy = script.Character('bitsy').position('center');
+
+// executes the ui-pack effect 'swoopIn'
+bitsy.Expression('bitsy-happy').transitionIn('transition.swoopIn');
+
+// transitions in to an opacity of 0.75 over the default duration
+bitsy.Expression('bitsy-sad').transitionIn({ opacity: 0.75 });
+
+// transitions in to an opacity of 0.75 over 1000 milliseconds, aka 1 second
+bitsy.Expression('bitsy-laughing').transitionIn({ opacity: 0.75 }, 1000);
+
+// fades between opacity 0.75 and 1 for 5 iterations
+bitsy.Expression('bitsy-blush').transitionIn({ opacity: 0.75 }, 1000, { loop: 5 });
+
+// skips to opacity 0.5, then fades to opacity 0.2
+bitsy.Expression('bitsy-angry').transitionIn({ opacity: [0.2, 0.5] });
 ```
 
-#### Fixture/Config Attributes
+#### `transitionOut(effect, duration, options)`
 
-```js
-// app/ember-theater/fixtures/character-expressions.js
+Changes the animation the expression transitions off the screen with.
 
-export default [{
-  id: 'bitsy--standing',
-  caption: 'Bitsy standing',
-  src: 'images/expressions/bitsy.png'
-}, {
-  id: 'bitsy--jumping',
-  caption: 'Bitsy jumping',
-  src: 'images/expressions/bitsy--jumping.png'
-}];
-```
+For more information, read about `transitionIn`.

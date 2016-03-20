@@ -7,7 +7,7 @@
 After saving data, you can optionally remove it with `deleteData`:
 
 ```js
-this.deleteData('playerName');
+script.deleteData('playerName');
 
-const playerName = this.getData('playerName'); // playerName === undefined
+const playerName = script.getData('playerName'); // playerName === undefined
 ```
