@@ -26,6 +26,8 @@ export default Ember.A([{
   }, {
     route: 'scenes'
   }, {
+    route: 'data'
+  }, {
     route: 'directions',
     sections: [{
       route: 'custom'
@@ -45,12 +47,6 @@ export default Ember.A([{
       route: 'pause'
     }, {
       route: 'filter'
-    }, {
-      route: 'set-data'
-    }, {
-      route: 'get-data'
-    }, {
-      route: 'delete-data'
     }, {
       route: 'transition-to-scene'
     }]

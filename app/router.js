@@ -9,20 +9,17 @@ Router.map(function() {
   this.route('learn', function() {
     this.route('fixtures');
     this.route('director', function() {
+      this.route('data');
       this.route('directions', function() {
         this.route('character');
         this.route('backdrop');
         this.route('choice');
         this.route('pause');
         this.route('sound');
-        this.route('data');
         this.route('expression');
         this.route('filter');
         this.route('transition-to-scene');
         this.route('text');
-        this.route('set-data');
-        this.route('get-data');
-        this.route('delete-data');
         this.route('custom');
       });
       this.route('text-tags', function() {
