@@ -9,23 +9,23 @@ export default Scene.extend({
     await bitsy.Text('theaters.welcome.bitsyGreeting');
 
     const emma = script.Character('emma').position('offLeft', 0).position('centerLeft', 1000);
-    bitsy.position('centerRight', 400).delay(100);
+    bitsy.delay(100).position('centerRight', 400);
     await emma.Text('theaters.welcome.emmaGreeting');
 
     await bitsy.Text('theaters.welcome.bitsyMakeGames');
     await emma.Text('theaters.welcome.emmaMakeGames');
 
-    bitsy.Expression('bitsy-panic');
+    bitsy.expression('bitsy-panic');
     await bitsy.Text('theaters.welcome.bitsyShock');
-    bitsy.Expression('bitsy-laughing');
+    bitsy.expression('bitsy-laughing');
     await bitsy.Text('theaters.welcome.bitsyFun');
-    emma.Expression('emma-laughing');
+    emma.expression('emma-laughing');
     await emma.Text('theaters.welcome.emmaFun');
 
-    bitsy.Expression('bitsy-happy');
-    emma.Expression('emma-neutral');
+    bitsy.expression('bitsy-happy');
+    emma.expression('emma-neutral');
     await bitsy.Text('theaters.welcome.bitsyNext');
     emma.position('offLeft', 1000);
-    bitsy.position('offLeft', 1300).delay(100);
+    bitsy.delay(100).position('offLeft', 1300);
   }
 });

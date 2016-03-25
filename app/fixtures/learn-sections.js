@@ -36,8 +36,6 @@ export default Ember.A([{
     }, {
       route: 'character'
     }, {
-      route: 'expression'
-    }, {
       route: 'text'
     }, {
       route: 'choice'
@@ -48,7 +46,7 @@ export default Ember.A([{
     }, {
       route: 'filter'
     }, {
-      route: 'transition-to-scene'
+      route: 'scene'
     }]
   }, {
     route: 'text-tags',

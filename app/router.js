@@ -16,9 +16,8 @@ Router.map(function() {
         this.route('choice');
         this.route('pause');
         this.route('sound');
-        this.route('expression');
         this.route('filter');
-        this.route('transition-to-scene');
+        this.route('scene');
         this.route('text');
         this.route('custom');
       });
