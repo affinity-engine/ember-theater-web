@@ -38,13 +38,13 @@ export default Ember.A([{
     }, {
       route: 'text'
     }, {
-      route: 'choice'
+      route: 'menu'
     }, {
       route: 'sound'
     }, {
-      route: 'pause'
+      route: 'delay'
     }, {
-      route: 'filter'
+      route: 'layer'
     }, {
       route: 'scene'
     }]

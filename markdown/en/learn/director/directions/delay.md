@@ -1,4 +1,4 @@
-### `Pause(...arguments)`
+### `Delay(...arguments)`
 
 Momentarily disrupts the flow of the scene, preventing future directions from carrying out. It can receive an indefinite number of arguments, including both a time in milliseconds and keys that will break the pause.
 
@@ -6,9 +6,9 @@ Note that if a previous direction is in the process of playing out (such as a ba
 
 ```js
 // pauses the scene for one second
-await script.Pause(1000);
+await script.Delay(1000);
 // pauses the scene until the enter key or ctrl+shift+a is pressed
-await script.Pause('Enter', 'ctrl+shift+a');
+await script.Delay('Enter', 'ctrl+shift+a');
 // pauses the scene until the enter key or ctrl+shift+a is pressed, or until 1000 milliseconds pass--whichever comes first
-await script.Pause('Enter', 'ctrl+shift+a', 1000);
+await script.Delay('Enter', 'ctrl+shift+a', 1000);
 ```

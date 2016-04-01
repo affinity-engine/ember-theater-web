@@ -13,13 +13,13 @@ Router.map(function() {
       this.route('directions', function() {
         this.route('character');
         this.route('backdrop');
-        this.route('choice');
-        this.route('pause');
+        this.route('custom');
+        this.route('delay');
+        this.route('layer');
+        this.route('menu');
         this.route('sound');
-        this.route('filter');
         this.route('scene');
         this.route('text');
-        this.route('custom');
       });
       this.route('text-tags', function() {
         this.route('animate');

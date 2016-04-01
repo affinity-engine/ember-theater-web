@@ -10,7 +10,7 @@ export default Scene.extend({
     // get previously set data
     const playerName = data.get('playerName');
 
-    await decision = await script.Choice(['Go left', 'Go right']).header(`Where will you go, ${playerName}?`);
+    await decision = await script.Menu(['Go left', 'Go right']).header(`Where will you go, ${playerName}?`);
 
     // set or overwrite data
     data.set('direction', decision);

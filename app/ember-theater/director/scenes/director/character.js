@@ -46,7 +46,7 @@ export default Scene.extend({
     bitsy.delay(3000).expression('bitsy-laughing');
     await emma.Text('theaters.character.intro.emmaPosition3');
     await bitsy.Text('theaters.character.intro.bitsyPosition3');
-    await script.Pause(250);
+    await script.Delay(250);
 
     emma.position('centerLeft', 2500).expression('emma-neutral');
     await bitsy.position('centerRight', 2500).delay(300).expression('bitsy-neutral');

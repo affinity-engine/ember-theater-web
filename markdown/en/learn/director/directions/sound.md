@@ -56,7 +56,7 @@ bolero.fadeIn(2000)
 
 ### `pause`
 
-Pauses the sound at its current position. It can be resumed again from this position.
+Delays the sound at its current position. It can be resumed again from this position.
 
 ```js
 const bolero = script.Sound('bolero');

@@ -98,28 +98,28 @@ Changes the animation the text transitions off the screen with.
 
 For more information, read about `transitionIn`.
 
-#### `typeAnimation(typeAnimation)`
+#### `textAnimation(textAnimation)`
 
-By default, as text fades in one character at a time, it applies a slight animation moving it from the top right. By changing the `typeAnimation`, you can change this effect.
+By default, as text fades in one character at a time, it applies a slight animation moving it from the top right. By changing the `textAnimation`, you can change this effect.
 
 ```js
-script.Text('Hello!').typeAnimation({ top: '10px', left: '-5%' });
+script.Text('Hello!').textAnimation({ top: '10px', left: '-5%' });
 ```
 
-#### `typeSpeed(speed)`
+#### `textSpeed(speed)`
 
 Changes the speed at which characters fade in. The provided number is how many characters fade in per second.
 
 ```js
 // characters fade in one character per second, meaning this
 // text will take three seconds to complete
-script.Text('Hi!').typeSpeed(1);
+script.Text('Hi!').textSpeed(1);
 
 // characters fade in three characters per second, meaning this
 // text will take one second to complete
-script.Text('Hi!').typeSpeed(3);
+script.Text('Hi!').textSpeed(3);
 
 // characters fade in six characters per second, meaning this
 // text will take half a second to complete
-script.Text('Hi!').typeSpeed(6);
+script.Text('Hi!').textSpeed(6);
 ```

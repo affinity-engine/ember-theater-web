@@ -1,12 +1,19 @@
-### `Choice(choices)`
+### `Menu(choices)`
 
-Renders a menu with the provided `choices`. The `choices` must be an array of strings, objects, or a combination. If a string is provided, then the string will be presented as the text of the choice, and the key for the response will be the position of the choice in the array. If an object is provided, then its `key` and `text` attributes will be used.
+Renders a menu with the provided `choices`. The `choices` must be an array of strings, objects, or a combination. If a string is provided, then the string will be presented as the text of the choice, and the key for the result will be the position of the choice in the array. If an object is provided, then its `key` and `text` attributes will be used.
 
 ```js
-// presents three choices; if the user selects 'B', then `firstChoice` will be set to { key: 1, text: 'B' }
-const firstChoice = await script.Choice(['A', 'B', 'C']);
-// same as above, only if the user selects 'B', then `secondChoice` will be set to { key: 'customKey', text: 'B' }
+// presents three choices; if the user selects 'B', then `firstMenu` will be set to { result: { key: 1, text: 'B' } }
+const FirstChoice = await script.Menu(['A', 'B', 'C']);
+console.log(firstChoice.result.key); // 1
+// same as above, only if the user selects 'B', then `secondMenu` will be set to { result: { key: 'customKey', text: 'B' } }
 const secondChoice = await script.choice('Choose a letter', ['A', { text: 'B', key: 'customKey' }, 'C']);
+console.log(secondChoice.result.key); // 'customKey'
+// when inputable is set to true, then clicking 'B' will transform the button into an input field
+// the result will contain both a `key` and an `input`
+const secondChoice = await script.choice('Choose a letter', ['A', { text: 'B', inputable: true }, 'C']);
+console.log(secondChoice.result.key); // 1
+console.log(secondChoice.result.input); // 'the string that was entered into the input field'
 ```
 
 #### `classNames(classNames)`
@@ -15,11 +22,11 @@ Applies the provided CSS class names to the menu. The `classNames` must be provi
 
 ```js
 // applies the `et-ember` decorative class, while still using the default `structural` class
-script.Choice(['A', 'B', 'C']).classNames({ decorative: 'et-ember' });
+script.Menu(['A', 'B', 'C']).classNames({ decorative: 'et-ember' });
 // applies the `et-block` structural class, while still using the default `decorative` class
-script.Choice(['A', 'B', 'C']).classNames({ structural: 'et-block' });
+script.Menu(['A', 'B', 'C']).classNames({ structural: 'et-block' });
 // applies the `et-ember` decorative class and the `et-block` structural class
-script.Choice(['A', 'B', 'C']).classNames({ decorative: 'et-ember', structural: 'et-block' });
+script.Menu(['A', 'B', 'C']).classNames({ decorative: 'et-ember', structural: 'et-block' });
 ```
 
 #### `header(header)`
@@ -30,12 +37,12 @@ In addition to text, you can provide a localization key for internationalized ga
 
 ```js
 // the menu is preceded with the header stating, 'What is your favorite letter?'
-script.Choice(['A', 'B', 'C']).header('What is your favorite letter?');
+script.Menu(['A', 'B', 'C']).header('What is your favorite letter?');
 
 // renders a localized header, eg:
 // english: 'What is your favorite letter?'
 // spanish: 'Cual es tu letra del alfabeto favorito?'
-script.Choice(['A', 'B', 'C']).header('scenes.choice.header-example');
+script.Menu(['A', 'B', 'C']).header('scenes.choice.header-example');
 ```
 
 #### `keyboardPriority(keyboardPriority)`
@@ -45,7 +52,7 @@ Changes the priority at which this menu responds to key events. This could be us
 ```js
 script.Texxt('I will be here for awhile.')
 // gives the menu a higher priority than the simultaneously rendered Text
-script.Choice(['A', 'B', 'C']).keyboardPriority(1);
+script.Menu(['A', 'B', 'C']).keyboardPriority(1);
 ```
 
 #### `keys(keys)`
@@ -54,7 +61,7 @@ Changes the key bindings for the menu. It expects the `keys` argument to be an o
 
 ```js
 // applies custom key bindings
-script.Choice(['A', 'B', 'C']).keys({ moveUp: ['ArrowUp', 'W'], moveDown: ['ArrowDown', 'S'], cancel: 'Escape' });
+script.Menu(['A', 'B', 'C']).keys({ moveUp: ['ArrowUp', 'W'], moveDown: ['ArrowDown', 'S'], cancel: 'Escape' });
 ```
 
 #### `transitionIn(effect, duration, options)`
@@ -71,19 +78,19 @@ Note: If you aren't familiar with Velocity.js, you can learn all about it [here]
 
 ```js
 // executes the ui-pack effect 'swoopIn'
-script.Choice(['A', 'B', 'C']).transitionIn('transition.swoopIn');
+script.Menu(['A', 'B', 'C']).transitionIn('transition.swoopIn');
 
 // transitions in to an opacity of 0.75 over the default duration
-script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 });
+script.Menu(['A', 'B', 'C']).transitionIn({ opacity: 0.75 });
 
 // transitions in to an opacity of 0.75 over 1000 milliseconds, aka 1 second
-script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000);
+script.Menu(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000);
 
 // fades between opacity 0.75 and 1 for 5 iterations
-script.Choice(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000, { loop: 5 });
+script.Menu(['A', 'B', 'C']).transitionIn({ opacity: 0.75 }, 1000, { loop: 5 });
 
 // skips to opacity 0.5, then fades to opacity 0.2
-script.Choice(['A', 'B', 'C']).transitionIn({ opacity: [0.2, 0.5] });
+script.Menu(['A', 'B', 'C']).transitionIn({ opacity: [0.2, 0.5] });
 ```
 
 #### `transitionOut(effect, duration, options)`
