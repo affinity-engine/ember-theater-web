@@ -4,10 +4,10 @@ export default Scene.extend({
   name: 'Director/backdrop',
 
   start: async function(script) {
-    const bitsy = script.Character('bitsy').position('offLeft', 0).position('center', 1000).namePosition('right');
+    const bitsy = script.Character('bitsy').position('offLeft', 0).position('center', 1500).namePosition('right');
     await bitsy.Text('theaters.backdrop.intro.bitsyGreeting').delay(1000);
 
-    const emma = script.Character('emma').position('offLeft', 0).position('centerLeft', 1000);
+    const emma = script.Character('emma').position('offLeft', 0).position('centerLeft', 1500);
     bitsy.delay(200).position('centerRight', 400);
     const classroom = script.Backdrop('classroom').transition('transition.fadeIn');
     await emma.Text('theaters.backdrop.intro.emmaClassroom');

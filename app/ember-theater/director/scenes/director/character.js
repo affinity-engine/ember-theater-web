@@ -5,7 +5,7 @@ export default Scene.extend({
 
   start: async function(script) {
     script.Backdrop('classroom').transition('transition.fadeIn');
-    const emma = script.Character('emma').position('offLeft', 0).position('center', 1000);
+    const emma = script.Character('emma').position('offLeft', 0).position('center', 1500);
     await emma.Text('theaters.character.intro.emmaGreeting');
 
     const bitsy = script.Character('bitsy').initialExpression('bitsy-laughing').position('center', 0).transition('transition.bounceUpIn', 1000).position('centerRight', 500).namePosition('right');
