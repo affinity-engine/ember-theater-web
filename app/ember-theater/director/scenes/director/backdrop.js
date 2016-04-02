@@ -22,7 +22,7 @@ export default Scene.extend({
     bitsy.expression('bitsy-happy');
     await bitsy.Text('theaters.backdrop.intro.bitsyBeach2');
 
-    beachDay.delay(3000).transition({ translateZ: '10vh' }).transition({ translateY: '5vh' }).transition({ translateZ: 0, translateY: 0 }, 2000);
+    beachDay.delay(2000).transition({ translateZ: '10vh' }).transition({ translateY: '5vh' }).transition({ translateZ: 0, translateY: 0 }, 2000);
     await emma.Text('theaters.backdrop.intro.emmaTransition');
     bitsy.expression('bitsy-laughing');
     await bitsy.Text('theaters.backdrop.intro.bitsyTransition');
