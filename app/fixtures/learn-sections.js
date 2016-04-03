@@ -40,6 +40,8 @@ export default Ember.A([{
     }, {
       route: 'menu'
     }, {
+      route: 'random'
+    }, {
       route: 'sound'
     }, {
       route: 'delay'

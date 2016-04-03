@@ -35,6 +35,7 @@ const site = {
       pause: 'pause',
       plugins: 'Plugins',
       preloader: 'Preloaders',
+      random: 'Random',
       reset: 'reset',
       rewind: 'rewind',
       resize: 'resize',

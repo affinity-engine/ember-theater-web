@@ -20,6 +20,7 @@ Router.map(function() {
         this.route('sound');
         this.route('scene');
         this.route('text');
+        this.route('random');
       });
       this.route('text-tags', function() {
         this.route('animate');
