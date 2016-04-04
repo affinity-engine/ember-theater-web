@@ -26,8 +26,6 @@ export default Ember.A([{
   }, {
     route: 'scenes'
   }, {
-    route: 'data'
-  }, {
     route: 'directions',
     sections: [{
       route: 'custom'
@@ -45,6 +43,8 @@ export default Ember.A([{
       route: 'sound'
     }, {
       route: 'delay'
+    }, {
+      route: 'data'
     }, {
       route: 'layer'
     }, {

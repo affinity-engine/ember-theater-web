@@ -1,6 +1,6 @@
 ### `Scene(sceneId)`
 
-Transitions to the current scene window to the provided scene. Alternatively, you can provide a callback, which will receive the normal arguments for a `scene`, including `script`, `data`, and `window`. Note that callbacks will not be recorded and the game cannot be saved while they are executing.
+Transitions to the current scene window to the provided scene. Alternatively, you can provide a callback, which will receive the normal arguments for a `scene`, including `script`, and `window`. Note that callbacks will not be recorded and the game cannot be saved while they are executing.
 
 ```js
 // provide a scene id

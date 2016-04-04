@@ -9,7 +9,6 @@ Router.map(function() {
   this.route('learn', function() {
     this.route('fixtures');
     this.route('director', function() {
-      this.route('data');
       this.route('directions', function() {
         this.route('character');
         this.route('backdrop');
@@ -21,6 +20,7 @@ Router.map(function() {
         this.route('scene');
         this.route('text');
         this.route('random');
+        this.route('data');
       });
       this.route('text-tags', function() {
         this.route('animate');
