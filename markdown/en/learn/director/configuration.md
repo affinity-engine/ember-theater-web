@@ -14,9 +14,7 @@ So in this example:
 export default [{
   id: 'bitsy',
   name: 'Bitsy',
-  classNames: {
-    decorative: ['et-paper']
-  },
+  classNames: ['et-paper'],
   text: {
     transitionIn: {
       effect: { opacity: 0.7 }
@@ -34,9 +32,7 @@ export default {
     }
   },
   text: {
-    classNames: {
-      structural: ['et-coastal']
-    },
+    classNames: ['et-coastal'],
     transitionIn: {
       effect: { opacity: 0.5 },
       duration: 1000
@@ -55,6 +51,6 @@ export default Scene.extend({
 });
 ```
 
-`transitionIn: effect` will be set by the options passed to the direction, even though both the fixture and config have declared a value for it. In turn, the `classNames: { decorative }` will be set by the fixture, even though the config has declared a value for it. Finally, `transitionIn: duration` will be set by `config.text`, even though `config.globals` has also declared a value.
+`transitionIn: effect` will be set by the options passed to the direction, even though both the fixture and config have declared a value for it. In turn, the `classNames` will be set by the fixture, even though the config has declared a value for it. Finally, `transitionIn: duration` will be set by `config.text`, even though `config.globals` has also declared a value.
 
 You'll find more details in the individual direction sections on what values can be set in their fixtures/configs.

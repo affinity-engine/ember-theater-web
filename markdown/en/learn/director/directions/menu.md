@@ -18,15 +18,15 @@ console.log(secondChoice.result.input); // 'the string that was entered into the
 
 #### `classNames(classNames)`
 
-Applies the provided CSS class names to the menu. The `classNames` must be provided as an object, defining either `decoractive` or `structural` class names. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/choice).
+Applies the provided CSS class names to the menu. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/choice).
 
 ```js
-// applies the `et-ember` decorative class, while still using the default `structural` class
-script.Menu(['A', 'B', 'C']).classNames({ decorative: 'et-ember' });
-// applies the `et-block` structural class, while still using the default `decorative` class
-script.Menu(['A', 'B', 'C']).classNames({ structural: 'et-block' });
+// applies the `et-ember` decorative class
+script.Menu(['A', 'B', 'C']).classNames('et-ember');
+// applies the `et-block` structural class
+script.Menu(['A', 'B', 'C']).classNames('et-block');
 // applies the `et-ember` decorative class and the `et-block` structural class
-script.Menu(['A', 'B', 'C']).classNames({ decorative: 'et-ember', structural: 'et-block' });
+script.Menu(['A', 'B', 'C']).classNames(['et-ember', 'et-block' ]);
 ```
 
 #### `header(header)`

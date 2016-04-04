@@ -14,15 +14,15 @@ bitsy.Text('Hello!');
 
 #### `classNames(classNames)`
 
-Applies the provided CSS class names. The `classNames` must be provided as an object, defining either `decoractive` or `structural` class names. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/text).
+Applies the provided CSS class names. For examples and information on the built-in CSS classes, check out the [styling guide](/learn/director/styling/text).
 
 ```js
-// applies the `et-ember` decorative class, while still using the default `structural` class
-script.Text('Hello!').classNames({ decorative: 'et-ember' });
+// applies the `et-ember` decorative
+script.Text('Hello!').classNames('et-ember');
 // applies the `et-block` structural class, while still using the default `decorative` class
-script.Text('Hello!').classNames({ structural: 'et-block' });
+script.Text('Hello!').classNames('et-block');
 // applies the `et-ember` decorative class and the `et-block` structural class
-script.Text('Hello!').classNames({ decorative: 'et-ember', structural: 'et-block' });
+script.Text('Hello!').classNames(['et-ember', 'et-block']);
 ```
 
 #### `instant`
