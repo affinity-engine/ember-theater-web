@@ -6,51 +6,10 @@ There are generally three ways to customize a direction. By modifying the specif
 *   Fixtures
 *   Config
 
-So in this example:
+Consider this:
 
 ```js
-// app/ember-theater/fixtures/characters.js
-
-export default [{
-  id: 'bitsy',
-  name: 'Bitsy',
-  classNames: ['et-paper'],
-  text: {
-    transitionIn: {
-      effect: { opacity: 0.7 }
-    }
-  }
-}];
-
-// app/ember-theater/config.js
-
-export default {
-  globals: {
-    transitionIn: {
-      effect: { opacity: 1 },
-      duration: 500
-    }
-  },
-  text: {
-    classNames: ['et-coastal'],
-    transitionIn: {
-      effect: { opacity: 0.5 },
-      duration: 1000
-    }
-  }
-};
-
-// app/ember-theater/director/scenes/picnic-at-the-beach.js
-
-import { Scene } from 'ember-theater/ember-theater/director';
-
-export default Scene.extend({
-  script: async function() {
-    script.Character('bitsy').Text('Hello world!').transitionIn({ opacity: 0.2 });
-  }
-});
+script.Character('bitsy').Text('Hello world!').transitionIn({ opacity: 0.2 });
 ```
 
-`transitionIn: effect` will be set by the options passed to the direction, even though both the fixture and config have declared a value for it. In turn, the `classNames` will be set by the fixture, even though the config has declared a value for it. Finally, `transitionIn: duration` will be set by `config.text`, even though `config.globals` has also declared a value.
-
-You'll find more details in the individual direction sections on what values can be set in their fixtures/configs.
+In this example, we don't provide a `classNames` argument, so the `Text` will either use the `classNames` specified in the config, or the `classNames` specified in the `bitsy` fixture, if there is one. Other the other hand, since we provide a `transitionIn`, we'll use `{ opacity: 0.2 }`, even if a `transitionIn` is specified in both the config and `bitsy` fixture.

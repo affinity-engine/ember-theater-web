@@ -23,7 +23,7 @@ To include it in your project, do:
 
 You'll need to pass three arguments into `theater.curtain`:
 
-`theaterId` expected the id of the `ember-theater` instance. In most cases, you'll want to just pass `theater.theaterId` to keep the two in sync.
+`theaterId` expects the id of the `ember-theater` instance. In most cases, you'll want to just pass `theater.theaterId` to keep the two in sync.
 
 `filesToPreload` expects a string of fixture/attribute pairs. For instance, `backdrops:src` will grab all the `backdrop` fixtures and download the image that their `src` points to.
 

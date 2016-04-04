@@ -46,4 +46,4 @@ export default {
 };
 ```
 
-In this example, the config is setting both a `globals` text speed, as well as more specific text speed on `director.text`. Now, whenever the `director` plugin uses the `text` direction, it'll use a `textSpeed` of 30. Everything else in your game will use the `globals.textSpeed` of 20. Like this, you can configure your game with both broad and increasingly specific settings.
+In this example, the config is setting both a `globals` text speed, as well as more specific text speed on `director.text`. Now, whenever the `director` plugin uses the `text` direction, it'll use a `textSpeed` of 30. Everything else in your game will use the `globals.textSpeed` of 20. Like this, you can configure your game broadly, while still providing specific overrides.

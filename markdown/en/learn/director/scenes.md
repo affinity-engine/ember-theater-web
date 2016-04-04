@@ -32,11 +32,9 @@ export default Scene.extend({
 
 The `director` will execute the scene's `start` function. In this one, we see a series of `directions`, such as `Sound`, `Backdrop`, and `Character`. Each of these `directions` will affect what's happening on stage, whether it's the beach scenery fading in or the music starting up.
 
-You might notice that some of these `directions` take a single argument (such as `script.backdrop('beach');`), while others have two or even three (`script.character('emma', { translateX: '70vw' }, { duration: 500 });`). In the following sections, we'll go into greater detail about how each of these `directions` works.
-
 ### Note on `await`
 
-You might also notice that the script is littered with `await` statements. This experimental ES7 feature will pause the script until the following function has completed. For instance:
+You might also notice that the script is littered with `await` statements. This experimental ES7 feature will pause the script until the function has completed. For instance:
 
 ```js
 await script.Backdrop('beach');

@@ -11,7 +11,7 @@ export default [{
   height: 60,
   defaultExpression: 'bitsy-standing'
 }, {
-  id: 'blx',
+  id: 'emma',
   name: 'Emma',
   height: 80,
   defaultExpression: 'emma-smirk'
