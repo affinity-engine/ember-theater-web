@@ -18,10 +18,34 @@ export default [{
   id: 'bitsy',
   name: 'Bitsy',
   height: 70,
-  defaultExpressionId: 'bitsy-neutral'
+  defaultExpression: 'neutral',
+  expressions: {
+    neutral: 'bebe-neutral',
+    happy: 'bebe-happy',
+    laughing: 'bebe-laughing',
+    bored: 'bebe-bored',
+    angry: 'bebe-angry',
+    sad: 'bebe-sad',
+    blush: 'bebe-blush',
+    embarrassed: 'bebe-embarrassed',
+    panic: 'bebe-panic',
+    surprised: 'bebe-surprised'
+  }
 }, {
   id: 'emma',
   name: 'Emma',
   height: 90,
-  defaultExpressionId: 'emma-neutral'
+  defaultExpression: 'neutral',
+  expressions: {
+    neutral: 'emma-neutral',
+    happy: 'emma-happy',
+    laughing: 'emma-laughing',
+    bored: 'emma-bored',
+    angry: 'emma-angry',
+    sad: 'emma-sad',
+    blush: 'emma-blush',
+    embarrassed: 'emma-embarrassed',
+    panic: 'emma-panic',
+    surprised: 'emma-surprised'
+  }
 }];
