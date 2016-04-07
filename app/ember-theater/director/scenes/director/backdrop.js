@@ -14,32 +14,32 @@ export default Scene.extend({
 
     const beachDay = script.Backdrop('beach-day').transition('transition.fadeIn', 1000);
     classroom.transition('transition.fadeOut', 1000);
-    bitsy.expression('bitsy-laughing');
-    emma.expression('emma-bored');
+    bitsy.expression('laughing');
+    emma.expression('bored');
     await bitsy.Text('theaters.backdrop.intro.bitsyBeach');
-    emma.expression('emma-neutral');
+    emma.expression('neutral');
     await emma.Text('theaters.backdrop.intro.emmaBeach');
-    bitsy.expression('bitsy-happy');
+    bitsy.expression('happy');
     await bitsy.Text('theaters.backdrop.intro.bitsyBeach2');
 
     beachDay.delay(2000).transition({ translateZ: '10vh' }).transition({ translateY: '5vh' }).transition({ translateZ: 0, translateY: 0 }, 2000);
     await emma.Text('theaters.backdrop.intro.emmaTransition');
-    bitsy.expression('bitsy-laughing');
+    bitsy.expression('laughing');
     await bitsy.Text('theaters.backdrop.intro.bitsyTransition');
     await emma.Text('theaters.backdrop.intro.emmaCustomEffect');
-    bitsy.expression('bitsy-neutral');
+    bitsy.expression('neutral');
     await bitsy.Text('theaters.backdrop.intro.bitsyCustomEffect');
 
     beachDay.transition('transition.fadeOut', 3500);
     const beachNight = script.Backdrop('beach-night').transition('transition.fadeIn', 3500);
-    bitsy.delay(1250).expression('bitsy-panic');
+    bitsy.delay(1250).expression('panic');
     await emma.Text('theaters.backdrop.intro.emmaMultiple');
     await bitsy.Text('theaters.backdrop.intro.bitsyMultiple');
-    bitsy.delay(1000).expression('bitsy-bored');
+    bitsy.delay(1000).expression('bored');
     await emma.Text('theaters.backdrop.intro.emmaNight');
-    await bitsy.Text('theaters.backdrop.intro.bitsyNight').typeSpeed(2);
-    emma.delay(500).expression('emma-embarrassed');
-    await emma.Text('theaters.backdrop.intro.emmaOkay').typeSpeed(3);
+    await bitsy.Text('theaters.backdrop.intro.bitsyNight').textSpeed(2);
+    emma.delay(500).expression('embarrassed');
+    await emma.Text('theaters.backdrop.intro.emmaOkay').textSpeed(3);
     await emma.Text('theaters.backdrop.intro.emmaFade');
     await emma.Text('theaters.backdrop.intro.emmaFinal').delay(500);
 

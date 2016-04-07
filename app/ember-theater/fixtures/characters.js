@@ -20,16 +20,16 @@ export default [{
   height: 70,
   defaultExpression: 'neutral',
   expressions: {
-    neutral: 'bebe-neutral',
-    happy: 'bebe-happy',
-    laughing: 'bebe-laughing',
-    bored: 'bebe-bored',
-    angry: 'bebe-angry',
-    sad: 'bebe-sad',
-    blush: 'bebe-blush',
-    embarrassed: 'bebe-embarrassed',
-    panic: 'bebe-panic',
-    surprised: 'bebe-surprised'
+    neutral: 'bitsy-neutral',
+    happy: 'bitsy-happy',
+    laughing: 'bitsy-laughing',
+    bored: 'bitsy-bored',
+    angry: 'bitsy-angry',
+    sad: 'bitsy-sad',
+    blush: 'bitsy-blush',
+    embarrassed: 'bitsy-embarrassed',
+    panic: 'bitsy-panic',
+    surprised: 'bitsy-surprised'
   }
 }, {
   id: 'emma',

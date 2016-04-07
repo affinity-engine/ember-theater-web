@@ -15,15 +15,15 @@ export default Scene.extend({
     await bitsy.Text('theaters.welcome.bitsyMakeGames');
     await emma.Text('theaters.welcome.emmaMakeGames');
 
-    bitsy.expression('bitsy-panic');
+    bitsy.expression('panic');
     await bitsy.Text('theaters.welcome.bitsyShock');
-    bitsy.expression('bitsy-laughing');
+    bitsy.expression('laughing');
     await bitsy.Text('theaters.welcome.bitsyFun');
-    emma.expression('emma-laughing');
+    emma.expression('laughing');
     await emma.Text('theaters.welcome.emmaFun');
 
-    bitsy.expression('bitsy-happy');
-    emma.expression('emma-neutral');
+    bitsy.expression('happy');
+    emma.expression('neutral');
     await bitsy.Text('theaters.welcome.bitsyNext');
     emma.position('offLeft', 1000);
     bitsy.delay(100).position('offLeft', 1300);
