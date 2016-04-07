@@ -91,7 +91,7 @@ export default Scene.extend({
     await bitsy.namePosition('right').Text('theaters.character.intro.bitsyInstanceConclude');
 
     await emma.Text('theaters.character.intro.emmaExpression');
-    await bitsy.position('center').expression('laughing').Text('theaters.character.intro.bitsyExpression');
+    await bitsy.position('center', 500).expression('laughing').Text('theaters.character.intro.bitsyExpression');
     await emma.expression('laughing');
     await emma.delay(500).expression('neutral').Text('theaters.character.intro.emmaExpression2');
     await bitsy.expression('neutral').Text('theaters.character.intro.bitsyExpression2');
