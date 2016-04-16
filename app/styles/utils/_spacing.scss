@@ -2,6 +2,8 @@
   width: 100%;
 }
 
-.push-bottom-large {
-  margin-bottom: 2rem;
+@media (min-width: map-get($breakpoints, medium)) {
+  .medium-push-bottom {
+    margin-bottom: 2rem;
+  }
 }

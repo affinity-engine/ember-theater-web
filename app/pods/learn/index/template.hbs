@@ -1,3 +1,5 @@
+<h1>{{#link-to "learn"}}{{t "learn.sections.welcome"}}{{/link-to}}</h1>
+
 {{#theater-container title="learn.sections.welcome" as |container|}}
   {{#ember-theater theaterId="welcome" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
     {{#if theater.isLoaded}}

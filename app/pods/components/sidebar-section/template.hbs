@@ -2,6 +2,6 @@
   {{name}}
 {{/link-to}}
 
-{{#if hasVisibleSections}}
+{{#liquid-if hasVisibleSections}}
   {{sidebar-sections sections=section.sections parentRoute=fullRoute classNames="nested border-left-primary"}}
-{{/if}}
+{{/liquid-if}}

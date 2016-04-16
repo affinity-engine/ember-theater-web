@@ -1,6 +1,6 @@
-{{#if isExpanded}}
+{{#liquid-if isExpanded}}
   {{yield}}
-{{/if}}
+{{/liquid-if}}
 <a class="button expanded" {{action "toggleIsExpanded"}}>{{title}}
   {{#if isExpanded}}
     {{fa-icon "caret-up"}}

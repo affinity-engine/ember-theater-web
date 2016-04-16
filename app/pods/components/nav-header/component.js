@@ -6,5 +6,5 @@ const {
 
 export default Component.extend({
   tagName: 'header',
-  classNames: ['top-bar', 'invert-color', 'strong']
+  classNames: ['top-bar', 'invert-color', 'strong', 'medium-push-bottom']
 });
