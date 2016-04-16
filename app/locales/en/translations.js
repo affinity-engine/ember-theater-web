@@ -61,8 +61,30 @@ const theaters = {
       emmaMakeGames: "Ember Theater games, that is! In fact, we're on an Ember Theater stage right now.",
       bitsyShock: 'Really!??',
       bitsyFun: "That's so cool!",
-      emmaFun: "Bitsy has a point. Making games is cool! And a lot of fun!",
-      bitsyNext: "So if you're ready, keep on reading! We'll meet you on the next page!"
+      emmaFun: "I think so too, Bitsy! And since Ember Theater games load right in your browser, anyone can play them!",
+      bitsyShare: "So I can make games and share them with my friends?",
+      emmaShare: "Yes, of course!",
+      bitsyNext: "That's soooooo coooooool! ((#delay 500)) Emma, let's get started right now!",
+      emmaNext: "And there she goes!",
+      emmaNext2: "Feel free to take your time, everyone. Once you're ready, we'll meet you on the next page!"
+    },
+    installation: {
+      emmaGreeting: "Hi, this is Emma! And welcome to the installation guide for Ember Theater!",
+      bitsyGreeting: "And I'm Bitsy! And I'm gonna make a game!",
+      emmaInstalling: "Yes, you are! But first, you've got to install the Ember Theater engine.",
+      bitsyInstalling: "Installing things is easy! I do it all the time.",
+      emmaCommandLine: "Well, this is a little different. We'll have to use the command line to install Ember Theater.",
+      bitsyCommandLine: "The command-what?",
+      emmaCommandLineDetail: "The command line? It's a low-level tool for interacting with your operating system.",
+      bitsyCommandLineDetail: "Uhhhhh. . . .",
+      emmaNoWorries: "Actually, don't sweat it, Bitsy. You don't really need to know what the command line is.",
+      bitsyNoWorries: "But, how am I suppose to make games then?",
+      emmaGuide: "For now, just follow the guide below. It'll walk you through the whole process.",
+      bitsyGuide: "But isn't that like cheating?",
+      emmaUnderstand: "Not at all! But in time, you'll want to really understand the command line if you want to get the most out of it.",
+      bitsyUnderstand: "Okay, let's get started then!",
+      emmaBye: "Yeah, that's the spirit! And don't rush it. This part can take awhile, but once you're done, you'll be able to make games with incredable ease!",
+      bitsyBye: "Ahhhh! I can't wait!",
     },
     backdrop: {
       intro: {

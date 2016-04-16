@@ -1,6 +1,6 @@
 ## For New Developers
 
-Before continuing with the steps below, you might want to check out the "Helpful Links" section in the sidebar. That section will help you get oriented with the command line, text editors, and the tools you'll be using when coding an Ember Theater game. If you're already comfortable with all those things, then feel free to skip that section and get straight to setup.
+Before continuing with the steps below, you might want to check out the [Helpful Links](/learn/installation/helpful-links) section. It will help you get oriented with the command line, text editors, and the tools you'll be using when coding an Ember Theater game. If you're already comfortable with all those things, then feel free to skip that section and get straight to setup.
 
 ### A Word of Encouragement
 
