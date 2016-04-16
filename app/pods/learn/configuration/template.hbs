@@ -1,1 +1,13 @@
+<h1>{{#link-to "learn.configuration"}}{{t "learn.sections.configuration"}}{{/link-to}}</h1>
+
+{{#theater-container title="learn.sections.configuration" as |container|}}
+  {{#ember-theater theaterId="configuration" config=container.config fixtures=container.fixtures isFocused=true as |theater|}}
+    {{#if theater.isLoaded}}
+      {{ember-theater/director theaterId=theater.theaterId initialScene="configuration"}}
+    {{else}}
+      {{ember-theater/curtain theaterId=theater.theaterId filesToPreload="backdrops:src expressions:src" completePreload=theater.completePreload}}
+    {{/if}}
+  {{/ember-theater}}
+{{/theater-container}}
+
 {{t-markdown "markdown.learn.configuration.md"}}

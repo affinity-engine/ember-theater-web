@@ -1,5 +1,3 @@
-# Configuration
-
 ## Usage
 
 When you run `ember install ember-theater`, one of the many files created automatically is `app/ember-theater/config.js`. This is a convenient place to store configuration settings for your game, such as the title of the game or what color scheme you prefer. You can then pass the config into your Ember Theater game like so:
