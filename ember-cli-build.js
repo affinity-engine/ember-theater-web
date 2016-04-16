@@ -42,6 +42,8 @@ module.exports = function(defaults) {
   // }
 
   app.import('bower_components/showdown/dist/showdown.min.js');
+  app.import('bower_components/velocity/velocity.min.js');
+  app.import('bower_components/velocity/velocity.ui.min.js');
 
   return app.toTree();
 };

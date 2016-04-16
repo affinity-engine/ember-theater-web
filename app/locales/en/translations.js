@@ -87,20 +87,18 @@ const theaters = {
       bitsyBye: "Ahhhh! I can't wait!",
     },
     configuration: {
-      bitsyGrumble: "*grumble. grumble*",
+      bitsyGrumble: "*grumble, grumble*",
       emmaEnter: "How's the game coming along, Bitsy?",
-      bitsyNotGreat: "Not great. . . . I want my game to be super special, but it looks just like everybody else's game!",
-      emmaNotGreat: "Oh, don't worry, Little Bit! If you want your game to be special, you just have to configure it.",
+      bitsyNotGreat: "It's awful! I want my game to be super special, but it looks just like everybody else's game!",
+      emmaNotGreat: "Oh, that's not good at all! But you know what? If you want your game to be special, you just have to configure it.",
       bitsyConfigure: "But all I want to do is make the text boxes blue!",
-      emmaConfigure: "You can configure that, too! You can change almost everything in your <code>ember-theater/config.js</code> file.",
-      bitsyBlue: "Like this?",
-      emmaBlue: "Well done, yes! You can also change the title of your game, the number of autosaves, the speed at which text is written. . . .",
-      bitsySpeed: "We talkz slow now.",
-      emmaSpeed: "Please stop this.",
-      bitsySorry: "Sorry!",
-      emmaSorry: "It's alright, Little Bit. Really, you should just have fun with it! Make your game special!",
-      bitsyOkay: "Yeah, that's what I want!",
-      emmaOkay: "Keep at it, then! I'll meet you on the next page when you're ready."
+      emmaConfigure: "Well, you can configure that, too! You can change almost everything in your <code>ember-theater/config.js</code> file.",
+      bitsyBlue: "Um . . . ((#delay 200)) like this?",
+      emmaBlue: "Well done, yes! You can also change the title of your game, the text speed, the default transitions. . . .",
+      bitsyTransition: "Ew, like this one?",
+      emmaTransition: "Yeah! And there's so much more you can do. Just have fun with it! Play around, and find what looks good for your game!",
+      bitsyOkay: "Yeah, my game is gonna be so cool!",
+      emmaOkay: "It's already well on its way! And when you're ready for your next lesson, I'll meet you on the next page."
     },
     backdrop: {
       intro: {

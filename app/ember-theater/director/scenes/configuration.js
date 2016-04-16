@@ -18,14 +18,10 @@ export default Scene.extend({
     await emma.expression('happy').Text('theaters.configuration.emmaConfigure');
     await bitsy.expression('neutral').Text('theaters.configuration.bitsyBlue').classNames(['et-block', 'et-coastal']);
     await emma.expression('neutral').Text('theaters.configuration.emmaBlue').classNames(['et-block', 'et-coastal']);
-    await bitsy.expression('happy').Text('theaters.configuration.bitsySpeed').classNames(['et-block', 'et-coastal']).textSpeed(15);
-    await emma.expression('bored').Text('theaters.configuration.emmaSpeed').classNames(['et-block', 'et-coastal']).textSpeed(15);
-    bitsy.expression('laughing');
-    await script.Delay(500, ' ');
-    await bitsy.expression('embarrassed').Text('theaters.configuration.bitsySorry').classNames(['et-block', 'et-coastal']);
-    await emma.expression('neutral').Text('theaters.configuration.emmaSorry').classNames(['et-block', 'et-coastal']);
-    await bitsy.expression('laughing').Text('theaters.configuration.bitsyOkay').classNames(['et-block', 'et-coastal']);
-    await emma.expression('laughing').Text('theaters.configuration.emmaOkay').classNames(['et-block', 'et-coastal']);
+    await bitsy.expression('happy').Text('theaters.configuration.bitsyTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
+    await emma.expression('happy').Text('theaters.configuration.emmaTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
+    await bitsy.expression('laughing').Text('theaters.configuration.bitsyOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
+    await emma.expression('laughing').Text('theaters.configuration.emmaOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
 
     emma.delay(100).position('offLeft', 1000);
 
