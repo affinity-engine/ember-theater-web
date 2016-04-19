@@ -1,30 +1,43 @@
 import { Scene } from 'ember-theater/ember-theater/director';
 
+async function expressionLoop(script, character) {
+  const expression = await script.Random(0, 7).int();
+  const delay = await script.Random(1000, 2000).int();
+
+  await script.Delay(delay.result);
+  await character.expression(['neutral', 'neutral', 'neutral', 'angry', 'angry', 'happy', 'laughing', 'bored'][expression.result], { queue: 'main' });
+
+  expressionLoop(script, character);
+}
+
 export default Scene.extend({
   name: 'Configuration',
 
   start: async function(script) {
     script.Backdrop('classroom');
 
-    const bitsy = script.Character('bitsy').expression('bored').position('center', 0).transition('transition.fadeIn').namePosition('right');
+    const bitsy = script.Character('bitsy').expression('angry').position('center', 0).transition('transition.fadeIn').namePosition('right');
     await bitsy.Text('theaters.configuration.bitsyGrumble');
 
     const emma = script.Character('emma').position('offLeft', 0).position('left', 1000);
     await emma.Text('theaters.configuration.emmaEnter');
 
-    await bitsy.expression('angry').Text('theaters.configuration.bitsyNotGreat');
+    await bitsy.expression('bored').Text('theaters.configuration.bitsyNotGreat');
     await emma.expression('sad').Text('theaters.configuration.emmaNotGreat');
-    await bitsy.expression('bored').Text('theaters.configuration.bitsyConfigure');
+    await bitsy.expression('angry').Text('theaters.configuration.bitsyConfigure');
     await emma.expression('happy').Text('theaters.configuration.emmaConfigure');
-    await bitsy.expression('neutral').Text('theaters.configuration.bitsyBlue').classNames(['et-block', 'et-coastal']);
+    await bitsy.expression('neutral').Text('theaters.configuration.bitsyBlue');
+    await bitsy.Text('theaters.configuration.bitsyBlue2').classNames(['et-block', 'et-coastal']);
     await emma.expression('neutral').Text('theaters.configuration.emmaBlue').classNames(['et-block', 'et-coastal']);
-    await bitsy.expression('happy').Text('theaters.configuration.bitsyTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
-    await emma.expression('happy').Text('theaters.configuration.emmaTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
-    await bitsy.expression('laughing').Text('theaters.configuration.bitsyOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
-    await emma.expression('laughing').Text('theaters.configuration.emmaOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.whirlIn', 1000).transitionOut('transition.slideRightOut');
+    await bitsy.expression('happy').Text('theaters.configuration.bitsyTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
+    await emma.expression('happy').Text('theaters.configuration.emmaTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
+    await bitsy.expression('laughing').Text('theaters.configuration.bitsyOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
+    await emma.expression('laughing').Text('theaters.configuration.emmaOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
 
     emma.delay(100).position('offLeft', 1000);
 
-    bitsy.delay(750).expression('neutral');
+    await bitsy.delay(750).expression('neutral');
+
+    expressionLoop(script, bitsy);
   }
 });
