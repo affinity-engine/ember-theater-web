@@ -1,11 +1,8 @@
 import { Scene } from 'ember-theater/ember-theater/director';
 
 async function expressionLoop(script, character) {
-  const expression = await script.Random(0, 7).int();
-  const delay = await script.Random(1000, 2000).int();
-
-  await script.Delay(delay.result);
-  await character.expression(['neutral', 'neutral', 'neutral', 'angry', 'angry', 'happy', 'laughing', 'bored'][expression.result], { queue: 'main' });
+  await script.Delay(await script.Random(1000, 2000));
+  await character.expression(['neutral', 'neutral', 'neutral', 'angry', 'angry', 'happy', 'laughing', 'bored'][await script.Random(7)], { queue: 'main' });
 
   expressionLoop(script, character);
 }

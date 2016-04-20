@@ -1,31 +1,37 @@
-### `Random(min, max)`
+### `Random(number1, number2)`
 
-Returns a random number between `min` and `max`. If the scene is saved, this direction will continue returning the same number. By default, returns a float.
+Returns a random number between `number1` and `number2`. As with all directions, the result is saved. This means that the generated number will be consistent if the game is reloaded.
+
+If only a single number is provided, then the second number will default to 0.
 
 ```js
-let number = await script.Random(0, 1);
+let number = await script.Random(10, 20);
 
-console.log(number); // 0.83468756154357
+console.log(number); // 14
 
-number = script.Random(10, 25);
+number = script.Random(20);
 
-console.log(number); // 13.4836535413565
+console.log(number); // 7
+
+number = script.Random(-20);
+
+console.log(number); // -16
 ```
 
-#### `int(int)`
+#### `float(float)`
 
-Forces the result to be an integer.
+Allows the returned number to be a float.
 
 ```js
-let number = await script.Random(0, 1).int();
+let number = await script.Random(1).float();
 
-console.log(number); // 0
+console.log(number); // 0.8165135716546197
 
-number = script.Random(10, 25).int();
+number = script.Random(10, 20).float();
 
-console.log(number); // 13
+console.log(number); // 13.8168432498416546
 
-number = script.Random(10, 25).int(false);
+number = script.Random(10, 20).float(false);
 
-console.log(number); // 21.4654843554684
+console.log(number); // 11
 ```
