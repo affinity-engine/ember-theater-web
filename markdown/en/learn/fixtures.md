@@ -1,5 +1,3 @@
-# Fixtures
-
 ## Overview
 
 Some games won't need to use fixtures, but most will find them useful. Fixtures are a simple way to define reoccurring game elements, such as characters or backdrops. For instance, consider these character fixtures:

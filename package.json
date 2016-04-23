@@ -45,7 +45,7 @@
     "ember-moment": "6.1.0",
     "ember-resolver": "^2.0.3",
     "ember-stringify": "0.0.2",
-    "ember-theater": "https://github.com/ember-theater/ember-theater#39aa0d8c67297fc8862fb06728ad2e4c02703063",
+    "ember-theater": "git+https://github.com/ember-theater/ember-theater.git#68ef0435106e58d1f35d9f716185a4417ce01a4d",
     "estraverse": "^4.1.1",
     "estraverse-fb": "^1.3.1",
     "js-string-escape": "^1.0.0",

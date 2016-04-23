@@ -101,6 +101,28 @@ const theaters = {
       bitsyOkay: "Yeah, my game is gonna be so cool!",
       emmaOkay: "It's already well on its way! And when you're ready for your next lesson, I'll meet you on the next page."
     },
+    fixtures: {
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+      bitsy: "",
+      emma: "",
+    },
     backdrop: {
       intro: {
         bitsyGreeting: "Hi! Bitsy, here! And welcome to the <code>Backdrop</code> demo!",
