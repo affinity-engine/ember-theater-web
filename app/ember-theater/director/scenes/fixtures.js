@@ -6,28 +6,32 @@ export default Scene.extend({
   start: async function(script) {
     script.Backdrop('classroom');
 
-    const bitsy = script.Character('bitsy').expression('angry').position('center', 0).transition('transition.fadeIn').namePosition('right');
-    await bitsy.Text('theaters.configuration.bitsyGrumble');
+    const emma = script.Character('emma').position('centerLeft');
+    const bitsy = script.Character('bitsy').position('centerRight').namePosition('right');
 
-    const emma = script.Character('emma').position('offLeft', 0).position('left', 1000);
-    await emma.Text('theaters.configuration.emmaEnter');
+    await emma.Text('theaters.fixtures.emmaIntro');
+    await bitsy.expression('happy').Text('theaters.fixtures.bitsyIntro');
+    await emma.expression('surprised').Text('theaters.fixtures.emmaBigReveal');
+    await bitsy.expression('panic').Text('theaters.fixtures.bitsyBigReveal');
+    await emma.expression('laughing').Text('theaters.fixtures.emmaAttributes');
+    await bitsy.expression('angry').Text('theaters.fixtures.bitsyWeird');
+    await emma.expression('sad').Text('theaters.fixtures.emmaWeird');
+    await bitsy.expression('bored').Text('theaters.fixtures.bitsyApology');
+    await emma.expression('neutral').Text('theaters.fixtures.emmaApology');
+    await bitsy.expression('blush').Text('theaters.fixtures.bitsyXray');
+    await emma.expression('happy').Text('theaters.fixtures.emmaXray');
+    await bitsy.expression('neutral').Text('theaters.fixtures.bitsyYakChat');
+    await emma.expression('neutral').Text('theaters.fixtures.emmaYakChat');
+    await bitsy.expression('bored').Text('theaters.fixtures.bitsyWhy');
+    await emma.expression('happy').Text('theaters.fixtures.emmaWhy');
+    await bitsy.expression('neutral').Text('theaters.fixtures.bitsyUse');
+    await emma.expression('neutral').Text('theaters.fixtures.emmaUse');
+    await bitsy.expression('happy').Text('theaters.fixtures.bitsy100');
+    await emma.expression('happy').Text('theaters.fixtures.emma100');
+    await bitsy.expression('neutral').Text('theaters.fixtures.bitsyConclude');
+    await emma.expression('neutral').Text('theaters.fixtures.emmaConclude');
 
-    await bitsy.expression('bored').Text('theaters.configuration.bitsyNotGreat');
-    await emma.expression('sad').Text('theaters.configuration.emmaNotGreat');
-    await bitsy.expression('angry').Text('theaters.configuration.bitsyConfigure');
-    await emma.expression('happy').Text('theaters.configuration.emmaConfigure');
-    await bitsy.expression('neutral').Text('theaters.configuration.bitsyBlue');
-    await bitsy.Text('theaters.configuration.bitsyBlue2').classNames(['et-block', 'et-coastal']);
-    await emma.expression('neutral').Text('theaters.configuration.emmaBlue').classNames(['et-block', 'et-coastal']);
-    await bitsy.expression('happy').Text('theaters.configuration.bitsyTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
-    await emma.expression('happy').Text('theaters.configuration.emmaTransition').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
-    await bitsy.expression('laughing').Text('theaters.configuration.bitsyOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
-    await emma.expression('laughing').Text('theaters.configuration.emmaOkay').classNames(['et-block', 'et-coastal']).transitionIn('transition.expandIn', 1000).transitionOut('transition.shrinkOut');
-
+    bitsy.delay(100).position('offLeft', 1300);
     emma.delay(100).position('offLeft', 1000);
-
-    await bitsy.delay(750).expression('neutral');
-
-    expressionLoop(script, bitsy);
   }
 });

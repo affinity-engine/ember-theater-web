@@ -84,4 +84,8 @@ export default [{
   id: 'emma-panic',
   caption: 'Emma panic',
   src: 'theater/characters/emma/panic.png'
+}, {
+  id: 'emma-surprised',
+  caption: 'Emma surprised',
+  src: 'theater/characters/emma/surprised.png'
 }];
